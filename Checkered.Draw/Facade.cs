@@ -44,11 +44,11 @@ namespace Checkered {
             face.OnReady += () => {
                 // randomize
                 face.AllPoint.ForEach(action: x => {
-                    x.Where(predicate: x => !x.FixedX).ToList().ForEach(action: x => { 
-                        x.X += _random.Next(minValue: 0, maxValue: 3);
+                    x.Where(predicate: x => !x.FixedX).ToList().ForEach(action: x => {
+                        if (!x.MovedX) { x.X += _random.Next(minValue: 0, maxValue: 5); x.MovedX = true; }
                     });
-                    x.Where(predicate: x => !x.FixedY).ToList().ForEach(action: x => { 
-                        x.Y += _random.Next(minValue: 0, maxValue: 3);
+                    x.Where(predicate: x => !x.FixedY).ToList().ForEach(action: x => {
+                        if (!x.MovedY) { x.Y += _random.Next(minValue: 0, maxValue: 5); x.MovedY = true; }
                     });
                 });
                 // fills by color

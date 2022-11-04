@@ -25,14 +25,14 @@ namespace Checkered.Core {
 
         float _x, _y;
 
-        bool _fixed_x, _fixed_y;
+        bool _fixed_x, _fixed_y, _moved_x, _moved_y;
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
         public Point(float x, float y) {
             _x = x; _y = y;
-            _fixed_x = _fixed_y = false;
+            _fixed_x = _fixed_y = _moved_x = _moved_y = false;
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,6 +45,10 @@ namespace Checkered.Core {
         public bool FixedX { get => _fixed_x; set => _fixed_x = value; }
 
         public bool FixedY { get => _fixed_y; set => _fixed_y = value; }
+
+        public bool MovedX { get => _moved_x; set => _moved_x = value; }
+
+        public bool MovedY { get => _moved_y; set => _moved_y = value; }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // public Methods [verb, verb phrases]
