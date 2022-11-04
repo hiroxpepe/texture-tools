@@ -13,50 +13,51 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+using System;
+
 namespace Checkered.Core {
 
-    public class Cell {
+    public class Point {
 #nullable enable
-
-        ///////////////////////////////////////////////////////////////////////////////////////////////
-        // Constants
-
-        const int LEFT_TOP = 0;
-        const int RIGHT_TOP = 1;
-        const int LEFT_BOTTOM = 3;
-        const int RIGHT_BOTTOM = 2;
-        const int END_POINT = 4;
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Fields [nouns, noun phrases]
 
-        Point[] _point_array;
-
-        int _col_idx, _row_idx;
+        float _x, _y;
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
-        Cell(int col_idx, int row_idx, Point origin) {
-            _point_array = new Point[5];
-            _col_idx = col_idx; _row_idx = row_idx; _point_array[LEFT_TOP] = _point_array[END_POINT] = origin;
-        }
-
-        public static Cell NewCell(int col_idx, int row_idx, Point left_top_point) {
-            return new(col_idx, row_idx, left_top_point);
+        public Point(float x, float y) {
+            _x = x; _y = y;
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Properties [noun, noun phrase, adjective] 
 
-        public Point LeftTopPoint { get => _point_array[LEFT_TOP]; }
+        public float X { get => _x; set => _x = value; }
 
-        public Point RightTopPoint { set => _point_array[RIGHT_TOP] = value; }
+        public float Y { get => _y; set => _y = value; }
 
-        public Point LeftBottomPoint { set => _point_array[LEFT_BOTTOM] = value; }
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        // public Methods [verb, verb phrases]
 
-        public Point RightBottomPoint { set => _point_array[RIGHT_BOTTOM] = value; }
+        public override bool Equals(object? obj) {
+            if ((obj == null) || !GetType().Equals(obj.GetType())) {
+                return false;
+            }
+            else {
+                Point other = (Point) obj;
+                return (_x == other.X) && (_y == other.Y);
+            }
+        }
 
-        public Point[] AllPoint { get => _point_array; }
+        public override int GetHashCode() {
+            return HashCode.Combine(_x.GetHashCode(), _y.GetHashCode());
+        }
+
+        public override string ToString() {
+            return $"{{X={_x}, Y={_y}}}";
+        }
     }
 }

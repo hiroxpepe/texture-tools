@@ -13,26 +13,23 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-using Checkered.Core;
+using System.Linq;
+using System.Drawing;
 
-namespace Checkered {
-    /// <summary>
-    /// interface of Tool.
-    /// </summary>
-    /// <author>h.adachi (STUDIO MeowToon)</author>
-    public interface ITool {
-        public void Draw(Point[] points);
+using CPoint = Checkered.Core.Point;
 
-        public void Draw(Point[] points, Color color);
+namespace Checkered.Draw {
 
-        public void Fill(Point[] points);
+    public static class Utils {
+#nullable enable
 
-        public void Fill(Point[] points, Color color);
+        public static PointF[] MapPoints(CPoint[] points) {
+            return points.Select(selector: x => new PointF(x: x.X, y: x.Y)).ToArray();
+        }
 
-        public void Fill(Point[] points, Color color, int idx);
+        public static PointF MapPoint(CPoint point) {
+            return new(x: point.X, y: point.Y);
+        }
 
-        public void Fill(Point[] points, Color color, int idx, bool debug);
-
-        public void Write();
     }
 }

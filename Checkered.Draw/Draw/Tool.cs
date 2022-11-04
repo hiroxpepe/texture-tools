@@ -21,6 +21,8 @@ using static System.Drawing.Graphics;
 using static System.Drawing.Imaging.ImageFormat;
 
 using Checkered.Core;
+using CPoint = Checkered.Core.Point;
+using static Checkered.Draw.Utils;
 
 namespace Checkered.Draw {
 #pragma warning disable CA1416
@@ -59,27 +61,27 @@ namespace Checkered.Draw {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // public Methods [verb, verb phrases]
 
-        public void Draw(PointF[] points) {
+        public void Draw(CPoint[] points) {
             throw new NotImplementedException();
         }
 
-        public void Draw(PointF[] points, Color color) {
+        public void Draw(CPoint[] points, Color color) {
             throw new NotImplementedException();
         }
 
-        public void Fill(PointF[] points) {
+        public void Fill(CPoint[] points) {
             fill(points, Color.Red);
         }
 
-        public void Fill(PointF[] points, Color color) {
+        public void Fill(CPoint[] points, Color color) {
             fill(points, color);
         }
 
-        public void Fill(PointF[] points, Color color, int idx = 0) {
+        public void Fill(CPoint[] points, Color color, int idx = 0) {
             fill(points, color, idx);
         }
 
-        public void Fill(PointF[] points, Color color, int idx = 0, bool debug = false) {
+        public void Fill(CPoint[] points, Color color, int idx = 0, bool debug = false) {
             fill(points, color, idx, debug);
         }
 
@@ -91,19 +93,19 @@ namespace Checkered.Draw {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // private Methods [verb, verb phrases]
 
-        void fill(PointF[] points, Color color, int idx = 0, bool debug = false) {
+        void fill(CPoint[] points, Color color, int idx = 0, bool debug = false) {
             Brush brush = White;
             switch (color) {
                 case Color.Red: brush = Red; break;
                 case Color.Black: brush = Black; break;
                 case Color.White: brush = White; break;
             }
-            _graphics?.FillPolygon(brush: brush, points: points);
+            _graphics?.FillPolygon(brush: brush, points: MapPoints(points));
 
             if (debug) { 
                 const string FONT_NAME = "MS UI Gothic"; const int FONT_SIZE = 10; 
                 using (Font font = new Font(familyName: FONT_NAME, emSize: FONT_SIZE)) {
-                    _graphics?.DrawString(idx.ToString(), font, Black, points[0]);
+                    _graphics?.DrawString(idx.ToString(), font, Black, MapPoints(points)[0]);
                 }
             }
         }

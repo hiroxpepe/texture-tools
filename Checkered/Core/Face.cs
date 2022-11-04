@@ -15,7 +15,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 
 using static Checkered.Core.Cell;
@@ -34,7 +33,7 @@ namespace Checkered.Core {
 
         Cut _cut;
 
-        List<PointF> _point_list;
+        List<Point> _point_list;
 
         List<Cell> _cell_list;
 
@@ -71,9 +70,9 @@ namespace Checkered.Core {
 
         public int CountY { get => _cut.CountY; }
 
-        public List<PointF[]> AllPoint {
+        public List<Point[]> AllPoint {
             get {
-                List<PointF[]> result = new();
+                List<Point[]> result = new();
                 _cell_list.ForEach(action: x => result.Add(item: x.AllPoint));
                 return result;
             }
@@ -101,14 +100,14 @@ namespace Checkered.Core {
             float[] y_sliced = slice(Coordinate.Y);
             for (int y_idx = 0; y_idx < _cut.CountY + TO_END; y_idx++) {
                 for (int x_idx = 0; x_idx < _cut.CountX + TO_END; x_idx++) {
-                    PointF point = new(x_sliced[x_idx], y_sliced[y_idx]);
+                    Point point = new(x_sliced[x_idx], y_sliced[y_idx]);
                     _point_list.Add(item: point);
                 }
             }
             // creates cell list.
             for (int y_idx = 0; y_idx < _cut.CountY; y_idx++) {
                 for (int x_idx = 0; x_idx < _cut.CountX; x_idx++) {
-                    PointF point = _point_list.Where(predicate: x => x.X == x_sliced[x_idx] && x.Y == y_sliced[y_idx]).First();
+                    Point point = _point_list.Where(predicate: x => x.X == x_sliced[x_idx] && x.Y == y_sliced[y_idx]).First();
                     Cell cell = NewCell(col_idx: x_idx, row_idx: y_idx, left_top_point: point);
                     _cell_list.Add(item: cell);
                 }
@@ -123,14 +122,14 @@ namespace Checkered.Core {
                 for (int x_idx = 0; x_idx < _cut.CountX; x_idx++) {
                     x_value = x_sliced[x_idx + TO_NEXT] - x_value_prev;
                     Cell cell = _cell_list[cell_idx];
-                    PointF left_top = cell.LeftTopPoint;
+                    Point left_top = cell.LeftTopPoint;
                     float left_top_x = left_top.X;
                     float left_top_y = left_top.Y;
-                    PointF right_top_point = _point_list.Where(predicate: x => x.X == (left_top_x + x_value) && x.Y == left_top_y).First();
+                    Point right_top_point = _point_list.Where(predicate: x => x.X == (left_top_x + x_value) && x.Y == left_top_y).First();
                     cell.RightTopPoint = right_top_point;
-                    PointF left_bottom_point = _point_list.Where(predicate:x => x.X == left_top_x && x.Y == (left_top_y + y_value)).First();
+                    Point left_bottom_point = _point_list.Where(predicate:x => x.X == left_top_x && x.Y == (left_top_y + y_value)).First();
                     cell.LeftBottomPoint = left_bottom_point;
-                    PointF right_bottom_point = _point_list.Where(predicate:x => x.X == (left_top_x + x_value) && x.Y == (left_top_y + y_value)).First();
+                    Point right_bottom_point = _point_list.Where(predicate:x => x.X == (left_top_x + x_value) && x.Y == (left_top_y + y_value)).First();
                     cell.RightBottomPoint = right_bottom_point;
                     x_value_prev = x_sliced[x_idx + TO_NEXT];
                     cell_idx++;
@@ -159,7 +158,7 @@ namespace Checkered.Core {
         /// <note>
         /// for UnitTest
         /// </note>
-        List<PointF> _extendAndGetList() {
+        List<Point> _extendAndGetList() {
             extend();
             return _point_list;
         }

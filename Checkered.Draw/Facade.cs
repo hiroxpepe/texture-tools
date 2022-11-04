@@ -13,6 +13,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+using System;
+using System.Linq;
+
 using Checkered.Core;
 using Checkered.Draw;
 using static Checkered.Core.Cut;
@@ -26,14 +29,27 @@ namespace Checkered {
 #nullable enable
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
+        // Fields
+
+        static Random _random = new();
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////
         // public Methods [verb, verb phrases]
 
         public static void Execute() {
-            Cut cut = NewCutByPiece(piece_count_x: 3, piece_count_y: 3);
+            Cut cut = NewCutByPiece(piece_count_x: 8, piece_count_y: 8);
             Face face = NewFace(width: 256, hight: 256, cut: cut);
             Tool tool = NewTool(face: face);
             int count = 0;
             face.OnReady += () => {
+
+                face.AllPoint.ForEach(action: x => {
+                    x.ToList().ForEach(action: x => { 
+                        x.X += _random.Next(minValue: 0, maxValue: 4);
+                        x.Y += _random.Next(minValue: 0, maxValue: 4);
+                    });
+                });
+
                 InitIndex(count_x: face.CountX, count_y: face.CountY);
                 face.AllPoint.ForEach(action: x => {
                     Color color = NextIndex() % 2 == 0 ? Color.Red : Color.White;
