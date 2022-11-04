@@ -25,11 +25,14 @@ namespace Checkered.Core {
 
         float _x, _y;
 
+        bool _fixed_x, _fixed_y;
+
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
         public Point(float x, float y) {
             _x = x; _y = y;
+            _fixed_x = _fixed_y = false;
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -39,11 +42,15 @@ namespace Checkered.Core {
 
         public float Y { get => _y; set => _y = value; }
 
+        public bool FixedX { get => _fixed_x; set => _fixed_x = value; }
+
+        public bool FixedY { get => _fixed_y; set => _fixed_y = value; }
+
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // public Methods [verb, verb phrases]
 
         public override bool Equals(object? obj) {
-            if ((obj == null) || !GetType().Equals(obj.GetType())) {
+            if ((obj == null) || !GetType().Equals(o: obj.GetType())) {
                 return false;
             }
             else {
@@ -57,7 +64,7 @@ namespace Checkered.Core {
         }
 
         public override string ToString() {
-            return $"{{X={_x}, Y={_y}}}";
+            return $"{{ X = {_x}, Y = {_y} }}";
         }
     }
 }

@@ -104,6 +104,7 @@ namespace Checkered.Core {
                     _point_list.Add(item: point);
                 }
             }
+            setFixed();
             // creates cell list.
             for (int y_idx = 0; y_idx < _cut.CountY; y_idx++) {
                 for (int x_idx = 0; x_idx < _cut.CountX; x_idx++) {
@@ -153,6 +154,12 @@ namespace Checkered.Core {
                 result[idx] = (float) interval * idx;
             }
             return result;
+        }
+
+        void setFixed() {
+            float min_x = 0f; float max_x = _width.Length; float min_y = 0f; float max_y = _hight.Length;
+            _point_list.Where(predicate: x => x.X == min_x || x.X == max_y).ToList().ForEach(action: x => x.FixedX = true);
+            _point_list.Where(predicate: x => x.Y == min_y || x.Y == max_y).ToList().ForEach(action: x => x.FixedY = true);
         }
 
         /// <note>
