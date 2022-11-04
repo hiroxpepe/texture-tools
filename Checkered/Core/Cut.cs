@@ -49,19 +49,9 @@ namespace Checkered.Core {
 
         public int Y { get => _y; }
 
-        public int CountX {
-            get {
-                if (_x is 0) { return 0; }
-                return _x + 1;
-            }
-        }
+        public int CountX { get => _x + 1; }
 
-        public int CountY {
-            get {
-                if (_y is 0) { return 0; }
-                return _y + 1;
-            }
-        }
+        public int CountY { get => _y + 1; }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // private Methods [verb, verb phrases]

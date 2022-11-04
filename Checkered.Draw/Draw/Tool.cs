@@ -68,17 +68,19 @@ namespace Checkered.Draw {
         }
 
         public void Fill(PointF[] points) {
-            _graphics?.FillPolygon(brush: Red, points: points);
+            fill(points, Color.Red);
         }
 
         public void Fill(PointF[] points, Color color) {
-            Brush brush = White;
-            switch (color) {
-                case Color.Red: brush = Red; break;
-                case Color.Black: brush = Black; break;
-                case Color.White: brush = White; break;
-            }
-            _graphics?.FillPolygon(brush: brush, points: points);
+            fill(points, color);
+        }
+
+        public void Fill(PointF[] points, Color color, int idx = 0) {
+            fill(points, color, idx);
+        }
+
+        public void Fill(PointF[] points, Color color, int idx = 0, bool debug = false) {
+            fill(points, color, idx, debug);
         }
 
         public void Write() {
@@ -88,6 +90,23 @@ namespace Checkered.Draw {
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // private Methods [verb, verb phrases]
+
+        void fill(PointF[] points, Color color, int idx = 0, bool debug = false) {
+            Brush brush = White;
+            switch (color) {
+                case Color.Red: brush = Red; break;
+                case Color.Black: brush = Black; break;
+                case Color.White: brush = White; break;
+            }
+            _graphics?.FillPolygon(brush: brush, points: points);
+
+            if (debug) { 
+                const string FONT_NAME = "MS UI Gothic"; const int FONT_SIZE = 10; 
+                using (Font font = new Font(familyName: FONT_NAME, emSize: FONT_SIZE)) {
+                    _graphics?.DrawString(idx.ToString(), font, Black, points[0]);
+                }
+            }
+        }
 
         void init() {
             _bitmap = new(width: _face.Hight, height: _face.Hight);

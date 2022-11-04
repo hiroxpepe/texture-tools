@@ -29,6 +29,10 @@ namespace Checkered {
 
         public void Fill(PointF[] points, Color color);
 
+        public void Fill(PointF[] points, Color color, int idx);
+
+        public void Fill(PointF[] points, Color color, int idx, bool debug);
+
         public void Write();
     }
 }

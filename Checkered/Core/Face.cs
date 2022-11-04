@@ -67,6 +67,10 @@ namespace Checkered.Core {
 
         public int Hight { get => (int) _hight.Length; }
 
+        public int CountX { get => _cut.CountX; }
+
+        public int CountY { get => _cut.CountY; }
+
         public List<PointF[]> AllPoint {
             get {
                 List<PointF[]> result = new();
