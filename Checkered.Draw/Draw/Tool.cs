@@ -15,6 +15,7 @@
 
 using System;
 using System.Drawing;
+using System.Linq;
 using static System.Environment;
 using static System.Drawing.Brushes;
 using static System.Drawing.Graphics;
@@ -33,6 +34,8 @@ namespace Checkered.Draw {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constants
 
+        public const int LAYER_MAX = 4;
+
         public readonly string OUTPUT_DIR = GetFolderPath(SpecialFolder.DesktopDirectory);
 
         public readonly string OUTPUT_NAME = "output.png";
@@ -40,22 +43,23 @@ namespace Checkered.Draw {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Fields [nouns, noun phrases]
 
-        readonly Face _face;
+        readonly Face[] _face_array;
 
-        Bitmap? _bitmap;
+        Bitmap?[] _bitmap_array;
 
         Graphics? _graphics;
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
-        Tool(Face face) {
-            _face = face;
+        Tool(Face[] face_array) {
+            _face_array = face_array;
+            _bitmap_array = new Bitmap[LAYER_MAX];
             init();
         }
 
-        public static Tool NewTool(Face face) {
-            return new(face);
+        public static Tool NewTool(Face[] face_array) {
+            return new(face_array);
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,47 +81,61 @@ namespace Checkered.Draw {
             fill(points, color);
         }
 
-        public void Fill(CPoint[] points, Color color, int idx = 0) {
-            fill(points, color, idx);
+        public void Fill(CPoint[] points, Color color, int img_idx = 0) {
+            fill(points, color, img_idx);
         }
 
-        public void Fill(CPoint[] points, Color color, int idx = 0, bool debug = false) {
-            fill(points, color, idx, debug);
+        public void Fill(CPoint[] points, Color color, int img_idx = 0, int cell_idx = 0) {
+            fill(points, color, img_idx, cell_idx);
+        }
+
+        public void Fill(CPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
+            fill(points, color, img_idx, cell_idx, debug);
+        }
+
+        public void Overlap() {
         }
 
         public void Write() {
-            _bitmap?.Save(filename: $"{OUTPUT_DIR}\\{OUTPUT_NAME}", format: Png);
+            _bitmap_array[0]?.Save(filename: $"{OUTPUT_DIR}\\{OUTPUT_NAME}", format: Png);
             dispose();
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // private Methods [verb, verb phrases]
 
-        void fill(CPoint[] points, Color color, int idx = 0, bool debug = false) {
+        void fill(CPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
+            // creates the graphics.
+            _graphics = FromImage(image: _bitmap_array[img_idx]);
+            // sets a brush.
             Brush brush = White;
             switch (color) {
                 case Color.Red: brush = Red; break;
+                case Color.Yellow: brush = Yellow; break;
+                case Color.Magenta: brush = Magenta; break;
                 case Color.Black: brush = Black; break;
                 case Color.White: brush = White; break;
             }
             _graphics?.FillPolygon(brush: brush, points: MapPoints(points));
-
+            // writes cell numbers as debug.
             if (debug) { 
                 const string FONT_NAME = "MS UI Gothic"; const int FONT_SIZE = 10; 
                 using (Font font = new Font(familyName: FONT_NAME, emSize: FONT_SIZE)) {
-                    _graphics?.DrawString(idx.ToString(), font, Black, MapPoints(points)[0]);
+                    _graphics?.DrawString(cell_idx.ToString(), font, Black, MapPoints(points)[0]);
                 }
             }
+            // disposes of the graphics.
+            if (_graphics is not null) { _graphics.Dispose(); _graphics = null; }
         }
 
         void init() {
-            _bitmap = new(width: _face.Hight, height: _face.Hight);
-            _graphics = FromImage(image: _bitmap);
+            int idx = 0;
+            _face_array.ToList().ForEach(action: x => { _bitmap_array[idx++] = new(width: x.Hight, height: x.Hight); });
         }
 
         void dispose() {
             if (_graphics is not null) { _graphics.Dispose(); _graphics = null;  }
-            if (_bitmap is not null) { _bitmap.Dispose(); _bitmap = null;  }
+            _bitmap_array.ToList().ForEach(action: x => { if (x is not null) { x.Dispose(); } }); _bitmap_array = null;  
         }
     }
 #pragma warning restore CA1416

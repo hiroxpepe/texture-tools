@@ -1,10 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-using Checkered.Core;
 using static Checkered.Core.Cut;
 
-namespace CheckeredTest {
+namespace Checkered.Core {
     [TestClass()]
     public class CutTests {
 #nullable enable

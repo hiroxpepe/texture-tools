@@ -2,12 +2,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Microsoft.VisualStudio.TestTools.UnitTesting.CollectionAssert;
 
-using Checkered;
-using Checkered.Core;
 using static Checkered.Core.Cut;
 using static Checkered.Core.Face;
 
-namespace CheckeredTest {
+namespace Checkered.Core {
     [TestClass()]
     public class FaceTests {
 #nullable enable

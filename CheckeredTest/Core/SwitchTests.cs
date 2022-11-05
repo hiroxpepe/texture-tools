@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
-using static Checkered.Core.Switch;
+using static Checkered.Draw.Switch;
 
-namespace Checkered.CoreTest {
+namespace Checkered.Core {
     [TestClass()]
     public class SwitchTests {
 #nullable enable

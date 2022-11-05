@@ -1,8 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using Checkered;
-
-namespace CheckeredTest {
+namespace Checkered {
     [TestClass()]
     public class FacadeTests {
 #nullable enable

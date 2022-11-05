@@ -13,28 +13,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Checkered.Core {
-    /// <summary>
-    /// interface of Tool.
-    /// </summary>
-    /// <author>h.adachi (STUDIO MeowToon)</author>
-    public interface ITool {
-        public void Draw(Point[] points);
+using Checkered.Core;
 
-        public void Draw(Point[] points, Color color);
+namespace Checkered.Mix {
 
-        public void Fill(Point[] points);
+    public class Mixer {
+#nullable enable
 
-        public void Fill(Point[] points, Color color);
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        // Fields [nouns, noun phrases]
 
-        public void Fill(Point[] points, Color color, int img_idx);
+        Map<int, ILayer> _layer_map;
 
-        public void Fill(Point[] points, Color color, int img_idx, int cell_idx);
-
-        public void Fill(Point[] points, Color color, int img_idx, int cell_idx, bool debug);
-
-        public void Overlap();
-
-        public void Write();
     }
 }

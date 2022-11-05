@@ -20,7 +20,7 @@ using Checkered.Core;
 using Checkered.Draw;
 using static Checkered.Core.Cut;
 using static Checkered.Core.Face;
-using static Checkered.Core.Switch;
+using static Checkered.Draw.Switch;
 using static Checkered.Draw.Tool;
 
 namespace Checkered {
@@ -39,23 +39,23 @@ namespace Checkered {
         public static void Execute() {
             Cut cut = NewCutByPiece(piece_count_x: 6, piece_count_y: 6);
             Face face = NewFace(width: 256, hight: 256, cut: cut);
-            Tool tool = NewTool(face: face);
+            Tool tool = NewTool(face_array: new Face[] { face });
             int count = 0;
             face.OnReady += () => {
                 // randomize
                 face.AllPoint.ForEach(action: x => {
                     x.Where(predicate: x => !x.FixedX).ToList().ForEach(action: x => {
-                        if (!x.MovedX) { x.X += _random.Next(minValue: 0, maxValue: 5); x.MovedX = true; }
+                        if (!x.MovedX) { x.X += _random.Next(minValue: -20, maxValue: 20); x.MovedX = true; }
                     });
                     x.Where(predicate: x => !x.FixedY).ToList().ForEach(action: x => {
-                        if (!x.MovedY) { x.Y += _random.Next(minValue: 0, maxValue: 5); x.MovedY = true; }
+                        if (!x.MovedY) { x.Y += _random.Next(minValue: -20, maxValue: 20); x.MovedY = true; }
                     });
                 });
-                // fills by color
+                // fills by color.
                 InitIndex(count_x: face.CountX, count_y: face.CountY);
                 face.AllPoint.ForEach(action: x => {
-                    Color color = NextIndex() % 2 == 0 ? Color.Red : Color.White;
-                    tool.Fill(points: x, color: color, idx: count, debug: false);
+                    Color color = NextIndex() % 2 == 0 ? Color.Red : Color.Yellow;
+                    tool.Fill(points: x, color: color, img_idx: 0, cell_idx: count, debug: false);
                     count++;
                 });
             };

@@ -16,7 +16,7 @@
 using System;
 using System.Reflection;
 
-namespace CheckeredTest {
+namespace Checkered {
     /// <summary>
     /// PrivateObject for MSTest
     /// </summary>

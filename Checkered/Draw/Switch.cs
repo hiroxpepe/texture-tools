@@ -13,7 +13,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Checkered.Core {
+namespace Checkered.Draw {
 
     public static class Switch {
 #nullable enable
