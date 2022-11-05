@@ -37,13 +37,41 @@ namespace Checkered {
         // public Methods [verb, verb phrases]
 
         public static void Execute() {
-            Cut cut = NewCutByPiece(piece_count_x: 6, piece_count_y: 6);
-            Face face = NewFace(width: 256, hight: 256, cut: cut);
-            Tool tool = NewTool(face_array: new Face[] { face });
-            int count = 0;
-            face.OnReady += () => {
+            Cut cut1 = NewCutByPiece(piece_count_x: 7, piece_count_y: 7);
+            Face face1 = NewFace(width: 256, hight: 256, cut: cut1);
+            Cut cut2 = NewCutByPiece(piece_count_x: 5, piece_count_y: 5);
+            Face face2 = NewFace(width: 256, hight: 256, cut: cut2);
+            using Tool tool = NewTool(face_array: new Face[] { face1, face2 });
+            // layer 1.
+            int count = 0; int img_idx = 0;
+            face1.OnReady += () => {
                 // randomize
-                face.AllPoint.ForEach(action: x => {
+                face1.AllPoint.ForEach(action: x => {
+                    x.Where(predicate: x => !x.FixedX).ToList().ForEach(action: x => {
+                        if (!x.MovedX) { x.X += _random.Next(minValue: -10, maxValue: 10); x.MovedX = true; }
+                    });
+                    x.Where(predicate: x => !x.FixedY).ToList().ForEach(action: x => {
+                        if (!x.MovedY) { x.Y += _random.Next(minValue: -10, maxValue: 10); x.MovedY = true; }
+                    });
+                });
+                // fills by color.
+                InitIndex(count_x: face1.CountX, count_y: face1.CountY);
+                face1.AllPoint.ForEach(action: x => {
+                    Color color = NextIndex() % 2 == 0 ? Color.Red : Color.Yellow;
+                    tool.Fill(points: x, color: color, img_idx: img_idx, cell_idx: count, debug: false);
+                    count++;
+                });
+            };
+            face1.OnWrite += () => {
+                tool.Write(img_idx);
+            };
+            face1.Make();
+
+            // layer 2.
+            count = 0; img_idx++;
+            face2.OnReady += () => {
+                // randomize
+                face2.AllPoint.ForEach(action: x => {
                     x.Where(predicate: x => !x.FixedX).ToList().ForEach(action: x => {
                         if (!x.MovedX) { x.X += _random.Next(minValue: -20, maxValue: 20); x.MovedX = true; }
                     });
@@ -52,17 +80,17 @@ namespace Checkered {
                     });
                 });
                 // fills by color.
-                InitIndex(count_x: face.CountX, count_y: face.CountY);
-                face.AllPoint.ForEach(action: x => {
-                    Color color = NextIndex() % 2 == 0 ? Color.Red : Color.Yellow;
-                    tool.Fill(points: x, color: color, img_idx: 0, cell_idx: count, debug: false);
+                InitIndex(count_x: face2.CountX, count_y: face2.CountY);
+                face2.AllPoint.ForEach(action: x => {
+                    Color color = NextIndex() % 2 == 0 ? Color.Magenta : Color.Yellow;
+                    tool.Fill(points: x, color: color, img_idx: img_idx, cell_idx: count, debug: false);
                     count++;
                 });
             };
-            face.OnWrite += () => {
-                tool.Write();
+            face2.OnWrite += () => {
+                tool.Write(img_idx);
             };
-            face.Make();
+            face2.Make();
         }
     }
 }

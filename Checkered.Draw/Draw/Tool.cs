@@ -15,6 +15,7 @@
 
 using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using static System.Environment;
 using static System.Drawing.Brushes;
@@ -28,7 +29,7 @@ using static Checkered.Draw.Utils;
 namespace Checkered.Draw {
 #pragma warning disable CA1416
 
-    public class Tool : ITool {
+    public class Tool : ITool, IDisposable {
 #nullable enable
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,6 +47,8 @@ namespace Checkered.Draw {
         readonly Face[] _face_array;
 
         Bitmap?[] _bitmap_array;
+
+        Bitmap? _tmp_bitmap;
 
         Graphics? _graphics;
 
@@ -93,12 +96,28 @@ namespace Checkered.Draw {
             fill(points, color, img_idx, cell_idx, debug);
         }
 
-        public void Overlap() {
+        public void Write(int img_idx) {
+            ColorMatrix color_matrix = new();
+            color_matrix.Matrix33 = (img_idx == 0) ? 1f : 0.5f;
+            ImageAttributes image_attributes = new();
+            image_attributes.SetColorMatrix(newColorMatrix: color_matrix);
+
+            _graphics = FromImage(image: _tmp_bitmap);
+            _graphics.DrawImage(
+                image: _bitmap_array[img_idx], 
+                destRect: new Rectangle(x: 0, y: 0, width: _face_array[0].Width, height: _face_array[0].Hight), 
+                srcX: 0, srcY: 0, srcWidth: _face_array[img_idx].Width, srcHeight: _face_array[img_idx].Hight, 
+                srcUnit :GraphicsUnit.Pixel,
+                imageAttrs: image_attributes
+            );
+
+            _tmp_bitmap?.Save(filename: $"{OUTPUT_DIR}\\{OUTPUT_NAME}", format: Png);
         }
 
-        public void Write() {
-            _bitmap_array[0]?.Save(filename: $"{OUTPUT_DIR}\\{OUTPUT_NAME}", format: Png);
-            dispose();
+        public void Dispose() {
+            _graphics?.Dispose(); _graphics = null;
+            _bitmap_array.ToList().ForEach(action: x => x?.Dispose());
+            _tmp_bitmap?.Dispose();
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -130,12 +149,8 @@ namespace Checkered.Draw {
 
         void init() {
             int idx = 0;
-            _face_array.ToList().ForEach(action: x => { _bitmap_array[idx++] = new(width: x.Hight, height: x.Hight); });
-        }
-
-        void dispose() {
-            if (_graphics is not null) { _graphics.Dispose(); _graphics = null;  }
-            _bitmap_array.ToList().ForEach(action: x => { if (x is not null) { x.Dispose(); } }); _bitmap_array = null;  
+            _face_array.ToList().ForEach(action: x => { _bitmap_array[idx++] = new(width: x.Width, height: x.Hight); });
+            _tmp_bitmap = new Bitmap(width: _face_array[0].Width, height: _face_array[0].Hight); // TODO: dispose
         }
     }
 #pragma warning restore CA1416

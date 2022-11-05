@@ -33,8 +33,6 @@ namespace Checkered.Core {
 
         public void Fill(Point[] points, Color color, int img_idx, int cell_idx, bool debug);
 
-        public void Overlap();
-
-        public void Write();
+        public void Write(int img_idx);
     }
 }
