@@ -127,14 +127,14 @@ namespace Checkered.Draw {
             // creates the graphics.
             _graphics = FromImage(image: _bitmap_array[img_idx]);
             // sets a brush.
-            Brush brush = White;
-            switch (color) {
-                case Color.Red: brush = Red; break;
-                case Color.Yellow: brush = Yellow; break;
-                case Color.Magenta: brush = Magenta; break;
-                case Color.Black: brush = Black; break;
-                case Color.White: brush = White; break;
-            }
+            Brush brush = color switch {
+                Color.Red => Red,
+                Color.Yellow => Yellow,
+                Color.Magenta => Magenta,
+                Color.Black => Black,
+                Color.White => White,
+                _ => Black,
+            };
             _graphics?.FillPolygon(brush: brush, points: MapPoints(points));
             // writes cell numbers as debug.
             if (debug) { 
@@ -150,7 +150,7 @@ namespace Checkered.Draw {
         void init() {
             int idx = 0;
             _face_array.ToList().ForEach(action: x => { _bitmap_array[idx++] = new(width: x.Width, height: x.Hight); });
-            _tmp_bitmap = new Bitmap(width: _face_array[0].Width, height: _face_array[0].Hight); // TODO: dispose
+            _tmp_bitmap = new Bitmap(width: _face_array[0].Width, height: _face_array[0].Hight);
         }
     }
 #pragma warning restore CA1416
