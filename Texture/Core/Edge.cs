@@ -14,7 +14,10 @@
  */
 
 namespace Texture.Core {
-
+    /// <summary>
+    /// edge class
+    /// </summary>
+    /// <author>h.adachi (STUDIO MeowToon)</author>
     public class Edge {
 #nullable enable
 

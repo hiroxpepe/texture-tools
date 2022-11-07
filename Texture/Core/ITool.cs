@@ -15,7 +15,7 @@
 
 namespace Texture.Core {
     /// <summary>
-    /// interface of Tool.
+    /// tool interface
     /// </summary>
     /// <author>h.adachi (STUDIO MeowToon)</author>
     public interface ITool {

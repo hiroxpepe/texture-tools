@@ -14,7 +14,10 @@
  */
 
 namespace Texture.Core {
-
+    /// <summary>
+    /// cell class
+    /// </summary>
+    /// <author>h.adachi (STUDIO MeowToon)</author>
     public class Cell {
 #nullable enable
 

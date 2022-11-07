@@ -16,18 +16,21 @@
 using System.Linq;
 using System.Drawing;
 
-using CPoint = Texture.Core.Point;
+using TPoint = Texture.Core.Point;
 
 namespace Texture.Draw {
-
+    /// <summary>
+    /// utils class
+    /// </summary>
+    /// <author>h.adachi (STUDIO MeowToon)</author>
     public static class Utils {
 #nullable enable
 
-        public static PointF[] MapPoints(CPoint[] points) {
+        public static PointF[] MapPoints(TPoint[] points) {
             return points.Select(selector: x => new PointF(x: x.X, y: x.Y)).ToArray();
         }
 
-        public static PointF MapPoint(CPoint point) {
+        public static PointF MapPoint(TPoint point) {
             return new(x: point.X, y: point.Y);
         }
 

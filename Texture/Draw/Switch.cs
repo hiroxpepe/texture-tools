@@ -14,7 +14,10 @@
  */
 
 namespace Texture.Draw {
-
+    /// <summary>
+    /// switch class
+    /// </summary>
+    /// <author>h.adachi (STUDIO MeowToon)</author>
     public static class Switch {
 #nullable enable
 

@@ -16,7 +16,10 @@
 using System;
 
 namespace Texture.Draw {
-
+    /// <summary>
+    /// palette class
+    /// </summary>
+    /// <author>h.adachi (STUDIO MeowToon)</author>
     public class Palette {
 #nullable enable
 

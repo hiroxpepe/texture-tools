@@ -16,6 +16,10 @@
 using static System.Console;
 
 namespace Texture {
+    /// <summary>
+    /// main class
+    /// </summary>
+    /// <author>h.adachi (STUDIO MeowToon)</author>
     public class Program {
         static void Main(string[] args) {
             WriteLine("STUDIO MeowToon");

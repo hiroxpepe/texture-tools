@@ -15,7 +15,7 @@
 
 namespace Texture {
     /// <summary>
-    /// common enums.
+    /// common enums
     /// </summary>
     /// <author>h.adachi (STUDIO MeowToon)</author>
 
@@ -23,14 +23,14 @@ namespace Texture {
     // public Enums [noun]
 
     /// <summary>
-    /// color type.
+    /// color type
     /// </summary>
     public enum Color {
         Red, Orange, Yellow, Lime, Green, Cyan, Azure, Blue, Purple, Magenta, Black, White
     }
 
     /// <summary>
-    /// coordinate type.
+    /// coordinate type
     /// </summary>
     public enum Coordinate {
         X, Y, Z

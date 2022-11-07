@@ -24,7 +24,10 @@ using static Texture.Draw.Switch;
 using static Texture.Draw.Tool;
 
 namespace Texture {
-
+    /// <summary>
+    /// facade class
+    /// </summary>
+    /// <author>h.adachi (STUDIO MeowToon)</author>
     public static class Facade {
 #nullable enable
 

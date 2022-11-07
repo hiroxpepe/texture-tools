@@ -16,7 +16,10 @@
 using System;
 
 namespace Texture.Core {
-
+    /// <summary>
+    /// point class
+    /// </summary>
+    /// <author>h.adachi (STUDIO MeowToon)</author>
     public class Point {
 #nullable enable
 

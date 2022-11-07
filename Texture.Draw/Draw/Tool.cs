@@ -23,12 +23,15 @@ using static System.Drawing.Graphics;
 using static System.Drawing.Imaging.ImageFormat;
 
 using Texture.Core;
-using CPoint = Texture.Core.Point;
+using TPoint = Texture.Core.Point;
 using static Texture.Draw.Utils;
 
 namespace Texture.Draw {
 #pragma warning disable CA1416
-
+    /// <summary>
+    /// tool class
+    /// </summary>
+    /// <author>h.adachi (STUDIO MeowToon)</author>
     public class Tool : ITool, IDisposable {
 #nullable enable
 
@@ -68,31 +71,31 @@ namespace Texture.Draw {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // public Methods [verb, verb phrases]
 
-        public void Draw(CPoint[] points) {
+        public void Draw(TPoint[] points) {
             throw new NotImplementedException();
         }
 
-        public void Draw(CPoint[] points, Color color) {
+        public void Draw(TPoint[] points, Color color) {
             throw new NotImplementedException();
         }
 
-        public void Fill(CPoint[] points) {
+        public void Fill(TPoint[] points) {
             fill(points, Color.Red);
         }
 
-        public void Fill(CPoint[] points, Color color) {
+        public void Fill(TPoint[] points, Color color) {
             fill(points, color);
         }
 
-        public void Fill(CPoint[] points, Color color, int img_idx = 0) {
+        public void Fill(TPoint[] points, Color color, int img_idx = 0) {
             fill(points, color, img_idx);
         }
 
-        public void Fill(CPoint[] points, Color color, int img_idx = 0, int cell_idx = 0) {
+        public void Fill(TPoint[] points, Color color, int img_idx = 0, int cell_idx = 0) {
             fill(points, color, img_idx, cell_idx);
         }
 
-        public void Fill(CPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
+        public void Fill(TPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
             fill(points, color, img_idx, cell_idx, debug);
         }
 
@@ -123,7 +126,7 @@ namespace Texture.Draw {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // private Methods [verb, verb phrases]
 
-        void fill(CPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
+        void fill(TPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
             // creates the graphics.
             _graphics = FromImage(image: _bitmap_array[img_idx]);
             // sets a brush.

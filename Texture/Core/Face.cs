@@ -22,7 +22,10 @@ using static Texture.Core.Hight;
 using static Texture.Core.Width;
 
 namespace Texture.Core {
-
+    /// <summary>
+    /// face class
+    /// </summary>
+    /// <author>h.adachi (STUDIO MeowToon)</author>
     public class Face {
 #nullable enable
 

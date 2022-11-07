@@ -14,7 +14,10 @@
  */
 
 namespace Texture.Core {
-
+    /// <summary>
+    /// cut class
+    /// </summary>
+    /// <author>h.adachi (STUDIO MeowToon)</author>
     public class Cut {
 #nullable enable
 
