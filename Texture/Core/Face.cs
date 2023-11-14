@@ -161,7 +161,7 @@ namespace Texture.Core {
 
         void setFixed() {
             float min_x = 0f; float max_x = _width.Length; float min_y = 0f; float max_y = _hight.Length;
-            _point_list.Where(predicate: x => x.X == min_x || x.X == max_y).ToList().ForEach(action: x => x.FixedX = true);
+            _point_list.Where(predicate: x => x.X == min_x || x.X == max_x).ToList().ForEach(action: x => x.FixedX = true);
             _point_list.Where(predicate: x => x.Y == min_y || x.Y == max_y).ToList().ForEach(action: x => x.FixedY = true);
         }
 

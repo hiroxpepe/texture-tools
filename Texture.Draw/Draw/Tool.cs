@@ -131,9 +131,18 @@ namespace Texture.Draw {
             _graphics = FromImage(image: _bitmap_array[img_idx]);
             // sets a brush.
             Brush brush = color switch {
-                Color.Red => Red,
-                Color.Yellow => Yellow,
-                Color.Magenta => Magenta,
+                Color.Red => new SolidBrush(System.Drawing.Color.FromArgb(255,51,68)), // HSV: 355,80,100
+                Color.Orange => new SolidBrush(System.Drawing.Color.FromArgb(255,119,51)), // HSV: 20,80,100
+                Color.Amber => new SolidBrush(System.Drawing.Color.FromArgb(255,204,51)), // HSV: 45,80,100
+                Color.Yellow => new SolidBrush(System.Drawing.Color.FromArgb(255,255,51)), // HSV: 60,80,100
+                Color.Lime => new SolidBrush(System.Drawing.Color.FromArgb(187,255,51)), // HSV: 80,80,100
+                Color.Green => new SolidBrush(System.Drawing.Color.FromArgb(40,204,81)), // HSV: 135,80,80
+                Color.Turquoise => new SolidBrush(System.Drawing.Color.FromArgb(35,179,179)), // HSV: 180,80,70
+                Color.Azure => new SolidBrush(System.Drawing.Color.FromArgb(48,145,243)), // HSV: 210,80,95
+                Color.Blue => new SolidBrush(System.Drawing.Color.FromArgb(51,51,255)), // HSV: 240,80,100
+                Color.Purple => new SolidBrush(System.Drawing.Color.FromArgb(138,46,230)), // HSV: 270,80,90
+                Color.Magenta => new SolidBrush(System.Drawing.Color.FromArgb(217,43,217)), // HSV: 300,80,85
+                Color.Rose => new SolidBrush(System.Drawing.Color.FromArgb(243,48,145)), // HSV: 330,80,95
                 Color.Black => Black,
                 Color.White => White,
                 _ => Black,
