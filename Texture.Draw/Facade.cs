@@ -8,6 +8,7 @@ using Texture.Core;
 using Texture.Draw;
 using static Texture.Core.Cut;
 using static Texture.Core.Face;
+using static Texture.Draw.Palette;
 using static Texture.Draw.Switch;
 using static Texture.Draw.Tool;
 
@@ -30,8 +31,10 @@ namespace Texture {
         public static void Execute() {
             Cut cut1 = NewCutByPiece(piece_count_x: 7, piece_count_y: 7);
             Face face1 = NewFace(width: 256, hight: 256, cut: cut1);
+            Palette palette1 = NewPalette(primary: Color.Green, secondary: Color.Lime, accent: Color.Yellow, alpha: 1f);
             Cut cut2 = NewCutByPiece(piece_count_x: 5, piece_count_y: 5);
             Face face2 = NewFace(width: 256, hight: 256, cut: cut2);
+            Palette palette2 = NewPalette(primary: Color.Magenta, secondary: Color.Yellow, alpha: 0.5f);
             using Tool tool = NewTool(face_array: new Face[] { face1, face2 });
             // layer 1.
             int count = 0; int img_idx = 0;
@@ -48,17 +51,17 @@ namespace Texture {
                 // fills by color.
                 InitIndex(count_x: face1.CountX, count_y: face1.CountY);
                 face1.AllPoint.ForEach(action: x => {
-                    Color color = NextIndex() % 2 == 0 ? Color.Green : Color.Lime;
+                    Color color = NextIndex() % 2 == 0 ? palette1.Primary : palette1.Secondary;
                     tool.Fill(points: x, color: color, img_idx: img_idx, cell_idx: count, debug: false);
                     int random_number = _random.Next(1, (face1.AllPoint.Count / 2) + 1);
                     if (random_number == 1) {
-                        tool.Fill(points: x, color: Color.Yellow, img_idx: img_idx, cell_idx: count, debug: false);
+                        tool.Fill(points: x, color: palette1.Accent, img_idx: img_idx, cell_idx: count);
                     }
                     count++;
                 });
             };
             face1.OnWrite += () => {
-                tool.Write(img_idx);
+                tool.Write(img_idx, palette1.Alpha);
             };
             face1.Make();
 
@@ -77,13 +80,13 @@ namespace Texture {
                 // fills by color.
                 InitIndex(count_x: face2.CountX, count_y: face2.CountY);
                 face2.AllPoint.ForEach(action: x => {
-                    Color color = NextIndex() % 2 == 0 ? Color.Magenta : Color.Yellow;
-                    tool.Fill(points: x, color: color, img_idx: img_idx, cell_idx: count, debug: false);
+                    Color color = NextIndex() % 2 == 0 ? palette2.Primary : palette2.Secondary;
+                    tool.Fill(points: x, color: color, img_idx: img_idx, cell_idx: count);
                     count++;
                 });
             };
             face2.OnWrite += () => {
-                tool.Write(img_idx);
+                tool.Write(img_idx, palette2.Alpha);
             };
             face2.Make();
         }

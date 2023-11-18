@@ -87,9 +87,9 @@ namespace Texture.Draw {
             fill(points, color, img_idx, cell_idx, debug);
         }
 
-        public void Write(int img_idx) {
+        public void Write(int img_idx, float alpha = 1f) {
             ColorMatrix color_matrix = new();
-            color_matrix.Matrix33 = (img_idx == 0) ? 1f : 0.5f;
+            color_matrix.Matrix33 = alpha;
             ImageAttributes image_attributes = new();
             image_attributes.SetColorMatrix(newColorMatrix: color_matrix);
 
@@ -125,28 +125,10 @@ namespace Texture.Draw {
         void fill(TexPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
             // creates the graphics.
             _graphics = FromImage(image: _bitmap_array[img_idx]);
-            // sets a brush.
-            Brush brush = color switch {
-                Color.Red => new SolidBrush(System.Drawing.Color.FromArgb(255,51,68)), // HSV: 355,80,100
-                Color.Orange => new SolidBrush(System.Drawing.Color.FromArgb(255,119,51)), // HSV: 20,80,100
-                Color.Amber => new SolidBrush(System.Drawing.Color.FromArgb(255,204,51)), // HSV: 45,80,100
-                Color.Yellow => new SolidBrush(System.Drawing.Color.FromArgb(255,255,51)), // HSV: 60,80,100
-                Color.Lime => new SolidBrush(System.Drawing.Color.FromArgb(187,255,51)), // HSV: 80,80,100
-                Color.Green => new SolidBrush(System.Drawing.Color.FromArgb(40,204,81)), // HSV: 135,80,80
-                Color.Turquoise => new SolidBrush(System.Drawing.Color.FromArgb(35,179,179)), // HSV: 180,80,70
-                Color.Azure => new SolidBrush(System.Drawing.Color.FromArgb(48,145,243)), // HSV: 210,80,95
-                Color.Blue => new SolidBrush(System.Drawing.Color.FromArgb(51,51,255)), // HSV: 240,80,100
-                Color.Purple => new SolidBrush(System.Drawing.Color.FromArgb(138,46,230)), // HSV: 270,80,90
-                Color.Magenta => new SolidBrush(System.Drawing.Color.FromArgb(217,43,217)), // HSV: 300,80,85
-                Color.Rose => new SolidBrush(System.Drawing.Color.FromArgb(243,48,145)), // HSV: 330,80,95
-                Color.Black => Black,
-                Color.White => White,
-                _ => Black,
-            };
-            _graphics?.FillPolygon(brush: brush, points: MapPoints(points));
+            _graphics?.FillPolygon(brush: createBrush(color), points: MapPoints(points));
             // writes cell numbers as debug.
-            if (debug) { 
-                const string FONT_NAME = "MS UI Gothic"; const int FONT_SIZE = 10; 
+            if (debug) {
+                const string FONT_NAME = "MS UI Gothic"; const int FONT_SIZE = 10;
                 using (Font font = new Font(familyName: FONT_NAME, emSize: FONT_SIZE)) {
                     _graphics?.DrawString(cell_idx.ToString(), font, Black, MapPoints(points)[0]);
                 }
@@ -166,6 +148,30 @@ namespace Texture.Draw {
                 width: _face_array[0].Width, 
                 height: _face_array[0].Hight
             );
+        }
+
+        /// <summary>
+        /// creates a System.Drawing.Brush object.
+        /// </summary>
+        static Brush createBrush(Color color) {
+            Brush brush = color switch {
+                Color.Red => new SolidBrush(System.Drawing.Color.FromArgb(255, 51, 68)), // HSV: 355,80,100
+                Color.Orange => new SolidBrush(System.Drawing.Color.FromArgb(255, 119, 51)), // HSV: 20,80,100
+                Color.Amber => new SolidBrush(System.Drawing.Color.FromArgb(255, 204, 51)), // HSV: 45,80,100
+                Color.Yellow => new SolidBrush(System.Drawing.Color.FromArgb(255, 255, 51)), // HSV: 60,80,100
+                Color.Lime => new SolidBrush(System.Drawing.Color.FromArgb(187, 255, 51)), // HSV: 80,80,100
+                Color.Green => new SolidBrush(System.Drawing.Color.FromArgb(40, 204, 81)), // HSV: 135,80,80
+                Color.Turquoise => new SolidBrush(System.Drawing.Color.FromArgb(35, 179, 179)), // HSV: 180,80,70
+                Color.Azure => new SolidBrush(System.Drawing.Color.FromArgb(48, 145, 243)), // HSV: 210,80,95
+                Color.Blue => new SolidBrush(System.Drawing.Color.FromArgb(51, 51, 255)), // HSV: 240,80,100
+                Color.Purple => new SolidBrush(System.Drawing.Color.FromArgb(138, 46, 230)), // HSV: 270,80,90
+                Color.Magenta => new SolidBrush(System.Drawing.Color.FromArgb(217, 43, 217)), // HSV: 300,80,85
+                Color.Rose => new SolidBrush(System.Drawing.Color.FromArgb(243, 48, 145)), // HSV: 330,80,95
+                Color.Black => Black,
+                Color.White => White,
+                _ => Black,
+            };
+            return brush;
         }
     }
 #pragma warning restore CA1416
