@@ -60,5 +60,29 @@ namespace Texture.Core {
             };
             AreEqual(expected, result);
         }
+        [TestMethod("creates 200% of the size to crop to 50%")]
+        public void newTest1() {
+            Cut cut = NewCutByPiece(piece_count_x: 7, piece_count_y: 7);
+            Face result = NewFace(width: 256, hight: 256, cut: cut, crop: 0.5d);
+            Face expected = NewFace(width: 512, hight: 512, cut: cut);
+            Assert.AreEqual(expected.Width, result.Width);
+            Assert.AreEqual(expected.Hight, result.Hight);
+        }
+        [TestMethod("creates 133.33% of the size to crop to 75%")]
+        public void newTest2() {
+            Cut cut = NewCutByPiece(piece_count_x: 7, piece_count_y: 7);
+            Face result = NewFace(width: 256, hight: 256, cut: cut, crop: 0.75d);
+            Face expected = NewFace(width: 341, hight: 341, cut: cut);
+            Assert.AreEqual(expected.Width, result.Width);
+            Assert.AreEqual(expected.Hight, result.Hight);
+        }
+        [TestMethod("creates 111.11% of the size to crop to 90%")]
+        public void newTest3() {
+            Cut cut = NewCutByPiece(piece_count_x: 7, piece_count_y: 7);
+            Face result = NewFace(width: 256, hight: 256, cut: cut, crop: 0.9d);
+            Face expected = NewFace(width: 284, hight: 284, cut: cut);
+            Assert.AreEqual(expected.Width, result.Width);
+            Assert.AreEqual(expected.Hight, result.Hight);
+        }
     }
 }

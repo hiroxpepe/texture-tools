@@ -2,6 +2,7 @@
 // Licensed under the GPL v2.0 license. See LICENSE text in the project root for license information.
 
 using System;
+using System.Drawing;
 using System.Linq;
 
 using Texture.Core;
@@ -29,15 +30,29 @@ namespace Texture {
         // public Methods [verb, verb phrases]
 
         public static void Execute() {
+            // output size.
+            Rectangle rect = new(x: 0, y: 0, width: 256, height: 256);
+            // for layer 1.
             Cut cut1 = NewCutByPiece(piece_count_x: 7, piece_count_y: 7);
-            Face face1 = NewFace(width: 256, hight: 256, cut: cut1);
-            Palette palette1 = NewPalette(primary: Color.Green, secondary: Color.Lime, accent: Color.Yellow, alpha: 1f);
+            Face face1 = NewFace(width: rect.Width, hight: rect.Height, cut: cut1);
+            Palette palette1 = NewPalette(
+                primary: Color.Green, 
+                secondary: Color.Lime,
+                accent: Color.Yellow,
+                alpha: 1f
+            );
+            // for layer 2.
             Cut cut2 = NewCutByPiece(piece_count_x: 6, piece_count_y: 6);
-            Face face2 = NewFace(width: 280, hight: 280, cut: cut2);
-            Palette palette2 = NewPalette(primary: Color.Lime, secondary: Color.Yellow, alpha: 0.5f);
+            Face face2 = NewFace(width: rect.Width, hight: rect.Height, cut: cut2, crop: 0.9d);
+            Palette palette2 = NewPalette(
+                primary: Color.Lime,
+                secondary: Color.Yellow,
+                alpha: 0.5f
+            );
+            // creates tool
             using Tool tool = NewTool(face_array: new Face[] { face1, face2 });
 
-            // layer 1.
+            // callback for layer 1.
             int count = 0; int img_idx = 0;
             face1.OnReady += () => {
                 // randomize
@@ -64,9 +79,10 @@ namespace Texture {
             face1.OnWrite += () => {
                 tool.Write(img_idx, palette1.Alpha);
             };
+            // execute layer 1.
             face1.Make();
 
-            // layer 2.
+            // callback for layer 2.
             count = 0; img_idx++;
             face2.OnReady += () => {
                 // randomize
@@ -89,6 +105,7 @@ namespace Texture {
             face2.OnWrite += () => {
                 tool.Write(img_idx, palette2.Alpha);
             };
+            // execute layer 2.
             face2.Make();
         }
     }

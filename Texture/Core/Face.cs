@@ -31,7 +31,19 @@ namespace Texture.Core {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
-        Face(int width, int hight, Cut cut) {
+        Face(int width, int hight, Cut cut, double crop = 1d) {
+            // crop parameter must be between 0 and 1 inclusive.
+            if (crop < 0d || crop > 1d) {
+                throw new ArgumentOutOfRangeException(
+                    message:"crop parameter must be between 0 and 1 inclusive.", paramName: nameof(crop)
+                );
+            }
+            // scales along the value of the crop param.
+            if (crop is not 1d) {
+                double multiplier = 1 / crop;
+                width = (int) (width * multiplier);
+                hight = (int) (hight * multiplier);
+            }
             _width = NewWidth(length: width);
             _hight = NewHight(length: hight);
             _cut = cut;
@@ -42,8 +54,8 @@ namespace Texture.Core {
         Face(int width, int hight) : this(width, hight, cut: Cut.NewCutDefault()) {
         }
 
-        public static Face NewFace(int width, int hight, Cut cut) {
-            return new(width, hight, cut);
+        public static Face NewFace(int width, int hight, Cut cut, double crop = 1d) {
+            return new(width, hight, cut, crop);
         }
 
         public static Face NewFace(int width, int hight) {
