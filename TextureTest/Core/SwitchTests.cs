@@ -6,7 +6,6 @@ using static Texture.Draw.Switch;
 namespace Texture.Core {
     [TestClass()]
     public class SwitchTests {
-#nullable enable
         [TestMethod()]
         public void NextTest1() {
             InitIndex(count_x: 5, count_y: 5);

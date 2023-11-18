@@ -1,17 +1,5 @@
-﻿/*
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */
+﻿// Copyright (c) STUDIO MeowToon. All rights reserved.
+// Licensed under the GPL v2.0 license. See LICENSE text in the project root for license information.
 
 using System;
 using System.Drawing;
@@ -23,7 +11,7 @@ using static System.Drawing.Graphics;
 using static System.Drawing.Imaging.ImageFormat;
 
 using Texture.Core;
-using TPoint = Texture.Core.Point;
+using TexPoint = Texture.Core.Point;
 using static Texture.Draw.Utils;
 
 namespace Texture.Draw {
@@ -31,9 +19,9 @@ namespace Texture.Draw {
     /// <summary>
     /// tool class
     /// </summary>
-    /// <author>h.adachi (STUDIO MeowToon)</author>
+    /// <company>STUDIO MeowToon</company>
+    /// <author>Hiroyuki Adachi</author>
     public class Tool : ITool, IDisposable {
-#nullable enable
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constants
@@ -71,31 +59,31 @@ namespace Texture.Draw {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // public Methods [verb, verb phrases]
 
-        public void Draw(TPoint[] points) {
+        public void Draw(TexPoint[] points) {
             throw new NotImplementedException();
         }
 
-        public void Draw(TPoint[] points, Color color) {
+        public void Draw(TexPoint[] points, Color color) {
             throw new NotImplementedException();
         }
 
-        public void Fill(TPoint[] points) {
+        public void Fill(TexPoint[] points) {
             fill(points, Color.Red);
         }
 
-        public void Fill(TPoint[] points, Color color) {
+        public void Fill(TexPoint[] points, Color color) {
             fill(points, color);
         }
 
-        public void Fill(TPoint[] points, Color color, int img_idx = 0) {
+        public void Fill(TexPoint[] points, Color color, int img_idx = 0) {
             fill(points, color, img_idx);
         }
 
-        public void Fill(TPoint[] points, Color color, int img_idx = 0, int cell_idx = 0) {
+        public void Fill(TexPoint[] points, Color color, int img_idx = 0, int cell_idx = 0) {
             fill(points, color, img_idx, cell_idx);
         }
 
-        public void Fill(TPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
+        public void Fill(TexPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
             fill(points, color, img_idx, cell_idx, debug);
         }
 
@@ -134,7 +122,7 @@ namespace Texture.Draw {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // private Methods [verb, verb phrases]
 
-        void fill(TPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
+        void fill(TexPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
             // creates the graphics.
             _graphics = FromImage(image: _bitmap_array[img_idx]);
             // sets a brush.

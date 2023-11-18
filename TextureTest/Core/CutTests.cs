@@ -6,7 +6,6 @@ using static Texture.Core.Cut;
 namespace Texture.Core {
     [TestClass()]
     public class CutTests {
-#nullable enable
         [TestMethod()]
         public void CountXTest1() {
             Cut ob = NewCutDefault();

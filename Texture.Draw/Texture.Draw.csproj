@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <LangVersion>9</LangVersion>
+    <Nullable>enable</Nullable>
+    <Company>STUDIO MeowToon</Company>
+    <Authors>Hiroyuki Adachi</Authors>
   </PropertyGroup>
 
   <ItemGroup>

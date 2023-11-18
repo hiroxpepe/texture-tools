@@ -8,7 +8,6 @@ using static Texture.Core.Face;
 namespace Texture.Core {
     [TestClass()]
     public class FaceTests {
-#nullable enable
         [TestMethod()]
         public void sliceTest1() {
             Face ob = NewFace(width: 5, hight: 5, cut: NewCutBySlice(slice_count_x: 1, slice_count_y: 1));
