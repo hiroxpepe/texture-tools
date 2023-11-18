@@ -108,9 +108,17 @@ namespace Texture.Draw {
             _graphics = FromImage(image: _tmp_bitmap);
             _graphics.DrawImage(
                 image: _bitmap_array[img_idx], 
-                destRect: new Rectangle(x: 0, y: 0, width: _face_array[0].Width, height: _face_array[0].Hight), 
-                srcX: 0, srcY: 0, srcWidth: _face_array[img_idx].Width, srcHeight: _face_array[img_idx].Hight, 
-                srcUnit :GraphicsUnit.Pixel,
+                destRect: new Rectangle(
+                    x: 0,
+                    y: 0,
+                    width: _face_array[0].Width, 
+                    height: _face_array[0].Hight
+                ), 
+                srcX: 0, 
+                srcY: 0, 
+                srcWidth: _face_array[img_idx].Width, 
+                srcHeight: _face_array[img_idx].Hight, 
+                srcUnit: GraphicsUnit.Pixel,
                 imageAttrs: image_attributes
             );
 
@@ -161,8 +169,15 @@ namespace Texture.Draw {
 
         void init() {
             int idx = 0;
-            _face_array.ToList().ForEach(action: x => { _bitmap_array[idx++] = new(width: x.Width, height: x.Hight); });
-            _tmp_bitmap = new Bitmap(width: _face_array[0].Width, height: _face_array[0].Hight);
+            // create an array of images for the number of Face objects.
+            _face_array.ToList().ForEach(action: x => { 
+                _bitmap_array[idx++] = new(width: x.Width, height: x.Hight); 
+            });
+            // the final output image size is index 0.
+            _tmp_bitmap = new Bitmap(
+                width: _face_array[0].Width, 
+                height: _face_array[0].Hight
+            );
         }
     }
 #pragma warning restore CA1416

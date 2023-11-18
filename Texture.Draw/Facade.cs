@@ -95,9 +95,9 @@ namespace Texture {
                 });
             };
             face2.OnWrite += () => {
-                //tool.Write(img_idx);
+                tool.Write(img_idx);
             };
-            //face2.Make();
+            face2.Make();
         }
     }
 }
