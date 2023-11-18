@@ -32,10 +32,11 @@ namespace Texture {
             Cut cut1 = NewCutByPiece(piece_count_x: 7, piece_count_y: 7);
             Face face1 = NewFace(width: 256, hight: 256, cut: cut1);
             Palette palette1 = NewPalette(primary: Color.Green, secondary: Color.Lime, accent: Color.Yellow, alpha: 1f);
-            Cut cut2 = NewCutByPiece(piece_count_x: 5, piece_count_y: 5);
-            Face face2 = NewFace(width: 256, hight: 256, cut: cut2);
-            Palette palette2 = NewPalette(primary: Color.Magenta, secondary: Color.Yellow, alpha: 0.5f);
+            Cut cut2 = NewCutByPiece(piece_count_x: 6, piece_count_y: 6);
+            Face face2 = NewFace(width: 280, hight: 280, cut: cut2);
+            Palette palette2 = NewPalette(primary: Color.Lime, secondary: Color.Yellow, alpha: 0.5f);
             using Tool tool = NewTool(face_array: new Face[] { face1, face2 });
+
             // layer 1.
             int count = 0; int img_idx = 0;
             face1.OnReady += () => {

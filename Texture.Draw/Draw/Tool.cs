@@ -12,6 +12,7 @@ using static System.Drawing.Imaging.ImageFormat;
 
 using Texture.Core;
 using TexPoint = Texture.Core.Point;
+using static Texture.Draw.Cropped;
 using static Texture.Draw.Utils;
 
 namespace Texture.Draw {
@@ -88,28 +89,24 @@ namespace Texture.Draw {
         }
 
         public void Write(int img_idx, float alpha = 1f) {
-            ColorMatrix color_matrix = new();
-            color_matrix.Matrix33 = alpha;
-            ImageAttributes image_attributes = new();
-            image_attributes.SetColorMatrix(newColorMatrix: color_matrix);
-
+            // gets ImageAttributes object.
+            ImageAttributes image_attributes = getImageAttributes(alpha);
+            // gets cropped rectangle.
+            Rectangle cropped_rectangle = getCroppedRectangle(img_idx);
+            // creates Graphics object.
             _graphics = FromImage(image: _tmp_bitmap);
             _graphics.DrawImage(
-                image: _bitmap_array[img_idx], 
+                image: _bitmap_array[img_idx],
                 destRect: new Rectangle(
-                    x: 0,
-                    y: 0,
-                    width: _face_array[0].Width, 
-                    height: _face_array[0].Hight
-                ), 
-                srcX: 0, 
-                srcY: 0, 
-                srcWidth: _face_array[img_idx].Width, 
-                srcHeight: _face_array[img_idx].Hight, 
+                    x: 0, y: 0,
+                    width: _face_array[0].Width, height: _face_array[0].Hight
+                ),
+                srcX: cropped_rectangle.X, srcY: cropped_rectangle.Y,
+                srcWidth: cropped_rectangle.Width, srcHeight: cropped_rectangle.Height,
                 srcUnit: GraphicsUnit.Pixel,
                 imageAttrs: image_attributes
             );
-
+            // saves as a PNG file.
             _tmp_bitmap?.Save(filename: $"{OUTPUT_DIR}\\{OUTPUT_NAME}", format: Png);
         }
 
@@ -139,7 +136,7 @@ namespace Texture.Draw {
 
         void init() {
             int idx = 0;
-            // create an array of images for the number of Face objects.
+            // creates an array of images for the number of Face objects.
             _face_array.ToList().ForEach(action: x => { 
                 _bitmap_array[idx++] = new(width: x.Width, height: x.Hight); 
             });
@@ -151,10 +148,32 @@ namespace Texture.Draw {
         }
 
         /// <summary>
+        /// creates ImageAttributes object.
+        /// </summary>
+        static ImageAttributes getImageAttributes(float alpha) {
+            ColorMatrix color_matrix = new();
+            color_matrix.Matrix33 = alpha;
+            ImageAttributes image_attributes = new();
+            image_attributes.SetColorMatrix(newColorMatrix: color_matrix);
+            return image_attributes;
+        }
+
+        /// <summary>
+        /// creates cropped rectangle.
+        /// </summary>
+        Rectangle getCroppedRectangle(int img_idx) {
+            Rectangle src = new(x: 0, y: 0, width: _face_array[0].Width, height: _face_array[0].Hight);
+            Rectangle dest = new(x: 0, y: 0, width: _face_array[img_idx].Width, height: _face_array[img_idx].Hight);
+            Cropped cropped = NewCropped(src: src, dest: dest);
+            Rectangle cropped_rectangle = cropped.Do();
+            return cropped_rectangle;
+        }
+
+        /// <summary>
         /// creates a System.Drawing.Brush object.
         /// </summary>
         static Brush createBrush(Color color) {
-            Brush brush = color switch {
+            return color switch {
                 Color.Red => new SolidBrush(System.Drawing.Color.FromArgb(255, 51, 68)), // HSV: 355,80,100
                 Color.Orange => new SolidBrush(System.Drawing.Color.FromArgb(255, 119, 51)), // HSV: 20,80,100
                 Color.Amber => new SolidBrush(System.Drawing.Color.FromArgb(255, 204, 51)), // HSV: 45,80,100
@@ -171,7 +190,6 @@ namespace Texture.Draw {
                 Color.White => White,
                 _ => Black,
             };
-            return brush;
         }
     }
 #pragma warning restore CA1416
