@@ -21,8 +21,8 @@ namespace Texture.Mix {
             _bitmap = bitmap;
         }
 
-        public static Layer NewLayer(int width, int hight, Cut cut) {
-            return null; // new(width, hight, cut);
+        public static Layer NewLayer(int width, int height, Cut cut) {
+            return null; // new(width, height, cut);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using static Texture.Core.Cell;
-using static Texture.Core.Hight;
+using static Texture.Core.Height;
 using static Texture.Core.Width;
 
 namespace Texture.Core {
@@ -20,7 +20,7 @@ namespace Texture.Core {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Fields [nouns, noun phrases]
 
-        Edge _width, _hight;
+        Edge _width, _height;
 
         Cut _cut;
 
@@ -31,7 +31,7 @@ namespace Texture.Core {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
-        Face(int width, int hight, Cut cut, double crop = 1d) {
+        Face(int width, int height, Cut cut, double crop = 1d) {
             // crop parameter must be between 0 and 1 inclusive.
             if (crop < 0d || crop > 1d) {
                 throw new ArgumentOutOfRangeException(
@@ -42,24 +42,24 @@ namespace Texture.Core {
             if (crop is not 1d) {
                 double multiplier = 1 / crop;
                 width = (int) (width * multiplier);
-                hight = (int) (hight * multiplier);
+                height = (int) (height * multiplier);
             }
             _width = NewWidth(length: width);
-            _hight = NewHight(length: hight);
+            _height = NewHeight(length: height);
             _cut = cut;
             _point_list = new();
             _cell_list = new();
         }
 
-        Face(int width, int hight) : this(width, hight, cut: Cut.NewCutDefault()) {
+        Face(int width, int height) : this(width, height, cut: Cut.NewCutDefault()) {
         }
 
-        public static Face NewFace(int width, int hight, Cut cut, double crop = 1d) {
-            return new(width, hight, cut, crop);
+        public static Face NewFace(int width, int height, Cut cut, double crop = 1d) {
+            return new(width, height, cut, crop);
         }
 
-        public static Face NewFace(int width, int hight) {
-            return new(width, hight);
+        public static Face NewFace(int width, int height) {
+            return new(width, height);
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,7 +67,7 @@ namespace Texture.Core {
 
         public int Width { get => (int) _width.Length; }
 
-        public int Hight { get => (int) _hight.Length; }
+        public int Height { get => (int) _height.Length; }
 
         public int CountX { get => _cut.CountX; }
 
@@ -149,7 +149,7 @@ namespace Texture.Core {
             int count, length; count = length = 0;
             switch (coordinate) {
                 case Coordinate.X: count = _cut.CountX; length = Width; break;
-                case Coordinate.Y: count = _cut.CountY; length = Hight; break;
+                case Coordinate.Y: count = _cut.CountY; length = Height; break;
             }
             float interval = (float) length / count;
             float[] result = new float[count + TO_END];
@@ -160,7 +160,7 @@ namespace Texture.Core {
         }
 
         void setFixed() {
-            float min_x = 0f; float max_x = _width.Length; float min_y = 0f; float max_y = _hight.Length;
+            float min_x = 0f; float max_x = _width.Length; float min_y = 0f; float max_y = _height.Length;
             _point_list.Where(predicate: x => x.X == min_x || x.X == max_x).ToList().ForEach(action: x => x.FixedX = true);
             _point_list.Where(predicate: x => x.Y == min_y || x.Y == max_y).ToList().ForEach(action: x => x.FixedY = true);
         }

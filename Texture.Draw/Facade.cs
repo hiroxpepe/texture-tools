@@ -34,7 +34,7 @@ namespace Texture {
             Rectangle rect = new(x: 0, y: 0, width: 256, height: 256);
             // for layer 1.
             Cut cut1 = NewCutByPiece(piece_count_x: 7, piece_count_y: 7);
-            Face face1 = NewFace(width: rect.Width, hight: rect.Height, cut: cut1);
+            Face face1 = NewFace(width: rect.Width, height: rect.Height, cut: cut1, crop: 0.95d);
             Palette palette1 = NewPalette(
                 primary: Color.Green, 
                 secondary: Color.Lime,
@@ -43,14 +43,14 @@ namespace Texture {
             );
             // for layer 2.
             Cut cut2 = NewCutByPiece(piece_count_x: 6, piece_count_y: 6);
-            Face face2 = NewFace(width: rect.Width, hight: rect.Height, cut: cut2, crop: 0.9d);
+            Face face2 = NewFace(width: rect.Width, height: rect.Height, cut: cut2, crop: 0.9d);
             Palette palette2 = NewPalette(
                 primary: Color.Lime,
                 secondary: Color.Yellow,
                 alpha: 0.5f
             );
             // creates tool
-            using Tool tool = NewTool(face_array: new Face[] { face1, face2 });
+            using Tool tool = NewTool(rect: rect, face_array: new Face[] { face1, face2 });
 
             // callback for layer 1.
             int count = 0; int img_idx = 0;

@@ -36,6 +36,8 @@ namespace Texture.Draw {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Fields [nouns, noun phrases]
 
+        readonly Rectangle _rect;
+
         readonly Face[] _face_array;
 
         Bitmap?[] _bitmap_array;
@@ -47,14 +49,15 @@ namespace Texture.Draw {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
-        Tool(Face[] face_array) {
+        Tool(Rectangle rect, Face[] face_array) {
+            _rect = rect;
             _face_array = face_array;
             _bitmap_array = new Bitmap[LAYER_MAX];
             init();
         }
 
-        public static Tool NewTool(Face[] face_array) {
-            return new(face_array);
+        public static Tool NewTool(Rectangle rect, Face[] face_array) {
+            return new(rect, face_array);
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -98,8 +101,7 @@ namespace Texture.Draw {
             _graphics.DrawImage(
                 image: _bitmap_array[img_idx],
                 destRect: new Rectangle(
-                    x: 0, y: 0,
-                    width: _face_array[0].Width, height: _face_array[0].Hight
+                    x: 0, y: 0, width: _rect.Width, height: _rect.Height
                 ),
                 srcX: cropped_rectangle.X, srcY: cropped_rectangle.Y,
                 srcWidth: cropped_rectangle.Width, srcHeight: cropped_rectangle.Height,
@@ -138,12 +140,12 @@ namespace Texture.Draw {
             int idx = 0;
             // creates an array of images for the number of Face objects.
             _face_array.ToList().ForEach(action: x => { 
-                _bitmap_array[idx++] = new(width: x.Width, height: x.Hight); 
+                _bitmap_array[idx++] = new(width: x.Width, height: x.Height); 
             });
-            // the final output image size is index 0.
+            // the final output image size is from by rect object.
             _tmp_bitmap = new Bitmap(
-                width: _face_array[0].Width, 
-                height: _face_array[0].Hight
+                width: _rect.Width, 
+                height: _rect.Height
             );
         }
 
@@ -162,8 +164,8 @@ namespace Texture.Draw {
         /// creates cropped rectangle.
         /// </summary>
         Rectangle getCroppedRectangle(int img_idx) {
-            Rectangle src = new(x: 0, y: 0, width: _face_array[0].Width, height: _face_array[0].Hight);
-            Rectangle dest = new(x: 0, y: 0, width: _face_array[img_idx].Width, height: _face_array[img_idx].Hight);
+            Rectangle src = new(x: 0, y: 0, width: _rect.Width, height: _rect.Height);
+            Rectangle dest = new(x: 0, y: 0, width: _face_array[img_idx].Width, height: _face_array[img_idx].Height);
             Cropped cropped = NewCropped(src: src, dest: dest);
             Rectangle cropped_rectangle = cropped.Do();
             return cropped_rectangle;

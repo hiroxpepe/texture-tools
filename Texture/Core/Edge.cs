@@ -44,16 +44,16 @@ namespace Texture.Core {
         }
     }
 
-    public class Hight : Edge {
+    public class Height : Edge {
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
-        Hight(int length) : base(length) {
+        Height(int length) : base(length) {
         }
 
-        public static Edge NewHight(int length) {
-            return new Hight(length);
+        public static Edge NewHeight(int length) {
+            return new Height(length);
         }
     }
 }
