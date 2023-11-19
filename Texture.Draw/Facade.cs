@@ -9,6 +9,7 @@ using Texture.Core;
 using Texture.Draw;
 using static Texture.Core.Cut;
 using static Texture.Core.Face;
+using static Texture.Core.Swing;
 using static Texture.Draw.Palette;
 using static Texture.Draw.Switch;
 using static Texture.Draw.Tool;
@@ -41,6 +42,7 @@ namespace Texture {
                 accent: Color.Yellow,
                 alpha: 1f
             );
+            Swing swing1 = NewSwing(min_value_x: 10, max_value_x: 10, min_value_y: 10, max_value_y: 10);
             // for layer 2.
             Cut cut2 = NewCutByPiece(piece_count_x: 6, piece_count_y: 6);
             Face face2 = NewFace(width: rect.Width, height: rect.Height, cut: cut2, crop: 0.9d);
@@ -49,6 +51,7 @@ namespace Texture {
                 secondary: Color.Yellow,
                 alpha: 0.5f
             );
+            Swing swing2 = NewSwing(min_value_x: 20, max_value_x: 20, min_value_y: 20, max_value_y: 20);
             // creates tool
             using Tool tool = NewTool(rect: rect, face_array: new Face[] { face1, face2 });
 
@@ -58,10 +61,16 @@ namespace Texture {
                 // randomize
                 face1.AllPoint.ForEach(action: x => {
                     x.Where(predicate: x => !x.FixedX).ToList().ForEach(action: x => {
-                        if (!x.MovedX) { x.X += _random.Next(minValue: -10, maxValue: 10); x.MovedX = true; }
+                        if (!x.MovedX) { 
+                            x.X += _random.Next(minValue: swing1.MinValueX, maxValue: swing1.MaxValueX);
+                            x.MovedX = true;
+                        }
                     });
                     x.Where(predicate: x => !x.FixedY).ToList().ForEach(action: x => {
-                        if (!x.MovedY) { x.Y += _random.Next(minValue: -10, maxValue: 10); x.MovedY = true; }
+                        if (!x.MovedY) {
+                            x.Y += _random.Next(minValue: swing1.MinValueY, maxValue: swing1.MaxValueY);
+                            x.MovedY = true;
+                        }
                     });
                 });
                 // fills by color.
@@ -88,10 +97,16 @@ namespace Texture {
                 // randomize
                 face2.AllPoint.ForEach(action: x => {
                     x.Where(predicate: x => !x.FixedX).ToList().ForEach(action: x => {
-                        if (!x.MovedX) { x.X += _random.Next(minValue: -20, maxValue: 20); x.MovedX = true; }
+                        if (!x.MovedX) {
+                            x.X += _random.Next(minValue: swing2.MinValueX, maxValue: swing2.MaxValueX);
+                            x.MovedX = true;
+                        }
                     });
                     x.Where(predicate: x => !x.FixedY).ToList().ForEach(action: x => {
-                        if (!x.MovedY) { x.Y += _random.Next(minValue: -20, maxValue: 20); x.MovedY = true; }
+                        if (!x.MovedY) {
+                            x.Y += _random.Next(minValue: swing2.MinValueY, maxValue: swing2.MaxValueY);
+                            x.MovedY = true;
+                        }
                     });
                 });
                 // fills by color.
