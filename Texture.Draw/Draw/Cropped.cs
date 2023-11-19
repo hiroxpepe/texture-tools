@@ -33,7 +33,7 @@ namespace Texture.Draw {
 
         public Rectangle Do() {
             // checks the point is zero.
-            Point zero_point = new Point(x: 0, y: 0);
+            Point zero_point = new(x: 0, y: 0);
             if (_src.Location != zero_point && _dest.Location != zero_point) {
                 throw new ArgumentException(message: "point must be zero.", paramName: nameof(Do));
             }

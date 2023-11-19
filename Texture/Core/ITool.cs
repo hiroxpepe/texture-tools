@@ -22,6 +22,6 @@ namespace Texture.Core {
 
         public void Fill(Point[] points, Color color, int img_idx, int cell_idx, bool debug);
 
-        public void Write(int img_idx, float alpha = 1f);
+        public void Write(int img_idx, float alpha = 1f, double angle = 0);
     }
 }

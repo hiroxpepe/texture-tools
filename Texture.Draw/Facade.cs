@@ -34,13 +34,13 @@ namespace Texture {
             // output size.
             Rectangle rect = new(x: 0, y: 0, width: 256, height: 256);
             // for layer 1.
-            Cut cut1 = NewCutByPiece(piece_count_x: 7, piece_count_y: 7);
-            Face face1 = NewFace(width: rect.Width, height: rect.Height, cut: cut1, crop: 0.95d);
+            Cut cut1 = NewCutByPiece(piece_count_x: 14, piece_count_y: 14);
+            Face face1 = NewFace(width: rect.Width, height: rect.Height, cut: cut1, crop: 0.5d);
             Palette palette1 = NewPalette(
                 primary: Color.Green, 
                 secondary: Color.Lime,
                 accent: Color.Yellow,
-                alpha: 1f
+                alpha: 1.0f
             );
             Swing swing1 = NewSwing(min_value_x: 10, max_value_x: 10, min_value_y: 10, max_value_y: 10);
             // for layer 2.
@@ -49,7 +49,7 @@ namespace Texture {
             Palette palette2 = NewPalette(
                 primary: Color.Lime,
                 secondary: Color.Yellow,
-                alpha: 0.5f
+                alpha: 0.475f
             );
             Swing swing2 = NewSwing(min_value_x: 20, max_value_x: 20, min_value_y: 20, max_value_y: 20);
             // creates tool
@@ -86,7 +86,7 @@ namespace Texture {
                 });
             };
             face1.OnWrite += () => {
-                tool.Write(img_idx, palette1.Alpha);
+                tool.Write(img_idx, alpha: palette1.Alpha, angle: 45);
             };
             // execute layer 1.
             face1.Make();
@@ -118,7 +118,7 @@ namespace Texture {
                 });
             };
             face2.OnWrite += () => {
-                tool.Write(img_idx, palette2.Alpha);
+                tool.Write(img_idx, alpha: palette2.Alpha);
             };
             // execute layer 2.
             face2.Make();

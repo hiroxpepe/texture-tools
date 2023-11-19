@@ -4,7 +4,9 @@
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 using System.Linq;
+using Point = System.Drawing.Point;
 using static System.Environment;
 using static System.Drawing.Brushes;
 using static System.Drawing.Graphics;
@@ -91,23 +93,69 @@ namespace Texture.Draw {
             fill(points, color, img_idx, cell_idx, debug);
         }
 
-        public void Write(int img_idx, float alpha = 1f) {
+        public void Write(int img_idx, float alpha = 1f, double angle = 0) {
             // gets ImageAttributes object.
             ImageAttributes image_attributes = getImageAttributes(alpha);
             // gets cropped rectangle.
             Rectangle cropped_rectangle = getCroppedRectangle(img_idx);
             // creates Graphics object.
             _graphics = FromImage(image: _tmp_bitmap);
-            _graphics.DrawImage(
-                image: _bitmap_array[img_idx],
-                destRect: new Rectangle(
-                    x: 0, y: 0, width: _rect.Width, height: _rect.Height
-                ),
-                srcX: cropped_rectangle.X, srcY: cropped_rectangle.Y,
-                srcWidth: cropped_rectangle.Width, srcHeight: cropped_rectangle.Height,
-                srcUnit: GraphicsUnit.Pixel,
-                imageAttrs: image_attributes
-            );
+            // no rotation.
+            if (angle is 0) {
+                _graphics.DrawImage(
+                    image: _bitmap_array[img_idx],
+                    destRect: new Rectangle(
+                        x: 0, y: 0, width: _rect.Width, height: _rect.Height
+                    ),
+                    srcX: cropped_rectangle.X, srcY: cropped_rectangle.Y,
+                    srcWidth: cropped_rectangle.Width, srcHeight: cropped_rectangle.Height,
+                    srcUnit: GraphicsUnit.Pixel,
+                    imageAttrs: image_attributes
+                );
+            }
+            // with rotation.
+            else {
+                if (_bitmap_array[img_idx] is null) { return; }
+
+                Point[] dest_points = getRotatePoints(
+                    rect: new Rectangle(
+                        x: 0,
+                        y: 0,
+                        width: _bitmap_array[img_idx].Width,
+                        height: _bitmap_array[img_idx].Height
+                    ),
+                    center_x: _bitmap_array[img_idx].Width / 2,
+                    center_y: _bitmap_array[img_idx].Height / 2,
+                    angle: angle
+                );
+
+                using Graphics? tmp_gr = FromImage(image: _bitmap_array[img_idx]);
+                tmp_gr.DrawImage(
+                    image: _bitmap_array[img_idx],
+                    destPoints: dest_points,
+                    srcRect: new Rectangle(
+                        x: 0, y: 0,
+                        width: _bitmap_array[img_idx].Width,
+                        height: _bitmap_array[img_idx].Height
+                    ),
+                    srcUnit: GraphicsUnit.Pixel,
+                    imageAttr: image_attributes
+                );
+
+                _bitmap_array[img_idx]?.Save(filename: $"{OUTPUT_DIR}\\tmp_{OUTPUT_NAME}", format: Png);
+                using Image tmp_image = Image.FromFile(filename: $"{OUTPUT_DIR}\\tmp_{OUTPUT_NAME}");
+
+                _graphics.DrawImage(
+                    image: tmp_image,
+                    destRect: new Rectangle(
+                        x: 0, y: 0, width: _rect.Width, height: _rect.Height
+                    ),
+                    srcX: cropped_rectangle.X, srcY: cropped_rectangle.Y,
+                    srcWidth: cropped_rectangle.Width, srcHeight: cropped_rectangle.Height,
+                    srcUnit: GraphicsUnit.Pixel,
+                    imageAttrs: image_attributes
+                );
+            }
             // saves as a PNG file.
             _tmp_bitmap?.Save(filename: $"{OUTPUT_DIR}\\{OUTPUT_NAME}", format: Png);
         }
@@ -169,6 +217,22 @@ namespace Texture.Draw {
             Cropped cropped = NewCropped(src: src, dest: dest);
             Rectangle cropped_rectangle = cropped.Do();
             return cropped_rectangle;
+        }
+
+        /// <summary>
+        /// gets rotate points
+        /// </summary>
+        Point[] getRotatePoints(Rectangle rect, int center_x, int center_y, double angle) {
+            int width = rect.Width / 2;
+            int height = rect.Height / 2;
+            double cos = Math.Cos(angle * Math.PI / 180);
+            double sin = Math.Sin(angle * Math.PI / 180);
+            Point[] points = new Point[] {
+                new Point((int) (-cos * width + sin * height + center_x), (int) (-sin * width - cos * height + center_y)),
+                new Point((int) (cos * width + sin * height + center_x), (int) (sin * width - cos * height + center_y)),
+                new Point((int) (-cos * width - sin * height + center_x), (int) (-sin * width + cos * height + center_y)),
+            };
+            return points;
         }
 
         /// <summary>
