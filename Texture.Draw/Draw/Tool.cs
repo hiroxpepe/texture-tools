@@ -4,7 +4,6 @@
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using Point = System.Drawing.Point;
 using static System.Environment;
@@ -33,7 +32,7 @@ namespace Texture.Draw {
 
         public readonly string OUTPUT_DIR = GetFolderPath(SpecialFolder.DesktopDirectory);
 
-        public readonly string OUTPUT_NAME = "output.png";
+        public readonly string OUTPUT_NAME = "blcb_basic.png";
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Fields [nouns, noun phrases]
