@@ -25,8 +25,16 @@ namespace Texture.Core {
             return new(x: slice_count_x, y: slice_count_y);
         }
 
+        public static Cut NewCutBySlice(int slice_count) {
+            return NewCutBySlice(slice_count_x: slice_count, slice_count_y: slice_count);
+        }
+
         public static Cut NewCutByPiece(int piece_count_x, int piece_count_y) {
             return new(x: piece_count_x - 1, y: piece_count_y - 1);
+        }
+
+        public static Cut NewCutByPiece(int piece_count) {
+            return NewCutByPiece(piece_count_x: piece_count, piece_count_y: piece_count);
         }
 
         public static Cut NewCutDefault() {

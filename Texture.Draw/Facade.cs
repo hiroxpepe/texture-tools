@@ -13,6 +13,7 @@ using static Texture.Core.Swing;
 using static Texture.Draw.Palette;
 using static Texture.Draw.Switch;
 using static Texture.Draw.Tool;
+using static Texture.Draw.Extensions;
 
 namespace Texture {
     /// <summary>
@@ -34,24 +35,24 @@ namespace Texture {
             // output size.
             Rectangle rect = new(x: 0, y: 0, width: 256, height: 256);
             // for layer 1.
-            Cut cut1 = NewCutByPiece(piece_count_x: 7, piece_count_y: 7);
-            Face face1 = NewFace(width: rect.Width, height: rect.Height, cut: cut1, crop: 0.9d);
+            Cut cut1 = NewCutByPiece(piece_count: 7);
+            Face face1 = NewFace(rect: rect, cut: cut1, crop: 0.9d);
             Palette palette1 = NewPalette(
                 primary: Color.Green, 
                 secondary: Color.Yellow,
                 accent: Color.Lime,
                 alpha: 1.0f
             );
-            Swing swing1 = NewSwing(min_value_x: 10, max_value_x: 10, min_value_y: 10, max_value_y: 10);
+            Swing swing1 = NewSwing(value: 2);
             // for layer 2.
-            Cut cut2 = NewCutByPiece(piece_count_x: 6, piece_count_y: 6);
-            Face face2 = NewFace(width: rect.Width, height: rect.Height, cut: cut2, crop: 0.9d);
+            Cut cut2 = NewCutByPiece(piece_count: 6);
+            Face face2 = NewFace(rect: rect, cut: cut2, crop: 0.9d);
             Palette palette2 = NewPalette(
                 primary: Color.Lime,
                 secondary: Color.Azure,
                 alpha: 0.5f
             );
-            Swing swing2 = NewSwing(min_value_x: 20, max_value_x: 20, min_value_y: 20, max_value_y: 20);
+            Swing swing2 = NewSwing(value: 3);
             // creates tool
             using Tool tool = NewTool(rect: rect, face_array: new Face[] { face1, face2 });
 

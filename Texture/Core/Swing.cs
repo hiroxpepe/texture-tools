@@ -26,6 +26,14 @@ namespace Texture.Core {
             return new(min_value_x, max_value_x, min_value_y, max_value_y);
         }
 
+        public static Swing NewSwing(int min_value, int max_value) {
+            return new(min_value_x: min_value, max_value_x: max_value, min_value_y: min_value, max_value_y: max_value);
+        }
+
+        public static Swing NewSwing(int value) {
+            return new(min_value_x: value, max_value_x: value, min_value_y: value, max_value_y: value);
+        }
+
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Properties [noun, noun phrase, adjective] 
 
