@@ -3,7 +3,6 @@
 
 using System;
 using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Texture.Core;
@@ -49,34 +48,30 @@ namespace Texture.Win64 {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Event handler
 
-        async void _numericUpDown_width_ValueChanged(object sender, EventArgs e) {
-            await Task.Run(action: () => {
-                _rect.Width = (int)_numericUpDown_width.Value;
-            });
+        void _numericUpDown_width_ValueChanged(object sender, EventArgs e) {
+            _rect.Width = (int)_numericUpDown_width.Value;
         }
 
-        async void _numericUpDown_height_ValueChanged(object sender, EventArgs e) {
-            await Task.Run(action: () => {
-                _rect.Height = (int)_numericUpDown_height.Value;
-            });
+        void _numericUpDown_height_ValueChanged(object sender, EventArgs e) {
+            _rect.Height = (int)_numericUpDown_height.Value;
         }
 
-        async void _radioButton_layer1_Click(object sender, EventArgs e) {
-            bool result = await saveLayer(index: LAYER_2);
-            if (result) { await loadLayer(index: LAYER_1); }
+        void _radioButton_layer1_Click(object sender, EventArgs e) {
+            bool result = saveLayer(index: LAYER_2);
+            if (result) { loadLayer(index: LAYER_1); }
         }
 
-        async void _radioButton_layer2_Click(object sender, EventArgs e) {
-            bool result = await saveLayer(index: LAYER_1);
-            if (result) { await loadLayer(index: LAYER_2); }
+        void _radioButton_layer2_Click(object sender, EventArgs e) {
+            bool result = saveLayer(index: LAYER_1);
+            if (result) { loadLayer(index: LAYER_2); }
         }
 
         /// <summary>
         /// event handler where write button are clicked
         /// </summary>
-        async void _button_write_Click(object sender, EventArgs e) {
-            bool result = await saveLayer(index: getLayerIndex());
-            if (result) { await write(); }
+        void _button_write_Click(object sender, EventArgs e) {
+            bool result = saveLayer(index: getLayerIndex());
+            if (result) { write(); }
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -95,7 +90,7 @@ namespace Texture.Win64 {
             }
         }
 
-        async Task<bool> saveLayer(int index) {
+        bool saveLayer(int index) {
             try {
                 Cut cut = NewCutByPiece(piece_count: (int) _numericUpDown_piece_count.Value);
                 Face face = NewFace(rect: _rect, cut: cut, crop: (double) _numericUpDown_crop.Value);
@@ -120,7 +115,7 @@ namespace Texture.Win64 {
             }
         }
 
-        async Task<bool> loadLayer(int index) {
+        bool loadLayer(int index) {
             try {
                 Cut cut = _param_array[index].Cut;
                 Face face = _param_array[index].Face;
@@ -141,9 +136,9 @@ namespace Texture.Win64 {
             }
         }
 
-        async Task<bool> write() {
+        bool write() {
             try {
-                bool result = await Context.Do(rect: _rect, param_array: _param_array);
+                bool result = Context.Do(rect: _rect, param_array: _param_array);
                 return result;
             }
             catch (Exception ex) {
