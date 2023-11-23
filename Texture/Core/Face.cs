@@ -28,6 +28,8 @@ namespace Texture.Core {
 
         List<Cell> _cell_list;
 
+        double _crop;
+
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
@@ -49,6 +51,7 @@ namespace Texture.Core {
             _cut = cut;
             _point_list = new();
             _cell_list = new();
+            _crop = crop;
         }
 
         Face(int width, int height) : this(width, height, cut: Cut.NewCutDefault()) {
@@ -80,6 +83,8 @@ namespace Texture.Core {
                 return result;
             }
         }
+
+        public double Crop { get => _crop; }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // public Events [verb, verb phrase]

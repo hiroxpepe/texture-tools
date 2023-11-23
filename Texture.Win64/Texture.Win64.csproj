@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <LangVersion>9</LangVersion>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Company>STUDIO MeowToon</Company>
+    <Authors>Hiroyuki Adachi</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Texture\Texture.csproj" />
+    <ProjectReference Include="..\Texture.Draw\Texture.Draw.csproj" />
+  </ItemGroup>
+
+</Project>
