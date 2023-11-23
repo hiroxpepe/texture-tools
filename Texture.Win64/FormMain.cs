@@ -97,15 +97,15 @@ namespace Texture.Win64 {
 
         async Task<bool> saveLayer(int index) {
             try {
-                Cut cut = NewCutByPiece(piece_count: (int)_numericUpDown_piece_count.Value);
-                Face face = NewFace(rect: _rect, cut: cut, crop: (double)_numericUpDown_crop.Value);
+                Cut cut = NewCutByPiece(piece_count: (int) _numericUpDown_piece_count.Value);
+                Face face = NewFace(rect: _rect, cut: cut, crop: (double) _numericUpDown_crop.Value);
                 Palette palette = NewPalette(
                     primary: _comboBox_primary.Text,
                     secondary: _comboBox_secondary.Text,
                     accent: _comboBox_accent.Text,
-                    alpha: (float)_numericUpDown_alpha.Value
+                    alpha: (float) _numericUpDown_alpha.Value
                 );
-                Swing swing = NewSwing(value: (int)_numericUpDown_swing.Value);
+                Swing swing = NewSwing(value: (int) _numericUpDown_swing.Value);
                 _param_array[index] = new Param(
                     cut: cut,
                     face: face,
@@ -127,11 +127,11 @@ namespace Texture.Win64 {
                 Palette palette = _param_array[index].Palette;
                 Swing swing = _param_array[index].Swing;
                 _numericUpDown_piece_count.Value = cut.CountX; // FIXME:
-                _numericUpDown_crop.Value = (decimal)face.Crop;
+                _numericUpDown_crop.Value = (decimal) face.Crop;
                 _comboBox_primary.Text = palette.Primary.ToString();
                 _comboBox_secondary.Text = palette.Secondary.ToString();
                 _comboBox_accent.Text = palette.Accent.ToString();
-                _numericUpDown_alpha.Value = (decimal)palette.Alpha;
+                _numericUpDown_alpha.Value = (decimal) palette.Alpha;
                 _numericUpDown_swing.Value = swing.MaxValueX; // FIXME:
                 return true;
             }

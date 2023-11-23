@@ -167,7 +167,6 @@
             0,
             0,
             0});
-            this._numericUpDown_piece_count.ValueChanged += new System.EventHandler(this._numericUpDown_piece_count_ValueChanged);
             // 
             // _label_piece_count
             // 
@@ -206,7 +205,6 @@
             0,
             0,
             0});
-            this._numericUpDown_crop.ValueChanged += new System.EventHandler(this._numericUpDown_crop_ValueChanged);
             // 
             // _label_crop
             // 
@@ -242,7 +240,6 @@
             this._comboBox_primary.Size = new System.Drawing.Size(151, 28);
             this._comboBox_primary.TabIndex = 15;
             this._comboBox_primary.Text = "--none--";
-            this._comboBox_primary.SelectedIndexChanged += new System.EventHandler(this._comboBox_primary_SelectedIndexChanged);
             // 
             // _label_primary
             // 
@@ -278,7 +275,6 @@
             this._comboBox_secondary.Size = new System.Drawing.Size(151, 28);
             this._comboBox_secondary.TabIndex = 17;
             this._comboBox_secondary.Text = "--none--";
-            this._comboBox_secondary.SelectedIndexChanged += new System.EventHandler(this._comboBox_secondary_SelectedIndexChanged);
             // 
             // _label_secondary
             // 
@@ -314,7 +310,6 @@
             this._comboBox_accent.Size = new System.Drawing.Size(151, 28);
             this._comboBox_accent.TabIndex = 19;
             this._comboBox_accent.Text = "--none--";
-            this._comboBox_accent.SelectedIndexChanged += new System.EventHandler(this._comboBox_accent_SelectedIndexChanged);
             // 
             // _label_accent
             // 
@@ -348,7 +343,6 @@
             0,
             0,
             0});
-            this._numericUpDown_alpha.ValueChanged += new System.EventHandler(this._numericUpDown_alpha_ValueChanged);
             // 
             // _label_alpha
             // 
@@ -371,7 +365,6 @@
             this._numericUpDown_swing.Name = "_numericUpDown_swing";
             this._numericUpDown_swing.Size = new System.Drawing.Size(150, 27);
             this._numericUpDown_swing.TabIndex = 23;
-            this._numericUpDown_swing.ValueChanged += new System.EventHandler(this._numericUpDown_swing_ValueChanged);
             // 
             // _label_swing
             // 
@@ -421,7 +414,6 @@
             this._radioButton_layer1.TabStop = true;
             this._radioButton_layer1.Text = "layer 1";
             this._radioButton_layer1.UseVisualStyleBackColor = false;
-            this._radioButton_layer1.CheckedChanged += new System.EventHandler(this._radioButton_layer1_CheckedChanged);
             this._radioButton_layer1.Click += new System.EventHandler(this._radioButton_layer1_Click);
             // 
             // _radioButton_layer2
@@ -434,7 +426,6 @@
             this._radioButton_layer2.TabIndex = 0;
             this._radioButton_layer2.Text = "layer 2";
             this._radioButton_layer2.UseVisualStyleBackColor = false;
-            this._radioButton_layer2.CheckedChanged += new System.EventHandler(this._radioButton_layer2_CheckedChanged);
             this._radioButton_layer2.Click += new System.EventHandler(this._radioButton_layer2_Click);
             // 
             // _groupBox_rect
