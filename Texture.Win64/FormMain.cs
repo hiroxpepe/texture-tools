@@ -34,6 +34,8 @@ namespace Texture.Win64 {
 
         Param[] _param_array;
 
+        int _layer_index;
+
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
@@ -42,7 +44,8 @@ namespace Texture.Win64 {
         /// </summary>
         public FormMain() {
             InitializeComponent();
-            initializeParam();
+            initializeField();
+            _label_layer1.ForeColor = System.Drawing.Color.Lime;
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -57,37 +60,46 @@ namespace Texture.Win64 {
         }
 
         void _button_layer1_Click(object sender, EventArgs e) {
-            bool result = saveLayer(index: LAYER_2);
-            if (result) { loadLayer(index: LAYER_1); }
+            if (_layer_index is not LAYER_1) {
+                bool result = saveLayer(index: _layer_index);
+                if (!result) { return; }
+                switchLayerIndex();
+                loadLayer(index: _layer_index);
+            }
         }
 
         void _button_layer2_Click(object sender, EventArgs e) {
-            bool result = saveLayer(index: LAYER_1);
-            if (result) { loadLayer(index: LAYER_2); }
+            if (_layer_index is not LAYER_2) {
+                bool result = saveLayer(index: _layer_index);
+                if (!result) { return; }
+                switchLayerIndex();
+                loadLayer(index: _layer_index);
+            }
         }
 
         /// <summary>
         /// event handler where write button are clicked
         /// </summary>
         void _button_write_Click(object sender, EventArgs e) {
-            bool result = saveLayer(index: getLayerIndex());
+            bool result = saveLayer(index: _layer_index);
             if (result) { write(); }
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // private Methods [verb]
 
-        void initializeParam() {
+        void initializeField() {
             _rect = new(x: 0, y: 0, width: 256, height: 256);
             _param_array = new Param[2];
             for (int i = 0; i < 2; i++) {
                 _param_array[i] = new Param(
                     cut: NewCutDefault(),
                     face: NewFace(width: 256, height: 256),
-                    palette: NewPalette(primary: Color.Red, secondary: Color.Orange),
+                    palette: NewPalette(primary: Color.White, secondary: Color.White),
                     swing: NewSwing(value: 5)
                 );
             }
+            _layer_index = 0;
         }
 
         bool saveLayer(int index) {
@@ -147,17 +159,27 @@ namespace Texture.Win64 {
             }
         }
 
-        int getLayerIndex() {
-            //if (_radioButton_layer1.Checked == true) {
-            //    return 0;
-            //}
-            //else if (_radioButton_layer2.Checked == true) {
-            //    return 1;
-            //}
-            //else {
-            //    return -1;
-            //}
-            return 1;
+        void switchLayerIndex() {
+            if (_layer_index == LAYER_1) {
+                _layer_index = LAYER_2;
+                _label_layer1.ForeColor = System.Drawing.Color.Gray;
+                _label_layer2.ForeColor = System.Drawing.Color.Lime;
+            }
+            else if (_layer_index == LAYER_2) {
+                _layer_index = LAYER_1;
+                _label_layer2.ForeColor = System.Drawing.Color.Gray;
+                _label_layer1.ForeColor = System.Drawing.Color.Lime;
+            }
+        }
+
+        int nextLayerIndex() {
+            if (_layer_index == LAYER_1) {
+                return LAYER_2;
+            }
+            else if (_layer_index == LAYER_2) {
+                return LAYER_1;
+            }
+            return -1;
         }
     }
 }

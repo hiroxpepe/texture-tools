@@ -43,6 +43,8 @@
             this._numericUpDown_swing = new System.Windows.Forms.NumericUpDown();
             this._label_swing = new System.Windows.Forms.Label();
             this._groupBox_layer = new System.Windows.Forms.GroupBox();
+            this._label_layer1 = new System.Windows.Forms.Label();
+            this._label_layer2 = new System.Windows.Forms.Label();
             this._button_layer1 = new System.Windows.Forms.Button();
             this._button_layer2 = new System.Windows.Forms.Button();
             this._groupBox_rect = new System.Windows.Forms.GroupBox();
@@ -378,6 +380,8 @@
             // 
             // _groupBox_layer
             // 
+            this._groupBox_layer.Controls.Add(this._label_layer1);
+            this._groupBox_layer.Controls.Add(this._label_layer2);
             this._groupBox_layer.Controls.Add(this._button_layer1);
             this._groupBox_layer.Controls.Add(this._button_layer2);
             this._groupBox_layer.Controls.Add(this._label_swing);
@@ -401,6 +405,26 @@
             this._groupBox_layer.TabIndex = 25;
             this._groupBox_layer.TabStop = false;
             this._groupBox_layer.Text = "layer";
+            // 
+            // _label_layer1
+            // 
+            this._label_layer1.AutoSize = true;
+            this._label_layer1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this._label_layer1.Location = new System.Drawing.Point(75, 77);
+            this._label_layer1.Name = "_label_layer1";
+            this._label_layer1.Size = new System.Drawing.Size(24, 20);
+            this._label_layer1.TabIndex = 28;
+            this._label_layer1.Text = "●";
+            // 
+            // _label_layer2
+            // 
+            this._label_layer2.AutoSize = true;
+            this._label_layer2.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this._label_layer2.Location = new System.Drawing.Point(75, 30);
+            this._label_layer2.Name = "_label_layer2";
+            this._label_layer2.Size = new System.Drawing.Size(24, 20);
+            this._label_layer2.TabIndex = 27;
+            this._label_layer2.Text = "●";
             // 
             // _button_layer1
             // 
@@ -493,6 +517,8 @@
         private System.Windows.Forms.GroupBox _groupBox_rect;
         private System.Windows.Forms.Button _button_layer1;
         private System.Windows.Forms.Button _button_layer2;
+        private System.Windows.Forms.Label _label_layer1;
+        private System.Windows.Forms.Label _label_layer2;
     }
 }
 
