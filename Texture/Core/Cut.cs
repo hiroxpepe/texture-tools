@@ -55,8 +55,8 @@ namespace Texture.Core {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // private Methods [verb, verb phrases]
 
-        int _getCountX() { return CountX; } // for UnitTest
+        int _get_count_x() { return CountX; } // for UnitTest
 
-        int _getCountY() { return CountY; } // for UnitTest
+        int _get_count_y() { return CountY; } // for UnitTest
     }
 }

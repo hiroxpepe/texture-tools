@@ -39,7 +39,7 @@ namespace Texture.Core {
         [TestMethod()]
         public void extendTest1() {
             Face ob = NewFace(width: 5, height: 5, cut: NewCutBySlice(slice_count_x: 1, slice_count_y: 1));
-            List<Point>? result = new PrivateObject(ob: ob).Invoke(method_name: "_extendAndGetList") as List<Point>;
+            List<Point>? result = new PrivateObject(ob: ob).Invoke(method_name: "_extend_and_get_list") as List<Point>;
             List<Point> expected = new() {
                 new(x: 0.0f, y: 0.0f), new(x: 2.5f, y: 0.0f), new(x: 5.0f, y: 0.0f),
                 new(x: 0.0f, y: 2.5f), new(x: 2.5f, y: 2.5f), new(x: 5.0f, y: 2.5f),
@@ -50,7 +50,7 @@ namespace Texture.Core {
         [TestMethod()]
         public void extendTest2() {
             Face ob = NewFace(width: 12, height: 12, cut: NewCutByPiece(piece_count_x: 3, piece_count_y: 4));
-            List<Point>? result = new PrivateObject(ob: ob).Invoke(method_name: "_extendAndGetList") as List<Point>;
+            List<Point>? result = new PrivateObject(ob: ob).Invoke(method_name: "_extend_and_get_list") as List<Point>;
             List<Point> expected = new() {
                 new(x: 0.0f, y:  0.0f), new(x: 4.0f, y:  0.0f), new(x: 8.0f, y:  0.0f), new(x: 12.0f, y:  0.0f),
                 new(x: 0.0f, y:  3.0f), new(x: 4.0f, y:  3.0f), new(x: 8.0f, y:  3.0f), new(x: 12.0f, y:  3.0f),

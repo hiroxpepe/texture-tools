@@ -112,7 +112,7 @@ namespace Texture.Core {
                     _point_list.Add(item: point);
                 }
             }
-            setFixed();
+            set_fixed();
             // creates cell list.
             for (int y_idx = 0; y_idx < _cut.CountY; y_idx++) {
                 for (int x_idx = 0; x_idx < _cut.CountX; x_idx++) {
@@ -164,7 +164,7 @@ namespace Texture.Core {
             return result;
         }
 
-        void setFixed() {
+        void set_fixed() {
             float min_x = 0f; float max_x = _width.Length; float min_y = 0f; float max_y = _height.Length;
             _point_list.Where(predicate: x => x.X == min_x || x.X == max_x).ToList().ForEach(action: x => x.FixedX = true);
             _point_list.Where(predicate: x => x.Y == min_y || x.Y == max_y).ToList().ForEach(action: x => x.FixedY = true);
@@ -173,7 +173,7 @@ namespace Texture.Core {
         /// <note>
         /// for UnitTest
         /// </note>
-        List<Point> _extendAndGetList() {
+        List<Point> _extend_and_get_list() {
             extend();
             return _point_list;
         }

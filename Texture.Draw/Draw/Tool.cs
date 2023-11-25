@@ -99,9 +99,9 @@ namespace Texture.Draw {
 
         public void Write(int img_idx, float alpha = 1f, double angle = 0) {
             // gets ImageAttributes object.
-            ImageAttributes image_attributes = getImageAttributes(alpha);
+            ImageAttributes image_attributes = get_image_attributes(alpha);
             // gets cropped rectangle.
-            Rectangle cropped_rectangle = getCroppedRectangle(img_idx);
+            Rectangle cropped_rectangle = get_cropped_rectangle(img_idx);
             // creates Graphics object.
             _graphics = FromImage(image: _tmp_bitmap);
             // no rotation.
@@ -121,7 +121,7 @@ namespace Texture.Draw {
             else {
                 if (_bitmap_array[img_idx] is null) { return; }
 
-                Point[] dest_points = getRotatePoints(
+                Point[] dest_points = get_rotate_points(
                     rect: new Rectangle(
                         x: 0,
                         y: 0,
@@ -176,7 +176,7 @@ namespace Texture.Draw {
         void fill(TexPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
             // creates the graphics.
             _graphics = FromImage(image: _bitmap_array[img_idx]);
-            _graphics?.FillPolygon(brush: createBrush(color), points: MapPoints(points));
+            _graphics?.FillPolygon(brush: create_brush(color), points: MapPoints(points));
             // writes cell numbers as debug.
             if (debug) {
                 const string FONT_NAME = "MS UI Gothic"; const int FONT_SIZE = 10;
@@ -204,7 +204,7 @@ namespace Texture.Draw {
         /// <summary>
         /// creates ImageAttributes object.
         /// </summary>
-        static ImageAttributes getImageAttributes(float alpha) {
+        static ImageAttributes get_image_attributes(float alpha) {
             ColorMatrix color_matrix = new();
             color_matrix.Matrix33 = alpha;
             ImageAttributes image_attributes = new();
@@ -215,7 +215,7 @@ namespace Texture.Draw {
         /// <summary>
         /// creates cropped rectangle.
         /// </summary>
-        Rectangle getCroppedRectangle(int img_idx) {
+        Rectangle get_cropped_rectangle(int img_idx) {
             Rectangle src = new(x: 0, y: 0, width: _rect.Width, height: _rect.Height);
             Rectangle dest = new(x: 0, y: 0, width: _face_array[img_idx].Width, height: _face_array[img_idx].Height);
             Cropped cropped = NewCropped(src: src, dest: dest);
@@ -226,7 +226,7 @@ namespace Texture.Draw {
         /// <summary>
         /// gets rotate points
         /// </summary>
-        Point[] getRotatePoints(Rectangle rect, int center_x, int center_y, double angle) {
+        Point[] get_rotate_points(Rectangle rect, int center_x, int center_y, double angle) {
             int width = rect.Width / 2;
             int height = rect.Height / 2;
             double cos = Math.Cos(angle * Math.PI / 180);
@@ -242,7 +242,7 @@ namespace Texture.Draw {
         /// <summary>
         /// creates a System.Drawing.Brush object.
         /// </summary>
-        static Brush createBrush(Color color) {
+        static Brush create_brush(Color color) {
             return color switch {
                 Color.Red => new SolidBrush(System.Drawing.Color.FromArgb(255, 51, 68)), // HSV: 355,80,100
                 Color.Orange => new SolidBrush(System.Drawing.Color.FromArgb(255, 119, 51)), // HSV: 20,80,100
