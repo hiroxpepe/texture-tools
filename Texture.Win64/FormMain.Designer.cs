@@ -43,8 +43,8 @@
             this._numericUpDown_swing = new System.Windows.Forms.NumericUpDown();
             this._label_swing = new System.Windows.Forms.Label();
             this._groupBox_layer = new System.Windows.Forms.GroupBox();
-            this._radioButton_layer1 = new System.Windows.Forms.RadioButton();
-            this._radioButton_layer2 = new System.Windows.Forms.RadioButton();
+            this._button_layer1 = new System.Windows.Forms.Button();
+            this._button_layer2 = new System.Windows.Forms.Button();
             this._groupBox_rect = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_width)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_height)).BeginInit();
@@ -77,7 +77,7 @@
             0,
             0,
             0});
-            this._numericUpDown_width.Location = new System.Drawing.Point(110, 26);
+            this._numericUpDown_width.Location = new System.Drawing.Point(112, 26);
             this._numericUpDown_width.Maximum = new decimal(new int[] {
             4096,
             0,
@@ -105,7 +105,7 @@
             0,
             0,
             0});
-            this._numericUpDown_height.Location = new System.Drawing.Point(110, 70);
+            this._numericUpDown_height.Location = new System.Drawing.Point(112, 70);
             this._numericUpDown_height.Maximum = new decimal(new int[] {
             4096,
             0,
@@ -148,7 +148,7 @@
             // 
             // _numericUpDown_piece_count
             // 
-            this._numericUpDown_piece_count.Location = new System.Drawing.Point(110, 119);
+            this._numericUpDown_piece_count.Location = new System.Drawing.Point(112, 119);
             this._numericUpDown_piece_count.Maximum = new decimal(new int[] {
             64,
             0,
@@ -172,7 +172,7 @@
             // 
             this._label_piece_count.AutoSize = true;
             this._label_piece_count.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_piece_count.Location = new System.Drawing.Point(11, 121);
+            this._label_piece_count.Location = new System.Drawing.Point(10, 121);
             this._label_piece_count.Name = "_label_piece_count";
             this._label_piece_count.Size = new System.Drawing.Size(89, 20);
             this._label_piece_count.TabIndex = 12;
@@ -186,7 +186,7 @@
             0,
             0,
             131072});
-            this._numericUpDown_crop.Location = new System.Drawing.Point(111, 163);
+            this._numericUpDown_crop.Location = new System.Drawing.Point(112, 163);
             this._numericUpDown_crop.Maximum = new decimal(new int[] {
             1,
             0,
@@ -210,7 +210,7 @@
             // 
             this._label_crop.AutoSize = true;
             this._label_crop.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_crop.Location = new System.Drawing.Point(51, 165);
+            this._label_crop.Location = new System.Drawing.Point(57, 165);
             this._label_crop.Name = "_label_crop";
             this._label_crop.Size = new System.Drawing.Size(42, 20);
             this._label_crop.TabIndex = 14;
@@ -235,17 +235,17 @@
             "Rose",
             "Black",
             "White"});
-            this._comboBox_primary.Location = new System.Drawing.Point(111, 207);
+            this._comboBox_primary.Location = new System.Drawing.Point(112, 207);
             this._comboBox_primary.Name = "_comboBox_primary";
-            this._comboBox_primary.Size = new System.Drawing.Size(151, 28);
+            this._comboBox_primary.Size = new System.Drawing.Size(150, 28);
             this._comboBox_primary.TabIndex = 15;
-            this._comboBox_primary.Text = "--none--";
+            this._comboBox_primary.Text = "White";
             // 
             // _label_primary
             // 
             this._label_primary.AutoSize = true;
             this._label_primary.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_primary.Location = new System.Drawing.Point(37, 210);
+            this._label_primary.Location = new System.Drawing.Point(36, 210);
             this._label_primary.Name = "_label_primary";
             this._label_primary.Size = new System.Drawing.Size(63, 20);
             this._label_primary.TabIndex = 16;
@@ -270,17 +270,17 @@
             "Rose",
             "Black",
             "White"});
-            this._comboBox_secondary.Location = new System.Drawing.Point(111, 252);
+            this._comboBox_secondary.Location = new System.Drawing.Point(112, 252);
             this._comboBox_secondary.Name = "_comboBox_secondary";
-            this._comboBox_secondary.Size = new System.Drawing.Size(151, 28);
+            this._comboBox_secondary.Size = new System.Drawing.Size(150, 28);
             this._comboBox_secondary.TabIndex = 17;
-            this._comboBox_secondary.Text = "--none--";
+            this._comboBox_secondary.Text = "White";
             // 
             // _label_secondary
             // 
             this._label_secondary.AutoSize = true;
             this._label_secondary.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_secondary.Location = new System.Drawing.Point(21, 255);
+            this._label_secondary.Location = new System.Drawing.Point(20, 255);
             this._label_secondary.Name = "_label_secondary";
             this._label_secondary.Size = new System.Drawing.Size(79, 20);
             this._label_secondary.TabIndex = 18;
@@ -305,9 +305,9 @@
             "Rose",
             "Black",
             "White"});
-            this._comboBox_accent.Location = new System.Drawing.Point(111, 297);
+            this._comboBox_accent.Location = new System.Drawing.Point(112, 297);
             this._comboBox_accent.Name = "_comboBox_accent";
-            this._comboBox_accent.Size = new System.Drawing.Size(151, 28);
+            this._comboBox_accent.Size = new System.Drawing.Size(150, 28);
             this._comboBox_accent.TabIndex = 19;
             this._comboBox_accent.Text = "--none--";
             // 
@@ -315,7 +315,7 @@
             // 
             this._label_accent.AutoSize = true;
             this._label_accent.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_accent.Location = new System.Drawing.Point(45, 300);
+            this._label_accent.Location = new System.Drawing.Point(44, 300);
             this._label_accent.Name = "_label_accent";
             this._label_accent.Size = new System.Drawing.Size(55, 20);
             this._label_accent.TabIndex = 20;
@@ -348,7 +348,7 @@
             // 
             this._label_alpha.AutoSize = true;
             this._label_alpha.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_alpha.Location = new System.Drawing.Point(51, 344);
+            this._label_alpha.Location = new System.Drawing.Point(50, 344);
             this._label_alpha.Name = "_label_alpha";
             this._label_alpha.Size = new System.Drawing.Size(49, 20);
             this._label_alpha.TabIndex = 22;
@@ -370,7 +370,7 @@
             // 
             this._label_swing.AutoSize = true;
             this._label_swing.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_swing.Location = new System.Drawing.Point(50, 386);
+            this._label_swing.Location = new System.Drawing.Point(49, 386);
             this._label_swing.Name = "_label_swing";
             this._label_swing.Size = new System.Drawing.Size(50, 20);
             this._label_swing.TabIndex = 24;
@@ -378,8 +378,8 @@
             // 
             // _groupBox_layer
             // 
-            this._groupBox_layer.Controls.Add(this._radioButton_layer1);
-            this._groupBox_layer.Controls.Add(this._radioButton_layer2);
+            this._groupBox_layer.Controls.Add(this._button_layer1);
+            this._groupBox_layer.Controls.Add(this._button_layer2);
             this._groupBox_layer.Controls.Add(this._label_swing);
             this._groupBox_layer.Controls.Add(this._numericUpDown_piece_count);
             this._groupBox_layer.Controls.Add(this._numericUpDown_swing);
@@ -402,31 +402,27 @@
             this._groupBox_layer.TabStop = false;
             this._groupBox_layer.Text = "layer";
             // 
-            // _radioButton_layer1
+            // _button_layer1
             // 
-            this._radioButton_layer1.Appearance = System.Windows.Forms.Appearance.Button;
-            this._radioButton_layer1.BackColor = System.Drawing.Color.Gray;
-            this._radioButton_layer1.Checked = true;
-            this._radioButton_layer1.Location = new System.Drawing.Point(110, 73);
-            this._radioButton_layer1.Name = "_radioButton_layer1";
-            this._radioButton_layer1.Size = new System.Drawing.Size(150, 30);
-            this._radioButton_layer1.TabIndex = 1;
-            this._radioButton_layer1.TabStop = true;
-            this._radioButton_layer1.Text = "layer 1";
-            this._radioButton_layer1.UseVisualStyleBackColor = false;
-            this._radioButton_layer1.Click += new System.EventHandler(this._radioButton_layer1_Click);
+            this._button_layer1.BackColor = System.Drawing.Color.Gray;
+            this._button_layer1.Location = new System.Drawing.Point(112, 73);
+            this._button_layer1.Name = "_button_layer1";
+            this._button_layer1.Size = new System.Drawing.Size(150, 29);
+            this._button_layer1.TabIndex = 26;
+            this._button_layer1.Text = "layer 1";
+            this._button_layer1.UseVisualStyleBackColor = false;
+            this._button_layer1.Click += new System.EventHandler(this._button_layer1_Click);
             // 
-            // _radioButton_layer2
+            // _button_layer2
             // 
-            this._radioButton_layer2.Appearance = System.Windows.Forms.Appearance.Button;
-            this._radioButton_layer2.BackColor = System.Drawing.Color.Gray;
-            this._radioButton_layer2.Location = new System.Drawing.Point(110, 26);
-            this._radioButton_layer2.Name = "_radioButton_layer2";
-            this._radioButton_layer2.Size = new System.Drawing.Size(150, 30);
-            this._radioButton_layer2.TabIndex = 0;
-            this._radioButton_layer2.Text = "layer 2";
-            this._radioButton_layer2.UseVisualStyleBackColor = false;
-            this._radioButton_layer2.Click += new System.EventHandler(this._radioButton_layer2_Click);
+            this._button_layer2.BackColor = System.Drawing.Color.Gray;
+            this._button_layer2.Location = new System.Drawing.Point(112, 26);
+            this._button_layer2.Name = "_button_layer2";
+            this._button_layer2.Size = new System.Drawing.Size(150, 29);
+            this._button_layer2.TabIndex = 25;
+            this._button_layer2.Text = "layer 2";
+            this._button_layer2.UseVisualStyleBackColor = false;
+            this._button_layer2.Click += new System.EventHandler(this._button_layer2_Click);
             // 
             // _groupBox_rect
             // 
@@ -494,9 +490,9 @@
         private System.Windows.Forms.NumericUpDown _numericUpDown_swing;
         private System.Windows.Forms.Label _label_swing;
         private System.Windows.Forms.GroupBox _groupBox_layer;
-        private System.Windows.Forms.RadioButton _radioButton_layer1;
-        private System.Windows.Forms.RadioButton _radioButton_layer2;
         private System.Windows.Forms.GroupBox _groupBox_rect;
+        private System.Windows.Forms.Button _button_layer1;
+        private System.Windows.Forms.Button _button_layer2;
     }
 }
 

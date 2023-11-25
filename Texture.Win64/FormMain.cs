@@ -56,12 +56,12 @@ namespace Texture.Win64 {
             _rect.Height = (int)_numericUpDown_height.Value;
         }
 
-        void _radioButton_layer1_Click(object sender, EventArgs e) {
+        void _button_layer1_Click(object sender, EventArgs e) {
             bool result = saveLayer(index: LAYER_2);
             if (result) { loadLayer(index: LAYER_1); }
         }
 
-        void _radioButton_layer2_Click(object sender, EventArgs e) {
+        void _button_layer2_Click(object sender, EventArgs e) {
             bool result = saveLayer(index: LAYER_1);
             if (result) { loadLayer(index: LAYER_2); }
         }
@@ -148,15 +148,16 @@ namespace Texture.Win64 {
         }
 
         int getLayerIndex() {
-            if (_radioButton_layer1.Checked == true) {
-                return 0;
-            }
-            else if (_radioButton_layer2.Checked == true) {
-                return 1;
-            }
-            else {
-                return -1;
-            }
+            //if (_radioButton_layer1.Checked == true) {
+            //    return 0;
+            //}
+            //else if (_radioButton_layer2.Checked == true) {
+            //    return 1;
+            //}
+            //else {
+            //    return -1;
+            //}
+            return 1;
         }
     }
 }
