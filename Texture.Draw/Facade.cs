@@ -10,10 +10,10 @@ using Texture.Draw;
 using static Texture.Core.Cut;
 using static Texture.Core.Face;
 using static Texture.Core.Swing;
+using static Texture.Draw.Extensions;
 using static Texture.Draw.Palette;
 using static Texture.Draw.Switch;
 using static Texture.Draw.Tool;
-using static Texture.Draw.Extensions;
 
 namespace Texture {
     /// <summary>

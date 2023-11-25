@@ -15,7 +15,7 @@ using static Texture.Draw.Palette;
 using static Texture.Draw.Switch;
 using static Texture.Draw.Tool;
 
-namespace Texture.Win64 {
+namespace Texture {
     /// <summary>
     /// context object for app.
     /// </summary>

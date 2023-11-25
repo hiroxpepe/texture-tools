@@ -157,15 +157,5 @@ namespace Texture.Win64 {
                 _label_layer1.ForeColor = System.Drawing.Color.Lime;
             }
         }
-
-        int nextLayerIndex() {
-            if (_layer_index == LAYER_1) {
-                return LAYER_2;
-            }
-            else if (_layer_index == LAYER_2) {
-                return LAYER_1;
-            }
-            return -1;
-        }
     }
 }
