@@ -146,7 +146,7 @@ namespace Texture.Win64 {
                         access: FileAccess.Read
                     );
                     _view_img?.Dispose();
-                    _view_img = Image.FromStream(fs);
+                    _view_img = Image.FromStream(stream: fs);
                     _pictureBox_view.Image = _view_img;
                 };
                 return Context.Do(rect: _rect, param_array: _param_array);;

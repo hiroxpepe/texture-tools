@@ -504,7 +504,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormMain";
-            this.Text = "テクスチャ生成";
+            this.Text = "Texture Generation";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_width)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_height)).EndInit();

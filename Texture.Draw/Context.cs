@@ -93,7 +93,9 @@ namespace Texture {
                             tool.Fill(points: x, color: color, img_idx: img_idx, cell_idx: count, debug: false);
                             int random_number = _random.Next(1, (face1.AllPoint.Count / 2) + 1);
                             if (random_number == 1) {
-                                tool.Fill(points: x, color: palette1.Accent, img_idx: img_idx, cell_idx: count);
+                                if (palette1.Accent is not Color.none) {
+                                    tool.Fill(points: x, color: palette1.Accent, img_idx: img_idx, cell_idx: count);
+                                }
                             }
                             count++;
                         });

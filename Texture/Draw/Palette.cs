@@ -39,10 +39,10 @@ namespace Texture.Draw {
 
         public static Palette NewPalette(string primary, string secondary, string accent, float alpha = 1f) {
             if (primary.Contains("none")) {
-                throw new ArgumentException(message: "none can not be a primary color.", paramName: nameof(NewPalette));
+                throw new ArgumentException(message: "none cannot be a primary color.", paramName: nameof(NewPalette));
             }
             if (secondary.Contains("none")) {
-                throw new ArgumentException(message: "none can not be a secondary color.", paramName: nameof(NewPalette));
+                throw new ArgumentException(message: "none cannot be a secondary color.", paramName: nameof(NewPalette));
             }
             Color color1 = (Color) Enum.Parse(typeof(Color), primary);
             Color color2 = (Color) Enum.Parse(typeof(Color), secondary);
