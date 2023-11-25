@@ -7,6 +7,11 @@ using System.Linq;
 
 using Texture.Core;
 using Texture.Draw;
+using static Texture.Core.Cut;
+using static Texture.Core.Face;
+using static Texture.Core.Swing;
+using static Texture.Draw.Extensions;
+using static Texture.Draw.Palette;
 using static Texture.Draw.Switch;
 using static Texture.Draw.Tool;
 
@@ -29,15 +34,25 @@ namespace Texture.Win64 {
         public static bool Do(Rectangle rect, Param[] param_array) {
             try {
                 // for layer 1.
-                Cut cut1 = param_array[0].Cut;
-                Face face1 = param_array[0].Face;
-                Palette palette1 = param_array[0].Palette;
-                Swing swing1 = param_array[0].Swing;
+                Cut cut1 = NewCutByPiece(piece_count: param_array[0].PieceCount);
+                Face face1 = NewFace(rect: rect, cut: cut1, crop: param_array[0].Crop);
+                Palette palette1 = NewPalette(
+                    primary: param_array[0].Primary,
+                    secondary: param_array[0].Secondary,
+                    accent: param_array[0].Accent,
+                    alpha: param_array[0].Alpha
+                );
+                Swing swing1 = NewSwing(value: param_array[0].Swing);
                 // for layer 2.
-                Cut cut2 = param_array[1].Cut;
-                Face face2 = param_array[1].Face;
-                Palette palette2 = param_array[1].Palette;
-                Swing swing2 = param_array[1].Swing;
+                Cut cut2 = NewCutByPiece(piece_count: param_array[1].PieceCount);
+                Face face2 = NewFace(rect: rect, cut: cut2, crop: param_array[1].Crop);
+                Palette palette2 = NewPalette(
+                    primary: param_array[1].Primary,
+                    secondary: param_array[1].Secondary,
+                    accent: param_array[1].Accent,
+                    alpha: param_array[1].Alpha
+                );
+                Swing swing2 = NewSwing(value: param_array[1].Swing);
                 // creates tool
                 using Tool tool = NewTool(rect: rect, face_array: new Face[] { face1, face2 });
 

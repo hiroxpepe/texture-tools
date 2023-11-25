@@ -1,9 +1,6 @@
 ﻿// Copyright (c) STUDIO MeowToon. All rights reserved.
 // Licensed under the GPL v2.0 license. See LICENSE text in the project root for license information.
 
-using Texture.Core;
-using Texture.Draw;
-
 namespace Texture.Win64 {
     /// <summary>
     /// parameter object for app.
@@ -15,13 +12,19 @@ namespace Texture.Win64 {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Fields
 
-        Cut _cut;
+        int _piece_count;
+        
+        double _crop;
+        
+        string _primary;
+        
+        string _secondary;
+        
+        string _accent;
+        
+        float _alpha;
 
-        Face _face;
-
-        Palette _palette;
-
-        Swing _swing;
+        int _swing;
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
@@ -29,19 +32,27 @@ namespace Texture.Win64 {
         /// <summary>
         /// creates as a "note" notated parameter.
         /// </summary>
-        public Param(Cut cut, Face face, Palette palette, Swing swing) {
-            _cut = cut; _face = face; _palette = palette; _swing = swing;
+        public Param(int piece_count, double crop, string primary, string secondary, string accent, float alpha, int swing) {
+            _piece_count = piece_count; _crop = crop;
+            _primary = primary; _secondary = secondary; _accent = accent;
+            _alpha = alpha; _swing = swing;
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
-        // Properties [noun, adjective] 
+        // Properties [noun, adjective]
 
-        public Cut Cut { get => _cut; }
+        public int PieceCount { get => _piece_count; }
+        
+        public double Crop { get => _crop; }
+        
+        public string Primary { get => _primary; }
+        
+        public string Secondary { get => _secondary; }
+        
+        public string Accent { get => _accent; }
+        
+        public float Alpha { get => _alpha; }
 
-        public Face Face { get => _face; }
-
-        public Palette Palette { get => _palette; }
-
-        public Swing Swing { get => _swing; }
+        public int Swing { get => _swing; }
     }
 }

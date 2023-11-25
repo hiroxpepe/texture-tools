@@ -5,14 +5,6 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-using Texture.Core;
-using Texture.Draw;
-using static Texture.Core.Cut;
-using static Texture.Core.Face;
-using static Texture.Core.Swing;
-using static Texture.Draw.Palette;
-using static Texture.Draw.Extensions;
-
 namespace Texture.Win64 {
     /// <summary>
     /// main form.
@@ -94,10 +86,13 @@ namespace Texture.Win64 {
             _param_array = new Param[2];
             for (int i = 0; i < 2; i++) {
                 _param_array[i] = new Param(
-                    cut: NewCutByPiece(piece_count: 3),
-                    face: NewFace(width: 256, height: 256),
-                    palette: NewPalette(primary: Color.White, secondary: Color.White),
-                    swing: NewSwing(value: 0)
+                    piece_count: 3, 
+                    crop: 1.0d, 
+                    primary: "White", 
+                    secondary: "White", 
+                    accent: "none", 
+                    alpha: 1.0f,
+                    swing: 0
                 );
             }
             _layer_index = 0;
@@ -105,20 +100,14 @@ namespace Texture.Win64 {
 
         bool saveLayer(int index) {
             try {
-                Cut cut = NewCutByPiece(piece_count: (int) _numericUpDown_piece_count.Value);
-                Face face = NewFace(rect: _rect, cut: cut, crop: (double) _numericUpDown_crop.Value);
-                Palette palette = NewPalette(
-                    primary: _comboBox_primary.Text,
-                    secondary: _comboBox_secondary.Text,
-                    accent: _comboBox_accent.Text,
-                    alpha: (float) _numericUpDown_alpha.Value
-                );
-                Swing swing = NewSwing(value: (int) _numericUpDown_swing.Value);
                 _param_array[index] = new Param(
-                    cut: cut,
-                    face: face,
-                    palette: palette,
-                    swing: swing
+                    piece_count: (int) _numericUpDown_piece_count.Value, 
+                    crop: (double) _numericUpDown_crop.Value, 
+                    primary: _comboBox_primary.Text, 
+                    secondary: _comboBox_secondary.Text, 
+                    accent: _comboBox_accent.Text, 
+                    alpha: (float) _numericUpDown_alpha.Value,
+                    swing: (int) _numericUpDown_swing.Value
                 );
                 return true;
             }
@@ -130,17 +119,13 @@ namespace Texture.Win64 {
 
         bool loadLayer(int index) {
             try {
-                Cut cut = _param_array[index].Cut;
-                Face face = _param_array[index].Face;
-                Palette palette = _param_array[index].Palette;
-                Swing swing = _param_array[index].Swing;
-                _numericUpDown_piece_count.Value = cut.CountX; // FIXME:
-                _numericUpDown_crop.Value = (decimal) face.Crop;
-                _comboBox_primary.Text = palette.Primary.ToString();
-                _comboBox_secondary.Text = palette.Secondary.ToString();
-                _comboBox_accent.Text = palette.Accent.ToString();
-                _numericUpDown_alpha.Value = (decimal) palette.Alpha;
-                _numericUpDown_swing.Value = swing.MaxValueX; // FIXME:
+                _numericUpDown_piece_count.Value = _param_array[index].PieceCount;
+                _numericUpDown_crop.Value = (decimal) _param_array[index].Crop;
+                _comboBox_primary.Text = _param_array[index].Primary;
+                _comboBox_secondary.Text = _param_array[index].Secondary;
+                _comboBox_accent.Text = _param_array[index].Accent;
+                _numericUpDown_alpha.Value = (decimal) _param_array[index].Alpha;
+                _numericUpDown_swing.Value = _param_array[index].Swing;
                 return true;
             }
             catch (Exception ex) {
