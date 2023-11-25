@@ -29,6 +29,8 @@ namespace Texture.Win64 {
 
         int _layer_index;
 
+        Image _view_img;
+
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
@@ -37,7 +39,7 @@ namespace Texture.Win64 {
         /// </summary>
         public FormMain() {
             InitializeComponent();
-            initializeField();
+            initialize_field();
             _label_layer1.ForeColor = System.Drawing.Color.Lime;
         }
 
@@ -54,19 +56,19 @@ namespace Texture.Win64 {
 
         void _button_layer1_Click(object sender, EventArgs e) {
             if (_layer_index is not LAYER_1) {
-                bool result = saveLayer(index: _layer_index);
+                bool result = save_layer(index: _layer_index);
                 if (!result) { return; }
-                switchLayerIndex();
-                loadLayer(index: _layer_index);
+                switch_layer_index();
+                load_layer(index: _layer_index);
             }
         }
 
         void _button_layer2_Click(object sender, EventArgs e) {
             if (_layer_index is not LAYER_2) {
-                bool result = saveLayer(index: _layer_index);
+                bool result = save_layer(index: _layer_index);
                 if (!result) { return; }
-                switchLayerIndex();
-                loadLayer(index: _layer_index);
+                switch_layer_index();
+                load_layer(index: _layer_index);
             }
         }
 
@@ -74,7 +76,7 @@ namespace Texture.Win64 {
         /// event handler where write button are clicked
         /// </summary>
         void _button_write_Click(object sender, EventArgs e) {
-            bool result = saveLayer(index: _layer_index);
+            bool result = save_layer(index: _layer_index);
             if (!result) { return; }
             write();
         }
@@ -82,7 +84,7 @@ namespace Texture.Win64 {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // private Methods [verb]
 
-        void initializeField() {
+        void initialize_field() {
             _rect = new(x: 0, y: 0, width: 256, height: 256);
             _param_array = new Param[2];
             for (int i = 0; i < 2; i++) {
@@ -99,7 +101,7 @@ namespace Texture.Win64 {
             _layer_index = 0;
         }
 
-        bool saveLayer(int index) {
+        bool save_layer(int index) {
             try {
                 _param_array[index] = new Param(
                     piece_count: (int) _numericUpDown_piece_count.Value, 
@@ -118,7 +120,7 @@ namespace Texture.Win64 {
             }
         }
 
-        bool loadLayer(int index) {
+        bool load_layer(int index) {
             try {
                 _numericUpDown_piece_count.Value = _param_array[index].PieceCount;
                 _numericUpDown_crop.Value = (decimal) _param_array[index].Crop;
@@ -138,14 +140,16 @@ namespace Texture.Win64 {
         bool write() {
             try {
                 Context.OnDo += (object param, EvtArgs e) => {
-                    _pictureBox_view.Image = Image.FromStream(
-                        stream: File.OpenRead((string)param),
-                        useEmbeddedColorManagement: false,
-                        validateImageData: false
+                    using FileStream fs = new(
+                        path: (string) param, 
+      　　　　　　　　　mode: FileMode.Open, 
+                        access: FileAccess.Read
                     );
+                    _view_img?.Dispose();
+                    _view_img = Image.FromStream(fs);
+                    _pictureBox_view.Image = _view_img;
                 };
-                bool result = Context.Do(rect: _rect, param_array: _param_array);
-                return result;
+                return Context.Do(rect: _rect, param_array: _param_array);;
             }
             catch (Exception ex) {
                 MessageBox.Show(text: ex.Message, caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Stop);
@@ -153,7 +157,7 @@ namespace Texture.Win64 {
             }
         }
 
-        void switchLayerIndex() {
+        void switch_layer_index() {
             if (_layer_index == LAYER_1) {
                 _layer_index = LAYER_2;
                 _label_layer1.ForeColor = System.Drawing.Color.Gray;

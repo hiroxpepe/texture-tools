@@ -24,6 +24,12 @@ namespace Texture {
     public static class Context {
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
+        // Const [nouns]
+
+        const int LAYER_1 = 0;
+        const int LAYER_2 = 1;
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////
         // Fields
 
         static Random _random = new();
@@ -39,25 +45,25 @@ namespace Texture {
         public static bool Do(Rectangle rect, Param[] param_array) {
             try {
                 // for layer 1.
-                Cut cut1 = NewCutByPiece(piece_count: param_array[0].PieceCount);
-                Face face1 = NewFace(rect: rect, cut: cut1, crop: param_array[0].Crop);
+                Cut cut1 = NewCutByPiece(piece_count: param_array[LAYER_1].PieceCount);
+                Face face1 = NewFace(rect: rect, cut: cut1, crop: param_array[LAYER_1].Crop);
                 Palette palette1 = NewPalette(
-                    primary: param_array[0].Primary,
-                    secondary: param_array[0].Secondary,
-                    accent: param_array[0].Accent,
-                    alpha: param_array[0].Alpha
+                    primary: param_array[LAYER_1].Primary,
+                    secondary: param_array[LAYER_1].Secondary,
+                    accent: param_array[LAYER_1].Accent,
+                    alpha: param_array[LAYER_1].Alpha
                 );
-                Swing swing1 = NewSwing(value: param_array[0].Swing);
+                Swing swing1 = NewSwing(value: param_array[LAYER_1].Swing);
                 // for layer 2.
-                Cut cut2 = NewCutByPiece(piece_count: param_array[1].PieceCount);
-                Face face2 = NewFace(rect: rect, cut: cut2, crop: param_array[1].Crop);
+                Cut cut2 = NewCutByPiece(piece_count: param_array[LAYER_2].PieceCount);
+                Face face2 = NewFace(rect: rect, cut: cut2, crop: param_array[LAYER_2].Crop);
                 Palette palette2 = NewPalette(
-                    primary: param_array[1].Primary,
-                    secondary: param_array[1].Secondary,
-                    accent: param_array[1].Accent,
-                    alpha: param_array[1].Alpha
+                    primary: param_array[LAYER_2].Primary,
+                    secondary: param_array[LAYER_2].Secondary,
+                    accent: param_array[LAYER_2].Accent,
+                    alpha: param_array[LAYER_2].Alpha
                 );
-                Swing swing2 = NewSwing(value: param_array[1].Swing);
+                Swing swing2 = NewSwing(value: param_array[LAYER_2].Swing);
                 // creates tool
                 string flie_path;
                 using (Tool tool = NewTool(rect: rect, face_array: new Face[] { face1, face2 })) {
@@ -95,7 +101,7 @@ namespace Texture {
                     face1.OnWrite += () => {
                         tool.Write(img_idx, alpha: palette1.Alpha, angle: 0);
                     };
-                    // execute layer 1.
+                    // executes layer 1.
                     face1.Make();
 
                     // callback for layer 2.
@@ -127,16 +133,15 @@ namespace Texture {
                     face2.OnWrite += () => {
                         tool.Write(img_idx, alpha: palette2.Alpha, angle: 0);
                     };
-                    // execute layer 2.
+                    // executes layer 2.
                     face2.Make();
                 }
-
-                // call event.
+                // calls event.
                 OnDo?.Invoke(sender: flie_path, e: new EvtArgs(name: "file_path"));
                 return true;
             }
             catch (Exception ex) {
-                return false;
+                throw new Exception(message: ex.Message);
             }
         }
     }
