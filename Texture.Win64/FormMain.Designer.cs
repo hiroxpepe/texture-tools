@@ -48,6 +48,8 @@
             this._button_layer1 = new System.Windows.Forms.Button();
             this._button_layer2 = new System.Windows.Forms.Button();
             this._groupBox_rect = new System.Windows.Forms.GroupBox();
+            this._groupBox_view = new System.Windows.Forms.GroupBox();
+            this._pictureBox_view = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_width)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_height)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_piece_count)).BeginInit();
@@ -56,6 +58,8 @@
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_swing)).BeginInit();
             this._groupBox_layer.SuspendLayout();
             this._groupBox_rect.SuspendLayout();
+            this._groupBox_view.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._pictureBox_view)).BeginInit();
             this.SuspendLayout();
             // 
             // _button_write
@@ -462,12 +466,36 @@
             this._groupBox_rect.TabStop = false;
             this._groupBox_rect.Text = "rect";
             // 
+            // _groupBox_view
+            // 
+            this._groupBox_view.Controls.Add(this._pictureBox_view);
+            this._groupBox_view.ForeColor = System.Drawing.SystemColors.Control;
+            this._groupBox_view.Location = new System.Drawing.Point(314, 12);
+            this._groupBox_view.Name = "_groupBox_view";
+            this._groupBox_view.Size = new System.Drawing.Size(559, 559);
+            this._groupBox_view.TabIndex = 27;
+            this._groupBox_view.TabStop = false;
+            this._groupBox_view.Text = "view";
+            // 
+            // _pictureBox_view
+            // 
+            this._pictureBox_view.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._pictureBox_view.Location = new System.Drawing.Point(24, 26);
+            this._pictureBox_view.Name = "_pictureBox_view";
+            this._pictureBox_view.Size = new System.Drawing.Size(510, 510);
+            this._pictureBox_view.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this._pictureBox_view.TabIndex = 0;
+            this._pictureBox_view.TabStop = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(318, 658);
+            this.ClientSize = new System.Drawing.Size(901, 658);
+            this.Controls.Add(this._groupBox_view);
             this.Controls.Add(this._groupBox_rect);
             this.Controls.Add(this._groupBox_layer);
             this.Controls.Add(this._button_write);
@@ -488,6 +516,8 @@
             this._groupBox_layer.PerformLayout();
             this._groupBox_rect.ResumeLayout(false);
             this._groupBox_rect.PerformLayout();
+            this._groupBox_view.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._pictureBox_view)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -519,6 +549,8 @@
         private System.Windows.Forms.Button _button_layer2;
         private System.Windows.Forms.Label _label_layer1;
         private System.Windows.Forms.Label _label_layer2;
+        private System.Windows.Forms.GroupBox _groupBox_view;
+        private System.Windows.Forms.PictureBox _pictureBox_view;
     }
 }
 

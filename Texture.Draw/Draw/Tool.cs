@@ -62,6 +62,11 @@ namespace Texture.Draw {
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
+        // Properties [noun, adjective]
+
+        public string FilePath { get => $"{OUTPUT_DIR}\\{OUTPUT_NAME}"; }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////
         // public Methods [verb, verb phrases]
 
         public void Draw(TexPoint[] points) {

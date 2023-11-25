@@ -3,6 +3,7 @@
 
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Texture.Win64 {
@@ -136,6 +137,13 @@ namespace Texture.Win64 {
 
         bool write() {
             try {
+                Context.OnDo += (object param, EvtArgs e) => {
+                    _pictureBox_view.Image = Image.FromStream(
+                        stream: File.OpenRead((string)param),
+                        useEmbeddedColorManagement: false,
+                        validateImageData: false
+                    );
+                };
                 bool result = Context.Do(rect: _rect, param_array: _param_array);
                 return result;
             }
