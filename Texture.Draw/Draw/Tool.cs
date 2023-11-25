@@ -13,8 +13,8 @@ using static System.Drawing.Imaging.ImageFormat;
 
 using Texture.Core;
 using TexPoint = Texture.Core.Point;
+using static Texture.Utils;
 using static Texture.Draw.Cropped;
-using static Texture.Draw.Utils;
 
 namespace Texture.Draw {
 #pragma warning disable CA1416

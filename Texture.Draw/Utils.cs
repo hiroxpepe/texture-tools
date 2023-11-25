@@ -6,7 +6,7 @@ using System.Drawing;
 
 using TexPoint = Texture.Core.Point;
 
-namespace Texture.Draw {
+namespace Texture {
     /// <summary>
     /// utils class
     /// </summary>
@@ -21,6 +21,5 @@ namespace Texture.Draw {
         public static PointF MapPoint(TexPoint point) {
             return new(x: point.X, y: point.Y);
         }
-
     }
 }
