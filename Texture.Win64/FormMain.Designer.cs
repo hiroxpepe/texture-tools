@@ -165,7 +165,7 @@
             this._numericUpDown_piece_count.Size = new System.Drawing.Size(150, 27);
             this._numericUpDown_piece_count.TabIndex = 11;
             this._numericUpDown_piece_count.Value = new decimal(new int[] {
-            1,
+            3,
             0,
             0,
             0});
@@ -222,7 +222,7 @@
             // 
             this._comboBox_primary.FormattingEnabled = true;
             this._comboBox_primary.Items.AddRange(new object[] {
-            "--none--",
+            "none",
             "Red",
             "Orange",
             "Amber",
@@ -257,7 +257,7 @@
             // 
             this._comboBox_secondary.FormattingEnabled = true;
             this._comboBox_secondary.Items.AddRange(new object[] {
-            "--none--",
+            "none",
             "Red",
             "Orange",
             "Amber",
@@ -292,7 +292,7 @@
             // 
             this._comboBox_accent.FormattingEnabled = true;
             this._comboBox_accent.Items.AddRange(new object[] {
-            "--none--",
+            "none",
             "Red",
             "Orange",
             "Amber",
@@ -311,7 +311,7 @@
             this._comboBox_accent.Name = "_comboBox_accent";
             this._comboBox_accent.Size = new System.Drawing.Size(150, 28);
             this._comboBox_accent.TabIndex = 19;
-            this._comboBox_accent.Text = "--none--";
+            this._comboBox_accent.Text = "none";
             // 
             // _label_accent
             // 

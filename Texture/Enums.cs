@@ -15,7 +15,7 @@ namespace Texture {
     /// color type
     /// </summary>
     public enum Color {
-        Red, Orange, Amber, Yellow, Lime, Green, Turquoise, Azure, Blue, Purple, Magenta, Rose, Black, White
+        Red, Orange, Amber, Yellow, Lime, Green, Turquoise, Azure, Blue, Purple, Magenta, Rose, Black, White, none
     }
 
     /// <summary>

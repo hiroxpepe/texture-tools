@@ -82,7 +82,8 @@ namespace Texture.Win64 {
         /// </summary>
         void _button_write_Click(object sender, EventArgs e) {
             bool result = saveLayer(index: _layer_index);
-            if (result) { write(); }
+            if (!result) { return; }
+            write();
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -93,10 +94,10 @@ namespace Texture.Win64 {
             _param_array = new Param[2];
             for (int i = 0; i < 2; i++) {
                 _param_array[i] = new Param(
-                    cut: NewCutDefault(),
+                    cut: NewCutByPiece(piece_count: 3),
                     face: NewFace(width: 256, height: 256),
                     palette: NewPalette(primary: Color.White, secondary: Color.White),
-                    swing: NewSwing(value: 5)
+                    swing: NewSwing(value: 0)
                 );
             }
             _layer_index = 0;
