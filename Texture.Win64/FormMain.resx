@@ -687,6 +687,78 @@
   <data name="&gt;&gt;_groupBox_layer.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="&gt;&gt;_numericUpDown_width.Name" xml:space="preserve">
+    <value>_numericUpDown_width</value>
+  </data>
+  <data name="&gt;&gt;_numericUpDown_width.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_numericUpDown_width.Parent" xml:space="preserve">
+    <value>_groupBox_rect</value>
+  </data>
+  <data name="&gt;&gt;_numericUpDown_width.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_numericUpDown_height.Name" xml:space="preserve">
+    <value>_numericUpDown_height</value>
+  </data>
+  <data name="&gt;&gt;_numericUpDown_height.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_numericUpDown_height.Parent" xml:space="preserve">
+    <value>_groupBox_rect</value>
+  </data>
+  <data name="&gt;&gt;_numericUpDown_height.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_label_width.Name" xml:space="preserve">
+    <value>_label_width</value>
+  </data>
+  <data name="&gt;&gt;_label_width.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_label_width.Parent" xml:space="preserve">
+    <value>_groupBox_rect</value>
+  </data>
+  <data name="&gt;&gt;_label_width.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_label_height.Name" xml:space="preserve">
+    <value>_label_height</value>
+  </data>
+  <data name="&gt;&gt;_label_height.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_label_height.Parent" xml:space="preserve">
+    <value>_groupBox_rect</value>
+  </data>
+  <data name="&gt;&gt;_label_height.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="_groupBox_rect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 12</value>
+  </data>
+  <data name="_groupBox_rect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 118</value>
+  </data>
+  <data name="_groupBox_rect.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="_groupBox_rect.Text" xml:space="preserve">
+    <value>rect</value>
+  </data>
+  <data name="&gt;&gt;_groupBox_rect.Name" xml:space="preserve">
+    <value>_groupBox_rect</value>
+  </data>
+  <data name="&gt;&gt;_groupBox_rect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_groupBox_rect.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_groupBox_rect.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="_numericUpDown_width.Location" type="System.Drawing.Point, System.Drawing">
     <value>112, 26</value>
   </data>
@@ -789,45 +861,6 @@
   <data name="&gt;&gt;_label_height.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="_groupBox_rect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 12</value>
-  </data>
-  <data name="_groupBox_rect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 118</value>
-  </data>
-  <data name="_groupBox_rect.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="_groupBox_rect.Text" xml:space="preserve">
-    <value>rect</value>
-  </data>
-  <data name="&gt;&gt;_groupBox_rect.Name" xml:space="preserve">
-    <value>_groupBox_rect</value>
-  </data>
-  <data name="&gt;&gt;_groupBox_rect.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_groupBox_rect.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;_groupBox_rect.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="_pictureBox_view.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="_pictureBox_view.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 26</value>
-  </data>
-  <data name="_pictureBox_view.Size" type="System.Drawing.Size, System.Drawing">
-    <value>510, 510</value>
-  </data>
-  <data name="_pictureBox_view.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="_pictureBox_view.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;_pictureBox_view.Name" xml:space="preserve">
     <value>_pictureBox_view</value>
   </data>
@@ -863,6 +896,33 @@
   </data>
   <data name="&gt;&gt;_groupBox_view.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="_pictureBox_view.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="_pictureBox_view.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 26</value>
+  </data>
+  <data name="_pictureBox_view.Size" type="System.Drawing.Size, System.Drawing">
+    <value>510, 510</value>
+  </data>
+  <data name="_pictureBox_view.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="_pictureBox_view.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_pictureBox_view.Name" xml:space="preserve">
+    <value>_pictureBox_view</value>
+  </data>
+  <data name="&gt;&gt;_pictureBox_view.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_pictureBox_view.Parent" xml:space="preserve">
+    <value>_groupBox_view</value>
+  </data>
+  <data name="&gt;&gt;_pictureBox_view.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="_label_language.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>

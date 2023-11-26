@@ -246,6 +246,7 @@
             resources.GetString("_comboBox_primary.Items14")});
             resources.ApplyResources(this._comboBox_primary, "_comboBox_primary");
             this._comboBox_primary.Name = "_comboBox_primary";
+            this._comboBox_primary.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this._comboBox_primary_DrawItem);
             // 
             // _comboBox_accent
             // 
@@ -268,6 +269,7 @@
             resources.GetString("_comboBox_accent.Items14")});
             resources.ApplyResources(this._comboBox_accent, "_comboBox_accent");
             this._comboBox_accent.Name = "_comboBox_accent";
+            this._comboBox_accent.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this._comboBox_accent_DrawItem);
             // 
             // _label_primary
             // 
@@ -302,6 +304,7 @@
             resources.GetString("_comboBox_secondary.Items14")});
             resources.ApplyResources(this._comboBox_secondary, "_comboBox_secondary");
             this._comboBox_secondary.Name = "_comboBox_secondary";
+            this._comboBox_secondary.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this._comboBox_secondary_DrawItem);
             // 
             // _groupBox_rect
             // 

@@ -47,6 +47,9 @@ namespace Texture.Win64 {
             InitializeComponent();
             initialize_field();
             _label_layer1.ForeColor = System.Drawing.Color.Lime;
+            _comboBox_primary.DrawMode = DrawMode.OwnerDrawFixed;
+            _comboBox_secondary.DrawMode = DrawMode.OwnerDrawFixed;
+            _comboBox_accent.DrawMode = DrawMode.OwnerDrawFixed;
             _comboBox_language.DrawMode = DrawMode.OwnerDrawFixed;
             _exe_dir_path = Path.GetDirectoryName(Application.ExecutablePath);
         }
@@ -102,6 +105,50 @@ namespace Texture.Win64 {
         }
 
         /// <summary>
+        /// event handler _comboBox_primary are draw item.
+        /// </summary>
+        void _comboBox_primary_DrawItem(object sender, DrawItemEventArgs e) {
+            if (e.Index == -1) { return; }
+            // gets a color icon image.
+            Image image = get_color_icon_image(event_args: e);
+            // draw combobox items by owner-draw.
+            draw_combobox_by_owner(combobox: _comboBox_primary, event_args: e, image: image);
+        }
+
+        /// <summary>
+        /// event handler _comboBox_secondary are draw item.
+        /// </summary>
+        void _comboBox_secondary_DrawItem(object sender, DrawItemEventArgs e) {
+            if (e.Index == -1) { return; }
+            // gets a color icon image.
+            Image image = get_color_icon_image(event_args: e);
+            // draw combobox items by owner-draw.
+            draw_combobox_by_owner(combobox: _comboBox_secondary, event_args: e, image: image);
+        }
+
+        /// <summary>
+        /// event handler _comboBox_accent are draw item.
+        /// </summary>
+        void _comboBox_accent_DrawItem(object sender, DrawItemEventArgs e) {
+            if (e.Index == -1) { return; }
+            // gets a color icon image.
+            Image image = get_color_icon_image(event_args: e);
+            // draw combobox items by owner-draw.
+            draw_combobox_by_owner(combobox: _comboBox_accent, event_args: e, image: image);
+        }
+
+        /// <summary>
+        /// event handler _comboBox_language are draw item.
+        /// </summary>
+        void _comboBox_language_DrawItem(object sender, DrawItemEventArgs e) {
+            if (e.Index == -1) { return; }
+            // gets a language icon image.
+            Image image = get_language_icon_image(event_args: e);
+            // draw combobox items by owner-draw.
+            draw_combobox_by_owner(combobox: _comboBox_language, event_args: e, image: image);
+        }
+
+        /// <summary>
         /// event handler _comboBox_language are changed.
         /// </summary>
         void _comboBox_language_SelectedIndexChanged(object sender, EventArgs e) {
@@ -116,17 +163,6 @@ namespace Texture.Win64 {
             }
             // changes language.
             change_language();
-        }
-
-        /// <summary>
-        /// event handler _comboBox_language are draw item.
-        /// </summary>
-        void _comboBox_language_DrawItem(object sender, DrawItemEventArgs e) {
-            if (e.Index == -1) { return; }
-            // gets a language icon image.
-            Image image = get_language_icon_image(e);
-            // draw combobox items by owner.
-            draw_combobox_by_owner(combobox: _comboBox_language, event_args: e, image: image);
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -218,6 +254,9 @@ namespace Texture.Win64 {
             }
         }
 
+        /// <summary>
+        /// changes language.
+        /// </summary>
         void change_language() {
             Text = Resources.FormMain_Text;
             _groupBox_layer.Text = Resources._groupBox_layer_Text;
@@ -239,6 +278,47 @@ namespace Texture.Win64 {
         }
 
         /// <summary>
+        /// gets a color icon image.
+        /// </summary>
+        Image get_color_icon_image(DrawItemEventArgs event_args) {
+            Image image;
+            switch (event_args.Index) {
+                case 0:
+                default:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\none_icon.png"); break;
+                case 1:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\red_icon.png"); break;
+                case 2:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\orange_icon.png"); break;
+                case 3:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\amber_icon.png"); break;
+                case 4:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\yellow_icon.png"); break;
+                case 5:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\lime_icon.png"); break;
+                case 6:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\green_icon.png"); break;
+                case 7:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\turquoise_icon.png"); break;
+                case 8:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\azure_icon.png"); break;
+                case 9:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\blue_icon.png"); break;
+                case 10:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\purple_icon.png"); break;
+                case 11:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\magenta_icon.png"); break;
+                case 12:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\rose_icon.png"); break;
+                case 13:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\black_icon.png"); break;
+                case 14:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\white_icon.png"); break;
+            }
+            return image;
+        }
+
+        /// <summary>
         /// gets a language icon image.
         /// </summary>
         Image get_language_icon_image(DrawItemEventArgs event_args) {
@@ -253,6 +333,9 @@ namespace Texture.Win64 {
             return image;
         }
 
+        /// <summary>
+        /// draw combobox items by owner-draw.
+        /// </summary>
         void draw_combobox_by_owner(ComboBox combobox, DrawItemEventArgs event_args, Image image) {
             // draw background color.
             event_args.DrawBackground();
