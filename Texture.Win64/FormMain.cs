@@ -281,40 +281,23 @@ namespace Texture.Win64 {
         /// gets a color icon image.
         /// </summary>
         Image get_color_icon_image(DrawItemEventArgs event_args) {
-            Image image;
-            switch (event_args.Index) {
-                case 0:
-                default:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\none_icon.png"); break;
-                case 1:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\red_icon.png"); break;
-                case 2:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\orange_icon.png"); break;
-                case 3:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\amber_icon.png"); break;
-                case 4:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\yellow_icon.png"); break;
-                case 5:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\lime_icon.png"); break;
-                case 6:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\green_icon.png"); break;
-                case 7:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\turquoise_icon.png"); break;
-                case 8:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\azure_icon.png"); break;
-                case 9:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\blue_icon.png"); break;
-                case 10:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\purple_icon.png"); break;
-                case 11:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\magenta_icon.png"); break;
-                case 12:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\rose_icon.png"); break;
-                case 13:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\black_icon.png"); break;
-                case 14:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\white_icon.png"); break;
-            }
+            Image image = event_args.Index switch {
+                1 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\red_icon.png"),
+                2 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\orange_icon.png"),
+                3 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\amber_icon.png"),
+                4 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\yellow_icon.png"),
+                5 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\lime_icon.png"),
+                6 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\green_icon.png"),
+                7 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\turquoise_icon.png"),
+                8 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\azure_icon.png"),
+                9 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\blue_icon.png"),
+                10 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\purple_icon.png"),
+                11 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\magenta_icon.png"),
+                12 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\rose_icon.png"),
+                13 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\black_icon.png"),
+                14 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\white_icon.png"),
+                _ => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\none_icon.png"),
+            };
             return image;
         }
 
@@ -322,14 +305,10 @@ namespace Texture.Win64 {
         /// gets a language icon image.
         /// </summary>
         Image get_language_icon_image(DrawItemEventArgs event_args) {
-            Image image;
-            switch (event_args.Index) {
-                case 0:
-                default:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\english_icon.png"); break;
-                case 1:
-                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\japanese_icon.png"); break;
-            }
+            Image image = event_args.Index switch {
+                1 => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\japanese_icon.png"),
+                _ => Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\english_icon.png"),
+            };
             return image;
         }
 
