@@ -145,7 +145,7 @@
     <value>透明度:</value>
   </data>
   <data name="_label_crop_Text" xml:space="preserve">
-    <value>クロップ:</value>
+    <value>切り取り:</value>
   </data>
   <data name="_label_height_Text" xml:space="preserve">
     <value>高さ:</value>
@@ -154,7 +154,7 @@
     <value>言語:</value>
   </data>
   <data name="_label_piece_count_Text" xml:space="preserve">
-    <value>分割した数:</value>
+    <value>分割する数:</value>
   </data>
   <data name="_label_primary_Text" xml:space="preserve">
     <value>プライマリ色:</value>
