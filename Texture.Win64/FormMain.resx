@@ -166,10 +166,10 @@
     <value>Right</value>
   </data>
   <data name="_label_swing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>49, 386</value>
+    <value>10, 386</value>
   </data>
   <data name="_label_swing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
+    <value>89, 20</value>
   </data>
   <data name="_label_swing.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -268,10 +268,10 @@
     <value>Right</value>
   </data>
   <data name="_label_alpha.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 344</value>
+    <value>10, 344</value>
   </data>
   <data name="_label_alpha.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 20</value>
+    <value>89, 20</value>
   </data>
   <data name="_label_alpha.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -340,10 +340,10 @@
     <value>Right</value>
   </data>
   <data name="_label_crop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>57, 165</value>
+    <value>10, 165</value>
   </data>
   <data name="_label_crop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 20</value>
+    <value>89, 25</value>
   </data>
   <data name="_label_crop.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -370,10 +370,10 @@
     <value>Right</value>
   </data>
   <data name="_label_accent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>44, 300</value>
+    <value>10, 300</value>
   </data>
   <data name="_label_accent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 20</value>
+    <value>89, 20</value>
   </data>
   <data name="_label_accent.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -538,10 +538,10 @@
     <value>Right</value>
   </data>
   <data name="_label_primary.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 210</value>
+    <value>10, 210</value>
   </data>
   <data name="_label_primary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 20</value>
+    <value>89, 20</value>
   </data>
   <data name="_label_primary.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -568,10 +568,10 @@
     <value>Right</value>
   </data>
   <data name="_label_secondary.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 255</value>
+    <value>10, 255</value>
   </data>
   <data name="_label_secondary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 20</value>
+    <value>89, 20</value>
   </data>
   <data name="_label_secondary.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -733,10 +733,10 @@
     <value>Right</value>
   </data>
   <data name="_label_width.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 28</value>
+    <value>10, 28</value>
   </data>
   <data name="_label_width.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 20</value>
+    <value>89, 20</value>
   </data>
   <data name="_label_width.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -763,10 +763,10 @@
     <value>Right</value>
   </data>
   <data name="_label_height.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 72</value>
+    <value>10, 72</value>
   </data>
   <data name="_label_height.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
+    <value>89, 20</value>
   </data>
   <data name="_label_height.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
