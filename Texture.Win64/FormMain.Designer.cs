@@ -23,6 +23,7 @@
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this._button_write = new System.Windows.Forms.Button();
             this._numericUpDown_width = new System.Windows.Forms.NumericUpDown();
             this._numericUpDown_height = new System.Windows.Forms.NumericUpDown();
@@ -50,6 +51,8 @@
             this._groupBox_rect = new System.Windows.Forms.GroupBox();
             this._groupBox_view = new System.Windows.Forms.GroupBox();
             this._pictureBox_view = new System.Windows.Forms.PictureBox();
+            this._comboBox_language = new System.Windows.Forms.ComboBox();
+            this._label_language = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_width)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_height)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_piece_count)).BeginInit();
@@ -67,12 +70,8 @@
             this._button_write.AllowDrop = true;
             this._button_write.BackColor = System.Drawing.Color.Gray;
             this._button_write.ForeColor = System.Drawing.SystemColors.Control;
-            this._button_write.Location = new System.Drawing.Point(17, 588);
-            this._button_write.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            resources.ApplyResources(this._button_write, "_button_write");
             this._button_write.Name = "_button_write";
-            this._button_write.Size = new System.Drawing.Size(279, 48);
-            this._button_write.TabIndex = 0;
-            this._button_write.Text = "write";
             this._button_write.UseVisualStyleBackColor = false;
             this._button_write.Click += new System.EventHandler(this._button_write_Click);
             // 
@@ -83,7 +82,7 @@
             0,
             0,
             0});
-            this._numericUpDown_width.Location = new System.Drawing.Point(112, 26);
+            resources.ApplyResources(this._numericUpDown_width, "_numericUpDown_width");
             this._numericUpDown_width.Maximum = new decimal(new int[] {
             4096,
             0,
@@ -95,8 +94,6 @@
             0,
             0});
             this._numericUpDown_width.Name = "_numericUpDown_width";
-            this._numericUpDown_width.Size = new System.Drawing.Size(150, 27);
-            this._numericUpDown_width.TabIndex = 7;
             this._numericUpDown_width.Value = new decimal(new int[] {
             256,
             0,
@@ -111,7 +108,7 @@
             0,
             0,
             0});
-            this._numericUpDown_height.Location = new System.Drawing.Point(112, 70);
+            resources.ApplyResources(this._numericUpDown_height, "_numericUpDown_height");
             this._numericUpDown_height.Maximum = new decimal(new int[] {
             4096,
             0,
@@ -123,8 +120,6 @@
             0,
             0});
             this._numericUpDown_height.Name = "_numericUpDown_height";
-            this._numericUpDown_height.Size = new System.Drawing.Size(150, 27);
-            this._numericUpDown_height.TabIndex = 8;
             this._numericUpDown_height.Value = new decimal(new int[] {
             256,
             0,
@@ -134,27 +129,19 @@
             // 
             // _label_width
             // 
-            this._label_width.AutoSize = true;
+            resources.ApplyResources(this._label_width, "_label_width");
             this._label_width.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_width.Location = new System.Drawing.Point(50, 28);
             this._label_width.Name = "_label_width";
-            this._label_width.Size = new System.Drawing.Size(49, 20);
-            this._label_width.TabIndex = 9;
-            this._label_width.Text = "width:";
             // 
             // _label_height
             // 
-            this._label_height.AutoSize = true;
+            resources.ApplyResources(this._label_height, "_label_height");
             this._label_height.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_height.Location = new System.Drawing.Point(45, 72);
             this._label_height.Name = "_label_height";
-            this._label_height.Size = new System.Drawing.Size(54, 20);
-            this._label_height.TabIndex = 10;
-            this._label_height.Text = "height:";
             // 
             // _numericUpDown_piece_count
             // 
-            this._numericUpDown_piece_count.Location = new System.Drawing.Point(112, 119);
+            resources.ApplyResources(this._numericUpDown_piece_count, "_numericUpDown_piece_count");
             this._numericUpDown_piece_count.Maximum = new decimal(new int[] {
             64,
             0,
@@ -166,8 +153,6 @@
             0,
             0});
             this._numericUpDown_piece_count.Name = "_numericUpDown_piece_count";
-            this._numericUpDown_piece_count.Size = new System.Drawing.Size(150, 27);
-            this._numericUpDown_piece_count.TabIndex = 11;
             this._numericUpDown_piece_count.Value = new decimal(new int[] {
             3,
             0,
@@ -176,13 +161,9 @@
             // 
             // _label_piece_count
             // 
-            this._label_piece_count.AutoSize = true;
+            resources.ApplyResources(this._label_piece_count, "_label_piece_count");
             this._label_piece_count.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_piece_count.Location = new System.Drawing.Point(10, 121);
             this._label_piece_count.Name = "_label_piece_count";
-            this._label_piece_count.Size = new System.Drawing.Size(89, 20);
-            this._label_piece_count.TabIndex = 12;
-            this._label_piece_count.Text = "piece count:";
             // 
             // _numericUpDown_crop
             // 
@@ -192,7 +173,7 @@
             0,
             0,
             131072});
-            this._numericUpDown_crop.Location = new System.Drawing.Point(112, 163);
+            resources.ApplyResources(this._numericUpDown_crop, "_numericUpDown_crop");
             this._numericUpDown_crop.Maximum = new decimal(new int[] {
             1,
             0,
@@ -204,8 +185,6 @@
             0,
             65536});
             this._numericUpDown_crop.Name = "_numericUpDown_crop";
-            this._numericUpDown_crop.Size = new System.Drawing.Size(150, 27);
-            this._numericUpDown_crop.TabIndex = 13;
             this._numericUpDown_crop.Value = new decimal(new int[] {
             1,
             0,
@@ -214,118 +193,93 @@
             // 
             // _label_crop
             // 
-            this._label_crop.AutoSize = true;
+            resources.ApplyResources(this._label_crop, "_label_crop");
             this._label_crop.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_crop.Location = new System.Drawing.Point(57, 165);
             this._label_crop.Name = "_label_crop";
-            this._label_crop.Size = new System.Drawing.Size(42, 20);
-            this._label_crop.TabIndex = 14;
-            this._label_crop.Text = "crop:";
             // 
             // _comboBox_primary
             // 
             this._comboBox_primary.FormattingEnabled = true;
             this._comboBox_primary.Items.AddRange(new object[] {
-            "none",
-            "Red",
-            "Orange",
-            "Amber",
-            "Yellow",
-            "Lime",
-            "Green",
-            "Turquoise",
-            "Azure",
-            "Blue",
-            "Purple",
-            "Magenta",
-            "Rose",
-            "Black",
-            "White"});
-            this._comboBox_primary.Location = new System.Drawing.Point(112, 207);
+            resources.GetString("_comboBox_primary.Items"),
+            resources.GetString("_comboBox_primary.Items1"),
+            resources.GetString("_comboBox_primary.Items2"),
+            resources.GetString("_comboBox_primary.Items3"),
+            resources.GetString("_comboBox_primary.Items4"),
+            resources.GetString("_comboBox_primary.Items5"),
+            resources.GetString("_comboBox_primary.Items6"),
+            resources.GetString("_comboBox_primary.Items7"),
+            resources.GetString("_comboBox_primary.Items8"),
+            resources.GetString("_comboBox_primary.Items9"),
+            resources.GetString("_comboBox_primary.Items10"),
+            resources.GetString("_comboBox_primary.Items11"),
+            resources.GetString("_comboBox_primary.Items12"),
+            resources.GetString("_comboBox_primary.Items13"),
+            resources.GetString("_comboBox_primary.Items14")});
+            resources.ApplyResources(this._comboBox_primary, "_comboBox_primary");
             this._comboBox_primary.Name = "_comboBox_primary";
-            this._comboBox_primary.Size = new System.Drawing.Size(150, 28);
-            this._comboBox_primary.TabIndex = 15;
-            this._comboBox_primary.Text = "White";
             // 
             // _label_primary
             // 
-            this._label_primary.AutoSize = true;
+            resources.ApplyResources(this._label_primary, "_label_primary");
             this._label_primary.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_primary.Location = new System.Drawing.Point(36, 210);
             this._label_primary.Name = "_label_primary";
-            this._label_primary.Size = new System.Drawing.Size(63, 20);
-            this._label_primary.TabIndex = 16;
-            this._label_primary.Text = "primary:";
             // 
             // _comboBox_secondary
             // 
             this._comboBox_secondary.FormattingEnabled = true;
             this._comboBox_secondary.Items.AddRange(new object[] {
-            "none",
-            "Red",
-            "Orange",
-            "Amber",
-            "Yellow",
-            "Lime",
-            "Green",
-            "Turquoise",
-            "Azure",
-            "Blue",
-            "Purple",
-            "Magenta",
-            "Rose",
-            "Black",
-            "White"});
-            this._comboBox_secondary.Location = new System.Drawing.Point(112, 252);
+            resources.GetString("_comboBox_secondary.Items"),
+            resources.GetString("_comboBox_secondary.Items1"),
+            resources.GetString("_comboBox_secondary.Items2"),
+            resources.GetString("_comboBox_secondary.Items3"),
+            resources.GetString("_comboBox_secondary.Items4"),
+            resources.GetString("_comboBox_secondary.Items5"),
+            resources.GetString("_comboBox_secondary.Items6"),
+            resources.GetString("_comboBox_secondary.Items7"),
+            resources.GetString("_comboBox_secondary.Items8"),
+            resources.GetString("_comboBox_secondary.Items9"),
+            resources.GetString("_comboBox_secondary.Items10"),
+            resources.GetString("_comboBox_secondary.Items11"),
+            resources.GetString("_comboBox_secondary.Items12"),
+            resources.GetString("_comboBox_secondary.Items13"),
+            resources.GetString("_comboBox_secondary.Items14")});
+            resources.ApplyResources(this._comboBox_secondary, "_comboBox_secondary");
             this._comboBox_secondary.Name = "_comboBox_secondary";
-            this._comboBox_secondary.Size = new System.Drawing.Size(150, 28);
-            this._comboBox_secondary.TabIndex = 17;
-            this._comboBox_secondary.Text = "White";
             // 
             // _label_secondary
             // 
-            this._label_secondary.AutoSize = true;
+            resources.ApplyResources(this._label_secondary, "_label_secondary");
             this._label_secondary.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_secondary.Location = new System.Drawing.Point(20, 255);
             this._label_secondary.Name = "_label_secondary";
-            this._label_secondary.Size = new System.Drawing.Size(79, 20);
-            this._label_secondary.TabIndex = 18;
-            this._label_secondary.Text = "secondary:";
             // 
             // _comboBox_accent
             // 
             this._comboBox_accent.FormattingEnabled = true;
             this._comboBox_accent.Items.AddRange(new object[] {
-            "none",
-            "Red",
-            "Orange",
-            "Amber",
-            "Yellow",
-            "Lime",
-            "Green",
-            "Turquoise",
-            "Azure",
-            "Blue",
-            "Purple",
-            "Magenta",
-            "Rose",
-            "Black",
-            "White"});
-            this._comboBox_accent.Location = new System.Drawing.Point(112, 297);
+            resources.GetString("_comboBox_accent.Items"),
+            resources.GetString("_comboBox_accent.Items1"),
+            resources.GetString("_comboBox_accent.Items2"),
+            resources.GetString("_comboBox_accent.Items3"),
+            resources.GetString("_comboBox_accent.Items4"),
+            resources.GetString("_comboBox_accent.Items5"),
+            resources.GetString("_comboBox_accent.Items6"),
+            resources.GetString("_comboBox_accent.Items7"),
+            resources.GetString("_comboBox_accent.Items8"),
+            resources.GetString("_comboBox_accent.Items9"),
+            resources.GetString("_comboBox_accent.Items10"),
+            resources.GetString("_comboBox_accent.Items11"),
+            resources.GetString("_comboBox_accent.Items12"),
+            resources.GetString("_comboBox_accent.Items13"),
+            resources.GetString("_comboBox_accent.Items14")});
+            resources.ApplyResources(this._comboBox_accent, "_comboBox_accent");
             this._comboBox_accent.Name = "_comboBox_accent";
-            this._comboBox_accent.Size = new System.Drawing.Size(150, 28);
-            this._comboBox_accent.TabIndex = 19;
-            this._comboBox_accent.Text = "none";
             // 
             // _label_accent
             // 
-            this._label_accent.AutoSize = true;
+            resources.ApplyResources(this._label_accent, "_label_accent");
             this._label_accent.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_accent.Location = new System.Drawing.Point(44, 300);
             this._label_accent.Name = "_label_accent";
-            this._label_accent.Size = new System.Drawing.Size(55, 20);
-            this._label_accent.TabIndex = 20;
-            this._label_accent.Text = "accent:";
             // 
             // _numericUpDown_alpha
             // 
@@ -335,15 +289,13 @@
             0,
             0,
             131072});
-            this._numericUpDown_alpha.Location = new System.Drawing.Point(112, 342);
+            resources.ApplyResources(this._numericUpDown_alpha, "_numericUpDown_alpha");
             this._numericUpDown_alpha.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this._numericUpDown_alpha.Name = "_numericUpDown_alpha";
-            this._numericUpDown_alpha.Size = new System.Drawing.Size(150, 27);
-            this._numericUpDown_alpha.TabIndex = 21;
             this._numericUpDown_alpha.Value = new decimal(new int[] {
             1,
             0,
@@ -352,35 +304,25 @@
             // 
             // _label_alpha
             // 
-            this._label_alpha.AutoSize = true;
+            resources.ApplyResources(this._label_alpha, "_label_alpha");
             this._label_alpha.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_alpha.Location = new System.Drawing.Point(50, 344);
             this._label_alpha.Name = "_label_alpha";
-            this._label_alpha.Size = new System.Drawing.Size(49, 20);
-            this._label_alpha.TabIndex = 22;
-            this._label_alpha.Text = "alpha:";
             // 
             // _numericUpDown_swing
             // 
-            this._numericUpDown_swing.Location = new System.Drawing.Point(112, 386);
+            resources.ApplyResources(this._numericUpDown_swing, "_numericUpDown_swing");
             this._numericUpDown_swing.Maximum = new decimal(new int[] {
             64,
             0,
             0,
             0});
             this._numericUpDown_swing.Name = "_numericUpDown_swing";
-            this._numericUpDown_swing.Size = new System.Drawing.Size(150, 27);
-            this._numericUpDown_swing.TabIndex = 23;
             // 
             // _label_swing
             // 
-            this._label_swing.AutoSize = true;
+            resources.ApplyResources(this._label_swing, "_label_swing");
             this._label_swing.ForeColor = System.Drawing.SystemColors.Control;
-            this._label_swing.Location = new System.Drawing.Point(49, 386);
             this._label_swing.Name = "_label_swing";
-            this._label_swing.Size = new System.Drawing.Size(50, 20);
-            this._label_swing.TabIndex = 24;
-            this._label_swing.Text = "swing:";
             // 
             // _groupBox_layer
             // 
@@ -403,52 +345,35 @@
             this._groupBox_layer.Controls.Add(this._label_secondary);
             this._groupBox_layer.Controls.Add(this._comboBox_secondary);
             this._groupBox_layer.ForeColor = System.Drawing.SystemColors.Control;
-            this._groupBox_layer.Location = new System.Drawing.Point(17, 137);
+            resources.ApplyResources(this._groupBox_layer, "_groupBox_layer");
             this._groupBox_layer.Name = "_groupBox_layer";
-            this._groupBox_layer.Size = new System.Drawing.Size(279, 434);
-            this._groupBox_layer.TabIndex = 25;
             this._groupBox_layer.TabStop = false;
-            this._groupBox_layer.Text = "layer";
             // 
             // _label_layer1
             // 
-            this._label_layer1.AutoSize = true;
+            resources.ApplyResources(this._label_layer1, "_label_layer1");
             this._label_layer1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this._label_layer1.Location = new System.Drawing.Point(75, 77);
             this._label_layer1.Name = "_label_layer1";
-            this._label_layer1.Size = new System.Drawing.Size(24, 20);
-            this._label_layer1.TabIndex = 28;
-            this._label_layer1.Text = "●";
             // 
             // _label_layer2
             // 
-            this._label_layer2.AutoSize = true;
+            resources.ApplyResources(this._label_layer2, "_label_layer2");
             this._label_layer2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this._label_layer2.Location = new System.Drawing.Point(75, 30);
             this._label_layer2.Name = "_label_layer2";
-            this._label_layer2.Size = new System.Drawing.Size(24, 20);
-            this._label_layer2.TabIndex = 27;
-            this._label_layer2.Text = "●";
             // 
             // _button_layer1
             // 
             this._button_layer1.BackColor = System.Drawing.Color.Gray;
-            this._button_layer1.Location = new System.Drawing.Point(112, 73);
+            resources.ApplyResources(this._button_layer1, "_button_layer1");
             this._button_layer1.Name = "_button_layer1";
-            this._button_layer1.Size = new System.Drawing.Size(150, 29);
-            this._button_layer1.TabIndex = 26;
-            this._button_layer1.Text = "layer 1";
             this._button_layer1.UseVisualStyleBackColor = false;
             this._button_layer1.Click += new System.EventHandler(this._button_layer1_Click);
             // 
             // _button_layer2
             // 
             this._button_layer2.BackColor = System.Drawing.Color.Gray;
-            this._button_layer2.Location = new System.Drawing.Point(112, 26);
+            resources.ApplyResources(this._button_layer2, "_button_layer2");
             this._button_layer2.Name = "_button_layer2";
-            this._button_layer2.Size = new System.Drawing.Size(150, 29);
-            this._button_layer2.TabIndex = 25;
-            this._button_layer2.Text = "layer 2";
             this._button_layer2.UseVisualStyleBackColor = false;
             this._button_layer2.Click += new System.EventHandler(this._button_layer2_Click);
             // 
@@ -459,52 +384,54 @@
             this._groupBox_rect.Controls.Add(this._label_width);
             this._groupBox_rect.Controls.Add(this._label_height);
             this._groupBox_rect.ForeColor = System.Drawing.SystemColors.Control;
-            this._groupBox_rect.Location = new System.Drawing.Point(17, 12);
+            resources.ApplyResources(this._groupBox_rect, "_groupBox_rect");
             this._groupBox_rect.Name = "_groupBox_rect";
-            this._groupBox_rect.Size = new System.Drawing.Size(279, 118);
-            this._groupBox_rect.TabIndex = 26;
             this._groupBox_rect.TabStop = false;
-            this._groupBox_rect.Text = "rect";
             // 
             // _groupBox_view
             // 
             this._groupBox_view.Controls.Add(this._pictureBox_view);
             this._groupBox_view.ForeColor = System.Drawing.SystemColors.Control;
-            this._groupBox_view.Location = new System.Drawing.Point(314, 12);
+            resources.ApplyResources(this._groupBox_view, "_groupBox_view");
             this._groupBox_view.Name = "_groupBox_view";
-            this._groupBox_view.Size = new System.Drawing.Size(559, 559);
-            this._groupBox_view.TabIndex = 27;
             this._groupBox_view.TabStop = false;
-            this._groupBox_view.Text = "view";
             // 
             // _pictureBox_view
             // 
-            this._pictureBox_view.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._pictureBox_view.Location = new System.Drawing.Point(24, 26);
+            resources.ApplyResources(this._pictureBox_view, "_pictureBox_view");
             this._pictureBox_view.Name = "_pictureBox_view";
-            this._pictureBox_view.Size = new System.Drawing.Size(510, 510);
-            this._pictureBox_view.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this._pictureBox_view.TabIndex = 0;
             this._pictureBox_view.TabStop = false;
+            // 
+            // _comboBox_language
+            // 
+            this._comboBox_language.FormattingEnabled = true;
+            this._comboBox_language.Items.AddRange(new object[] {
+            resources.GetString("_comboBox_language.Items"),
+            resources.GetString("_comboBox_language.Items1")});
+            resources.ApplyResources(this._comboBox_language, "_comboBox_language");
+            this._comboBox_language.Name = "_comboBox_language";
+            this._comboBox_language.SelectedIndexChanged += new System.EventHandler(this._comboBox_language_SelectedIndexChanged);
+            // 
+            // _label_language
+            // 
+            resources.ApplyResources(this._label_language, "_label_language");
+            this._label_language.Name = "_label_language";
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(901, 658);
+            this.Controls.Add(this._label_language);
+            this.Controls.Add(this._comboBox_language);
             this.Controls.Add(this._groupBox_view);
             this.Controls.Add(this._groupBox_rect);
             this.Controls.Add(this._groupBox_layer);
             this.Controls.Add(this._button_write);
             this.ForeColor = System.Drawing.SystemColors.Control;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormMain";
-            this.Text = "Texture Generation";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_width)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_height)).EndInit();
@@ -519,6 +446,7 @@
             this._groupBox_view.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._pictureBox_view)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -551,6 +479,8 @@
         private System.Windows.Forms.Label _label_layer2;
         private System.Windows.Forms.GroupBox _groupBox_view;
         private System.Windows.Forms.PictureBox _pictureBox_view;
+        private System.Windows.Forms.ComboBox _comboBox_language;
+        private System.Windows.Forms.Label _label_language;
     }
 }
 

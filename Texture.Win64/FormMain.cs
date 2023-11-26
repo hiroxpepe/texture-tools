@@ -3,8 +3,11 @@
 
 using System;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
+using Texture.Win64.Properties;
 
 namespace Texture.Win64 {
     /// <summary>
@@ -79,6 +82,20 @@ namespace Texture.Win64 {
             bool result = save_layer(index: _layer_index);
             if (!result) { return; }
             write();
+        }
+
+        void _comboBox_language_SelectedIndexChanged(object sender, EventArgs e) {
+            switch (_comboBox_language.Text) {
+                case "日本語":
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
+                    break;
+                case "English":
+                default:
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("");
+                    break;
+            }
+
+            _label_language.Text = Resources._label_language_Text;
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
