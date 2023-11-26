@@ -104,7 +104,7 @@
             // 
             // _button_layer1
             // 
-            this._button_layer1.BackColor = System.Drawing.Color.DimGray;
+            this._button_layer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             resources.ApplyResources(this._button_layer1, "_button_layer1");
             this._button_layer1.Name = "_button_layer1";
             this._button_layer1.UseVisualStyleBackColor = false;
@@ -112,7 +112,7 @@
             // 
             // _button_layer2
             // 
-            this._button_layer2.BackColor = System.Drawing.Color.DimGray;
+            this._button_layer2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             resources.ApplyResources(this._button_layer2, "_button_layer2");
             this._button_layer2.Name = "_button_layer2";
             this._button_layer2.UseVisualStyleBackColor = false;
@@ -392,7 +392,7 @@
             // _pictureBox_view
             // 
             resources.ApplyResources(this._pictureBox_view, "_pictureBox_view");
-            this._pictureBox_view.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this._pictureBox_view.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this._pictureBox_view.Name = "_pictureBox_view";
             this._pictureBox_view.TabStop = false;
             // 
@@ -404,7 +404,7 @@
             // _button_write
             // 
             this._button_write.AllowDrop = true;
-            this._button_write.BackColor = System.Drawing.Color.DimGray;
+            this._button_write.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(62)))), ((int)(((byte)(66)))));
             this._button_write.ForeColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this._button_write, "_button_write");
             this._button_write.Name = "_button_write";
@@ -426,7 +426,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.Controls.Add(this._label_language);
             this.Controls.Add(this._comboBox_language);
             this.Controls.Add(this._groupBox_view);
