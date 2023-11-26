@@ -35,13 +35,13 @@ namespace Texture.Win64 {
 
         Image _view_img;
 
-        string? _exe_dir_path;
+        readonly string? _exe_dir_path;
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
         /// <summary>
-        /// Default constructor.
+        /// default constructor.
         /// </summary>
         public FormMain() {
             InitializeComponent();
@@ -80,6 +80,7 @@ namespace Texture.Win64 {
                 if (!result) { return; }
                 switch_layer_index();
                 load_layer(index: _layer_index);
+                _comboBox_accent.Enabled = true;
             }
         }
 
@@ -92,6 +93,7 @@ namespace Texture.Win64 {
                 if (!result) { return; }
                 switch_layer_index();
                 load_layer(index: _layer_index);
+                _comboBox_accent.Enabled = false;
             }
         }
 
@@ -168,23 +170,45 @@ namespace Texture.Win64 {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // private Methods [verb]
 
+        /// <summary>
+        /// initializes fields.
+        /// </summary>
         void initialize_field() {
+            // default size.
             _rect = new(x: 0, y: 0, width: 256, height: 256);
+            // layers are two.
             _param_array = new Param[2];
+            // defines init parameters.
+            string[] layer1 = {"7", "0.9", "Green", "Lime", "Yellow", "1.0", "10"};
+            string[] layer2 = {"6", "0.9", "Lime", "Yellow", "none", "0.475", "20"};
+            string[][] layers = {layer1, layer2};
+            // sets init parameters.
             for (int i = 0; i < 2; i++) {
                 _param_array[i] = new Param(
-                    piece_count: 3, 
-                    crop: 1.0d, 
-                    primary: "White", 
-                    secondary: "White", 
-                    accent: "none", 
-                    alpha: 1.0f,
-                    swing: 0
+                    piece_count: int.Parse(layers[i][0]), 
+                    crop: double.Parse(layers[i][1]), 
+                    primary: layers[i][2], 
+                    secondary: layers[i][3], 
+                    accent: layers[i][4], 
+                    alpha: float.Parse(layers[i][5]),
+                    swing: int.Parse(layers[i][6])
                 );
             }
+            // sets layer index.
             _layer_index = 0;
+            // sets init param to controls
+            _numericUpDown_piece_count.Value = int.Parse(layers[0][0]);
+            _numericUpDown_crop.Value = (decimal) double.Parse(layers[0][1]);
+            _comboBox_primary.Text = layers[0][2];
+            _comboBox_secondary.Text = layers[0][3];
+            _comboBox_accent.Text = layers[0][4];
+            _numericUpDown_alpha.Value = (decimal) float.Parse(layers[0][5]);
+            _numericUpDown_swing.Value = int.Parse(layers[0][6]);
         }
 
+        /// <summary>
+        /// saves layer params of the index.
+        /// </summary>
         bool save_layer(int index) {
             try {
                 _param_array[index] = new Param(
@@ -204,6 +228,9 @@ namespace Texture.Win64 {
             }
         }
 
+        /// <summary>
+        /// loads layer params of the index.
+        /// </summary>
         bool load_layer(int index) {
             try {
                 _numericUpDown_piece_count.Value = _param_array[index].PieceCount;
@@ -221,6 +248,9 @@ namespace Texture.Win64 {
             }
         }
 
+        /// <summary>
+        /// writes an image.
+        /// </summary>
         bool write() {
             try {
                 Context.OnDo += (object param, EvtArgs e) => {
@@ -241,6 +271,9 @@ namespace Texture.Win64 {
             }
         }
 
+        /// <summary>
+        /// switches layer index.
+        /// </summary>
         void switch_layer_index() {
             if (_layer_index == LAYER_1) {
                 _layer_index = LAYER_2;
@@ -324,7 +357,7 @@ namespace Texture.Win64 {
             event_args.Graphics.DrawString(
                 s: combobox.Items[event_args.Index].ToString(),
                 font: new Font(familyName: combobox.Items[event_args.Index].ToString(), emSize: 10),
-                brush: new SolidBrush(System.Drawing.Color.Black),
+                brush: new SolidBrush(color: System.Drawing.Color.Black),
                 x: event_args.Bounds.X + (image.Width / 2),
                 y: event_args.Bounds.Y
             );
