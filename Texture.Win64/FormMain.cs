@@ -178,11 +178,11 @@ namespace Texture.Win64 {
             _rect = new(x: 0, y: 0, width: 256, height: 256);
             // layers are two.
             _param_array = new Param[2];
-            // defines init parameters.
+            // defines init params.
             string[] layer1 = {"7", "0.9", "Green", "Lime", "Yellow", "1.0", "10"};
             string[] layer2 = {"6", "0.9", "Lime", "Yellow", "none", "0.475", "20"};
             string[][] layers = {layer1, layer2};
-            // sets init parameters.
+            // sets init params.
             for (int i = 0; i < 2; i++) {
                 _param_array[i] = new Param(
                     piece_count: int.Parse(layers[i][0]), 
@@ -196,7 +196,7 @@ namespace Texture.Win64 {
             }
             // sets layer index.
             _layer_index = 0;
-            // sets init param to controls
+            // sets init params to controls
             _numericUpDown_piece_count.Value = int.Parse(layers[0][0]);
             _numericUpDown_crop.Value = (decimal) double.Parse(layers[0][1]);
             _comboBox_primary.Text = layers[0][2];
