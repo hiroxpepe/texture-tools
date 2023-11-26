@@ -8,6 +8,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <Company>STUDIO MeowToon</Company>
     <Authors>Hiroyuki Adachi</Authors>
+    <ApplicationIcon>studio_meowtoon_icon_v2.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
