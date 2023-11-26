@@ -87,15 +87,37 @@ namespace Texture.Win64 {
         void _comboBox_language_SelectedIndexChanged(object sender, EventArgs e) {
             switch (_comboBox_language.Text) {
                 case "日本語":
-                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(name: "ja-JP");
                     break;
                 case "English":
                 default:
-                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("");
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(name: string.Empty);
                     break;
             }
+            _change_language();
+        }
 
+        void _change_language() {
+            Text = Resources.FormMain_Text;
+
+            _groupBox_layer.Text = Resources._groupBox_layer_Text;
+            _groupBox_rect.Text = Resources._groupBox_rect_Text;
+            _groupBox_view.Text = Resources._groupBox_view_Text;
+
+            _label_width.Text = Resources._label_width_Text;
+            _label_height.Text = Resources._label_height_Text;
+            _label_piece_count.Text = Resources._label_piece_count_Text;
+            _label_crop.Text = Resources._label_crop_Text;
+            _label_primary.Text = Resources._label_primary_Text;
+            _label_secondary.Text = Resources._label_secondary_Text;
+            _label_accent.Text = Resources._label_accent_Text;
+            _label_alpha.Text = Resources._label_alpha_Text;
+            _label_swing.Text = Resources._label_swing_Text;
             _label_language.Text = Resources._label_language_Text;
+
+            _button_write.Text = Resources._button_write_Text;
+            _button_layer1.Text = Resources._button_layer1_Text;
+            _button_layer2.Text = Resources._button_layer2_Text;
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////

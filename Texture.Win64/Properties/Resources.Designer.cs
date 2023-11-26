@@ -61,6 +61,33 @@ namespace Texture.Win64.Properties {
         }
         
         /// <summary>
+        ///   layer 1 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _button_layer1_Text {
+            get {
+                return ResourceManager.GetString("_button_layer1_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   layer 2 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _button_layer2_Text {
+            get {
+                return ResourceManager.GetString("_button_layer2_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   write に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _button_write_Text {
+            get {
+                return ResourceManager.GetString("_button_write_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   layer に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string _groupBox_layer_Text {
@@ -88,11 +115,92 @@ namespace Texture.Win64.Properties {
         }
         
         /// <summary>
+        ///   accent: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_accent_Text {
+            get {
+                return ResourceManager.GetString("_label_accent_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   alpha: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_alpha_Text {
+            get {
+                return ResourceManager.GetString("_label_alpha_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   crop: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_crop_Text {
+            get {
+                return ResourceManager.GetString("_label_crop_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   height: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_height_Text {
+            get {
+                return ResourceManager.GetString("_label_height_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   language: に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string _label_language_Text {
             get {
                 return ResourceManager.GetString("_label_language_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   piece_count: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_piece_count_Text {
+            get {
+                return ResourceManager.GetString("_label_piece_count_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   primary: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_primary_Text {
+            get {
+                return ResourceManager.GetString("_label_primary_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   secondary: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_secondary_Text {
+            get {
+                return ResourceManager.GetString("_label_secondary_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   swing: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_swing_Text {
+            get {
+                return ResourceManager.GetString("_label_swing_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   width: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_width_Text {
+            get {
+                return ResourceManager.GetString("_label_width_Text", resourceCulture);
             }
         }
         

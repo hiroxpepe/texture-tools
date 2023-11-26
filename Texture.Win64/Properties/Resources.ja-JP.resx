@@ -120,6 +120,15 @@
   <data name="FormMain_Text" xml:space="preserve">
     <value>テクスチャ生成</value>
   </data>
+  <data name="_button_layer1_Text" xml:space="preserve">
+    <value>レイヤー 1</value>
+  </data>
+  <data name="_button_layer2_Text" xml:space="preserve">
+    <value>レイヤー 2</value>
+  </data>
+  <data name="_button_write_Text" xml:space="preserve">
+    <value>作成</value>
+  </data>
   <data name="_groupBox_layer_Text" xml:space="preserve">
     <value>レイヤー</value>
   </data>
@@ -129,7 +138,37 @@
   <data name="_groupBox_view_Text" xml:space="preserve">
     <value>ビュー</value>
   </data>
+  <data name="_label_accent_Text" xml:space="preserve">
+    <value>アクセント:</value>
+  </data>
+  <data name="_label_alpha_Text" xml:space="preserve">
+    <value>透明度:</value>
+  </data>
+  <data name="_label_crop_Text" xml:space="preserve">
+    <value>クロップ:</value>
+  </data>
+  <data name="_label_height_Text" xml:space="preserve">
+    <value>高さ:</value>
+  </data>
   <data name="_label_language_Text" xml:space="preserve">
-    <value>言語</value>
+    <value>言語:</value>
+  </data>
+  <data name="_label_language_Text1" xml:space="preserve">
+    <value>言語:</value>
+  </data>
+  <data name="_label_piece_count_Text" xml:space="preserve">
+    <value>分割した数:</value>
+  </data>
+  <data name="_label_primary_Text" xml:space="preserve">
+    <value>プライマリー色:</value>
+  </data>
+  <data name="_label_secondary_Text" xml:space="preserve">
+    <value>セカンダリー色:</value>
+  </data>
+  <data name="_label_swing_Text" xml:space="preserve">
+    <value>揺らぎ:</value>
+  </data>
+  <data name="_label_width_Text" xml:space="preserve">
+    <value>幅:</value>
   </data>
 </root>
