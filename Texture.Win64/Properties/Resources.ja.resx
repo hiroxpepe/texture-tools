@@ -139,7 +139,7 @@
     <value>ビュー</value>
   </data>
   <data name="_label_accent_Text" xml:space="preserve">
-    <value>アクセント:</value>
+    <value>アクセント色:</value>
   </data>
   <data name="_label_alpha_Text" xml:space="preserve">
     <value>透明度:</value>
@@ -151,9 +151,6 @@
     <value>高さ:</value>
   </data>
   <data name="_label_language_Text" xml:space="preserve">
-    <value>言語:</value>
-  </data>
-  <data name="_label_language_Text1" xml:space="preserve">
     <value>言語:</value>
   </data>
   <data name="_label_piece_count_Text" xml:space="preserve">

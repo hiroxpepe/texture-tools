@@ -76,7 +76,7 @@ namespace Texture.Win64 {
         }
 
         /// <summary>
-        /// event handler where write button are clicked
+        /// event handler _button_write are clicked.
         /// </summary>
         void _button_write_Click(object sender, EventArgs e) {
             bool result = save_layer(index: _layer_index);
@@ -84,10 +84,13 @@ namespace Texture.Win64 {
             write();
         }
 
+        /// <summary>
+        /// event handler _comboBox_language are changed.
+        /// </summary>
         void _comboBox_language_SelectedIndexChanged(object sender, EventArgs e) {
             switch (_comboBox_language.Text) {
                 case "日本語":
-                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(name: "ja-JP");
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(name: "ja");
                     break;
                 case "English":
                 default:
