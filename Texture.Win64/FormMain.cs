@@ -35,6 +35,8 @@ namespace Texture.Win64 {
 
         Image _view_img;
 
+        string? _exe_dir_path;
+
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
@@ -46,19 +48,29 @@ namespace Texture.Win64 {
             initialize_field();
             _label_layer1.ForeColor = System.Drawing.Color.Lime;
             _comboBox_language.DrawMode = DrawMode.OwnerDrawFixed;
+            _exe_dir_path = Path.GetDirectoryName(Application.ExecutablePath);
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Event handler
 
+        /// <summary>
+        /// event handler _numericUpDown_width are changed.
+        /// </summary>
         void _numericUpDown_width_ValueChanged(object sender, EventArgs e) {
             _rect.Width = (int)_numericUpDown_width.Value;
         }
 
+        /// <summary>
+        /// event handler _numericUpDown_height are changed.
+        /// </summary>
         void _numericUpDown_height_ValueChanged(object sender, EventArgs e) {
             _rect.Height = (int)_numericUpDown_height.Value;
         }
 
+        /// <summary>
+        /// event handler _button_layer1 are clicked.
+        /// </summary>
         void _button_layer1_Click(object sender, EventArgs e) {
             if (_layer_index is not LAYER_1) {
                 bool result = save_layer(index: _layer_index);
@@ -68,6 +80,9 @@ namespace Texture.Win64 {
             }
         }
 
+        /// <summary>
+        /// event handler _button_layer2 are clicked.
+        /// </summary>
         void _button_layer2_Click(object sender, EventArgs e) {
             if (_layer_index is not LAYER_2) {
                 bool result = save_layer(index: _layer_index);
@@ -99,38 +114,19 @@ namespace Texture.Win64 {
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(name: string.Empty);
                     break;
             }
+            // changes language.
             change_language();
         }
 
+        /// <summary>
+        /// event handler _comboBox_language are draw item.
+        /// </summary>
         void _comboBox_language_DrawItem(object sender, DrawItemEventArgs e) {
             if (e.Index == -1) { return; }
-            // gets the app path.
-            string? exe_dir_path = Path.GetDirectoryName(Application.ExecutablePath);
-            // gets a language icon.
-            Image img;
-            switch (e.Index) {
-                case 0:
-                default:
-                    img = Image.FromFile(filename: $"{exe_dir_path}\\Resources\\english_icon.png"); break;
-                case 1:
-                    img = Image.FromFile(filename: $"{exe_dir_path}\\Resources\\japanese_icon.png"); break;
-            }
-            // draw background color.
-            e.DrawBackground();
-            // draw an icon image.
-            e.Graphics.DrawImage(image: img, x: e.Bounds.X, y: e.Bounds.Y + 2);
-            // draw a text.
-            e.Graphics.DrawString(
-                s: _comboBox_language.Items[e.Index].ToString(),
-                font: new Font(familyName: _comboBox_language.Items[e.Index].ToString(), emSize: 10),
-                brush: new SolidBrush(System.Drawing.Color.Black),
-                x: e.Bounds.X + (img.Width / 2),
-                y: e.Bounds.Y
-            );
-            // draw the focused rectangle.
-            e.DrawFocusRectangle();
-            // disposes the icon image.
-            img.Dispose();
+            // gets a language icon image.
+            Image image = get_language_icon_image(e);
+            // draw combobox items by owner.
+            draw_combobox_by_owner(combobox: _comboBox_language, event_args: e, image: image);
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -194,7 +190,7 @@ namespace Texture.Win64 {
                 Context.OnDo += (object param, EvtArgs e) => {
                     using FileStream fs = new(
                         path: (string) param, 
-      　　　　　　　　　mode: FileMode.Open, 
+                        mode: FileMode.Open, 
                         access: FileAccess.Read
                     );
                     _view_img?.Dispose();
@@ -240,6 +236,40 @@ namespace Texture.Win64 {
             _button_write.Text = Resources._button_write_Text;
             _button_layer1.Text = Resources._button_layer1_Text;
             _button_layer2.Text = Resources._button_layer2_Text;
+        }
+
+        /// <summary>
+        /// gets a language icon image.
+        /// </summary>
+        Image get_language_icon_image(DrawItemEventArgs event_args) {
+            Image image;
+            switch (event_args.Index) {
+                case 0:
+                default:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\english_icon.png"); break;
+                case 1:
+                    image = Image.FromFile(filename: $"{_exe_dir_path}\\Resources\\japanese_icon.png"); break;
+            }
+            return image;
+        }
+
+        void draw_combobox_by_owner(ComboBox combobox, DrawItemEventArgs event_args, Image image) {
+            // draw background color.
+            event_args.DrawBackground();
+            // draw an icon image.
+            event_args.Graphics.DrawImage(image: image, x: event_args.Bounds.X, y: event_args.Bounds.Y + 2);
+            // draw a text.
+            event_args.Graphics.DrawString(
+                s: combobox.Items[event_args.Index].ToString(),
+                font: new Font(familyName: combobox.Items[event_args.Index].ToString(), emSize: 10),
+                brush: new SolidBrush(System.Drawing.Color.Black),
+                x: event_args.Bounds.X + (image.Width / 2),
+                y: event_args.Bounds.Y
+            );
+            // draw the focused rectangle.
+            event_args.DrawFocusRectangle();
+            // disposes the icon image.
+            image.Dispose();
         }
     }
 }
