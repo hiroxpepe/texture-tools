@@ -38,7 +38,7 @@ namespace Texture.Core {
         }
 
         public static Cut NewCutDefault() {
-            return new(x: 2, y: 2); // 3 * 3
+            return new(x: 2, y: 2); // 3 pieces * 3 pieces
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////

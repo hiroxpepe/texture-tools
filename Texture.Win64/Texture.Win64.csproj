@@ -8,12 +8,33 @@
     <UseWindowsForms>true</UseWindowsForms>
     <Company>STUDIO MeowToon</Company>
     <Authors>Hiroyuki Adachi</Authors>
-    <ApplicationIcon>studio_meowtoon_icon_v2.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\app_icon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\app_icon.ico" />
+    <None Remove="Resources\english_icon.png" />
+    <None Remove="Resources\japanese_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\japanese_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Texture\Texture.csproj" />
     <ProjectReference Include="..\Texture.Draw\Texture.Draw.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\app_icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\english_icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

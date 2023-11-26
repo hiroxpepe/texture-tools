@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+
 using Texture.Win64.Properties;
 
 namespace Texture.Win64 {
@@ -44,6 +45,7 @@ namespace Texture.Win64 {
             InitializeComponent();
             initialize_field();
             _label_layer1.ForeColor = System.Drawing.Color.Lime;
+            _comboBox_language.DrawMode = DrawMode.OwnerDrawFixed;
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -97,30 +99,38 @@ namespace Texture.Win64 {
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(name: string.Empty);
                     break;
             }
-            _change_language();
+            change_language();
         }
 
-        void _change_language() {
-            Text = Resources.FormMain_Text;
-
-            _groupBox_layer.Text = Resources._groupBox_layer_Text;
-            _groupBox_rect.Text = Resources._groupBox_rect_Text;
-            _groupBox_view.Text = Resources._groupBox_view_Text;
-
-            _label_width.Text = Resources._label_width_Text;
-            _label_height.Text = Resources._label_height_Text;
-            _label_piece_count.Text = Resources._label_piece_count_Text;
-            _label_crop.Text = Resources._label_crop_Text;
-            _label_primary.Text = Resources._label_primary_Text;
-            _label_secondary.Text = Resources._label_secondary_Text;
-            _label_accent.Text = Resources._label_accent_Text;
-            _label_alpha.Text = Resources._label_alpha_Text;
-            _label_swing.Text = Resources._label_swing_Text;
-            _label_language.Text = Resources._label_language_Text;
-
-            _button_write.Text = Resources._button_write_Text;
-            _button_layer1.Text = Resources._button_layer1_Text;
-            _button_layer2.Text = Resources._button_layer2_Text;
+        void _comboBox_language_DrawItem(object sender, DrawItemEventArgs e) {
+            if (e.Index == -1) { return; }
+            // gets the app path.
+            string? exe_dir_path = Path.GetDirectoryName(Application.ExecutablePath);
+            // gets a language icon.
+            Image img;
+            switch (e.Index) {
+                case 0:
+                default:
+                    img = Image.FromFile(filename: $"{exe_dir_path}\\Resources\\english_icon.png"); break;
+                case 1:
+                    img = Image.FromFile(filename: $"{exe_dir_path}\\Resources\\japanese_icon.png"); break;
+            }
+            // draw background color.
+            e.DrawBackground();
+            // draw an icon image.
+            e.Graphics.DrawImage(image: img, x: e.Bounds.X, y: e.Bounds.Y + 2);
+            // draw a text.
+            e.Graphics.DrawString(
+                s: _comboBox_language.Items[e.Index].ToString(),
+                font: new Font(familyName: _comboBox_language.Items[e.Index].ToString(), emSize: 10),
+                brush: new SolidBrush(System.Drawing.Color.Black),
+                x: e.Bounds.X + (img.Width / 2),
+                y: e.Bounds.Y
+            );
+            // draw the focused rectangle.
+            e.DrawFocusRectangle();
+            // disposes the icon image.
+            img.Dispose();
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -210,6 +220,26 @@ namespace Texture.Win64 {
                 _label_layer2.ForeColor = System.Drawing.Color.Gray;
                 _label_layer1.ForeColor = System.Drawing.Color.Lime;
             }
+        }
+
+        void change_language() {
+            Text = Resources.FormMain_Text;
+            _groupBox_layer.Text = Resources._groupBox_layer_Text;
+            _groupBox_rect.Text = Resources._groupBox_rect_Text;
+            _groupBox_view.Text = Resources._groupBox_view_Text;
+            _label_width.Text = Resources._label_width_Text;
+            _label_height.Text = Resources._label_height_Text;
+            _label_piece_count.Text = Resources._label_piece_count_Text;
+            _label_crop.Text = Resources._label_crop_Text;
+            _label_primary.Text = Resources._label_primary_Text;
+            _label_secondary.Text = Resources._label_secondary_Text;
+            _label_accent.Text = Resources._label_accent_Text;
+            _label_alpha.Text = Resources._label_alpha_Text;
+            _label_swing.Text = Resources._label_swing_Text;
+            _label_language.Text = Resources._label_language_Text;
+            _button_write.Text = Resources._button_write_Text;
+            _button_layer1.Text = Resources._button_layer1_Text;
+            _button_layer2.Text = Resources._button_layer2_Text;
         }
     }
 }

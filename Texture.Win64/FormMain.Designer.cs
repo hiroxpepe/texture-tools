@@ -416,6 +416,7 @@
             resources.GetString("_comboBox_language.Items1")});
             resources.ApplyResources(this._comboBox_language, "_comboBox_language");
             this._comboBox_language.Name = "_comboBox_language";
+            this._comboBox_language.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this._comboBox_language_DrawItem);
             this._comboBox_language.SelectedIndexChanged += new System.EventHandler(this._comboBox_language_SelectedIndexChanged);
             // 
             // FormMain
