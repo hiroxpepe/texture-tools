@@ -47,6 +47,8 @@ namespace Texture.Draw {
 
         Graphics? _graphics;
 
+        static Random _random = new Random();
+
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // Constructor
 
@@ -243,23 +245,65 @@ namespace Texture.Draw {
         /// creates a System.Drawing.Brush object.
         /// </summary>
         static Brush create_brush(Color color) {
+
+            float hue_range = 0.25f;
+            float saturation_range = 0.25f; 
+            float value_range = 0.25f;
+
             return color switch {
-                Color.Red => new SolidBrush(System.Drawing.Color.FromArgb(255, 51, 68)), // HSV: 355,80,100
-                Color.Orange => new SolidBrush(System.Drawing.Color.FromArgb(255, 119, 51)), // HSV: 20,80,100
-                Color.Amber => new SolidBrush(System.Drawing.Color.FromArgb(255, 204, 51)), // HSV: 45,80,100
-                Color.Yellow => new SolidBrush(System.Drawing.Color.FromArgb(255, 255, 51)), // HSV: 60,80,100
-                Color.Lime => new SolidBrush(System.Drawing.Color.FromArgb(187, 255, 51)), // HSV: 80,80,100
-                Color.Green => new SolidBrush(System.Drawing.Color.FromArgb(40, 204, 81)), // HSV: 135,80,80
-                Color.Turquoise => new SolidBrush(System.Drawing.Color.FromArgb(35, 179, 179)), // HSV: 180,80,70
-                Color.Azure => new SolidBrush(System.Drawing.Color.FromArgb(48, 145, 243)), // HSV: 210,80,95
-                Color.Blue => new SolidBrush(System.Drawing.Color.FromArgb(51, 51, 255)), // HSV: 240,80,100
-                Color.Purple => new SolidBrush(System.Drawing.Color.FromArgb(138, 46, 230)), // HSV: 270,80,90
-                Color.Magenta => new SolidBrush(System.Drawing.Color.FromArgb(217, 43, 217)), // HSV: 300,80,85
-                Color.Rose => new SolidBrush(System.Drawing.Color.FromArgb(243, 48, 145)), // HSV: 330,80,95
+                // HSV: 355,80,100
+                Color.Red => brush_from_color(System.Drawing.Color.FromArgb(255, 51, 68), hue_range, saturation_range, value_range),
+                // HSV: 20,80,100
+                Color.Orange => brush_from_color(System.Drawing.Color.FromArgb(255, 119, 51), hue_range, saturation_range, value_range),
+                // HSV: 45,80,100
+                Color.Amber => brush_from_color(System.Drawing.Color.FromArgb(255, 204, 51), hue_range, saturation_range, value_range),
+                // HSV: 60,80,100
+                Color.Yellow => brush_from_color(System.Drawing.Color.FromArgb(255, 255, 51), hue_range, saturation_range, value_range),
+                // HSV: 80,80,100
+                Color.Lime => brush_from_color(System.Drawing.Color.FromArgb(187, 255, 51), hue_range, saturation_range, value_range),
+                // HSV: 135,80,80
+                Color.Green => brush_from_color(System.Drawing.Color.FromArgb(40, 204, 81), hue_range, saturation_range, value_range),
+                // HSV: 180,80,70
+                Color.Turquoise => brush_from_color(System.Drawing.Color.FromArgb(35, 179, 179), hue_range, saturation_range, value_range),
+                // HSV: 210,80,95
+                Color.Azure => brush_from_color(System.Drawing.Color.FromArgb(48, 145, 243), hue_range, saturation_range, value_range),
+                // HSV: 240,80,100
+                Color.Blue => brush_from_color(System.Drawing.Color.FromArgb(51, 51, 255), hue_range, saturation_range, value_range),
+                // HSV: 270,80,90
+                Color.Purple => brush_from_color(System.Drawing.Color.FromArgb(138, 46, 230), hue_range, saturation_range, value_range),
+                // HSV: 300,80,85
+                Color.Magenta => brush_from_color(System.Drawing.Color.FromArgb(217, 43, 217), hue_range, saturation_range, value_range),
+                // HSV: 330,80,95
+                Color.Rose => brush_from_color(System.Drawing.Color.FromArgb(243, 48, 145), hue_range, saturation_range, value_range),
                 Color.Black => Black,
                 Color.White => White,
                 _ => Black,
             };
+        }
+
+        /// <summary>
+        /// creates a System.Drawing.SolidBrush object.
+        /// </summary>
+        static SolidBrush brush_from_color(System.Drawing.Color color, float hue_range = 0f, float saturation_range = 0f, float value_range = 0f) {
+            float hue_changing = random_value(range: hue_range);
+            float saturation_changing = random_value(range: saturation_range);
+            float value_changing = random_value(range: value_range);
+            return new SolidBrush(HSVColor.ToColor(
+                color: color, 
+                hue_changing: hue_changing,
+                saturation_changing: saturation_changing,
+                value_changing: value_changing
+            ));
+        }
+
+        /// <summary>
+        /// create random value
+        /// </summary>
+        static float random_value(float range) {
+            int min_value = -(int) (range * 100);
+            int max_value = (int) (range * 100);
+            int random_value = _random.Next(min_value, max_value + 1);
+            return random_value / 100.0f;
         }
     }
 #pragma warning restore CA1416
