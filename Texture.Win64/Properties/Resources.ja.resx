@@ -129,6 +129,9 @@
   <data name="_button_write_Text" xml:space="preserve">
     <value>作成</value>
   </data>
+  <data name="_checkBox_layer2_Text" xml:space="preserve">
+    <value>使用</value>
+  </data>
   <data name="_groupBox_layer_Text" xml:space="preserve">
     <value>レイヤー</value>
   </data>

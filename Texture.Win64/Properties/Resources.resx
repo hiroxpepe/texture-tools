@@ -129,6 +129,9 @@
   <data name="_button_write_Text" xml:space="preserve">
     <value>write</value>
   </data>
+  <data name="_checkBox_layer2_Text" xml:space="preserve">
+    <value>use</value>
+  </data>
   <data name="_groupBox_layer_Text" xml:space="preserve">
     <value>layer</value>
   </data>

@@ -53,6 +53,7 @@
             this._label_language = new System.Windows.Forms.Label();
             this._button_write = new System.Windows.Forms.Button();
             this._comboBox_language = new System.Windows.Forms.ComboBox();
+            this._checkBox_layer2 = new System.Windows.Forms.CheckBox();
             this._groupBox_layer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_piece_count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_swing)).BeginInit();
@@ -67,6 +68,7 @@
             // 
             // _groupBox_layer
             // 
+            this._groupBox_layer.Controls.Add(this._checkBox_layer2);
             this._groupBox_layer.Controls.Add(this._label_layer1);
             this._groupBox_layer.Controls.Add(this._label_layer2);
             this._groupBox_layer.Controls.Add(this._button_layer1);
@@ -422,6 +424,14 @@
             this._comboBox_language.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this._comboBox_language_DrawItem);
             this._comboBox_language.SelectedIndexChanged += new System.EventHandler(this._comboBox_language_SelectedIndexChanged);
             // 
+            // _checkBox_layer2
+            // 
+            resources.ApplyResources(this._checkBox_layer2, "_checkBox_layer2");
+            this._checkBox_layer2.Checked = true;
+            this._checkBox_layer2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this._checkBox_layer2.Name = "_checkBox_layer2";
+            this._checkBox_layer2.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -484,7 +494,7 @@
         private System.Windows.Forms.ComboBox _comboBox_accent;
         private System.Windows.Forms.ComboBox _comboBox_language;
         private System.Windows.Forms.PictureBox _pictureBox_view;
-
+        private System.Windows.Forms.CheckBox _checkBox_layer2;
     }
 }
 

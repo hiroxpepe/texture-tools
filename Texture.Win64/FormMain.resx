@@ -58,10 +58,37 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="_label_layer1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="_checkBox_layer2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_checkBox_layer2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 30</value>
+  </data>
+  <data name="_checkBox_layer2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 24</value>
+  </data>
+  <data name="_checkBox_layer2.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="_checkBox_layer2.Text" xml:space="preserve">
+    <value>use</value>
+  </data>
+  <data name="&gt;&gt;_checkBox_layer2.Name" xml:space="preserve">
+    <value>_checkBox_layer2</value>
+  </data>
+  <data name="&gt;&gt;_checkBox_layer2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_checkBox_layer2.Parent" xml:space="preserve">
+    <value>_groupBox_layer</value>
+  </data>
+  <data name="&gt;&gt;_checkBox_layer2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_label_layer1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="_label_layer1.Location" type="System.Drawing.Point, System.Drawing">
     <value>75, 77</value>
   </data>
@@ -84,7 +111,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_label_layer1.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="_label_layer2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -111,7 +138,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_label_layer2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="_button_layer1.Location" type="System.Drawing.Point, System.Drawing">
     <value>112, 73</value>
@@ -135,7 +162,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_button_layer1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="_button_layer2.Location" type="System.Drawing.Point, System.Drawing">
     <value>112, 26</value>
@@ -159,7 +186,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_button_layer2.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="_label_swing.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -190,7 +217,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_label_swing.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="_numericUpDown_piece_count.Location" type="System.Drawing.Point, System.Drawing">
     <value>112, 119</value>
@@ -211,7 +238,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_numericUpDown_piece_count.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="_numericUpDown_swing.Location" type="System.Drawing.Point, System.Drawing">
     <value>112, 386</value>
@@ -232,7 +259,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_numericUpDown_swing.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="_label_piece_count.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
@@ -262,7 +289,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_label_piece_count.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="_label_alpha.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
@@ -292,7 +319,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_label_alpha.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="_numericUpDown_crop.Location" type="System.Drawing.Point, System.Drawing">
     <value>112, 163</value>
@@ -313,7 +340,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_numericUpDown_crop.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="_numericUpDown_alpha.Location" type="System.Drawing.Point, System.Drawing">
     <value>112, 342</value>
@@ -334,7 +361,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_numericUpDown_alpha.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="_label_crop.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
@@ -364,7 +391,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_label_crop.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="_label_accent.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
@@ -394,7 +421,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_label_accent.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="_comboBox_primary.Items" xml:space="preserve">
     <value>none</value>
@@ -463,7 +490,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_comboBox_primary.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="_comboBox_accent.Items" xml:space="preserve">
     <value>none</value>
@@ -532,7 +559,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_comboBox_accent.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="_label_primary.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
@@ -562,7 +589,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_label_primary.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="_label_secondary.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
@@ -592,7 +619,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_label_secondary.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="_comboBox_secondary.Items" xml:space="preserve">
     <value>none</value>
@@ -661,7 +688,7 @@
     <value>_groupBox_layer</value>
   </data>
   <data name="&gt;&gt;_comboBox_secondary.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="_groupBox_layer.Location" type="System.Drawing.Point, System.Drawing">
     <value>17, 137</value>

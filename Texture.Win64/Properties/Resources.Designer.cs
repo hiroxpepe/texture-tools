@@ -88,6 +88,15 @@ namespace Texture.Win64.Properties {
         }
         
         /// <summary>
+        ///   use に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _checkBox_layer2_Text {
+            get {
+                return ResourceManager.GetString("_checkBox_layer2_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   layer に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string _groupBox_layer_Text {

@@ -263,7 +263,7 @@ namespace Texture.Win64 {
                     _view_img = Image.FromStream(stream: fs);
                     _pictureBox_view.Image = _view_img;
                 };
-                return Context.Do(rect: _rect, param_array: _param_array);;
+                return Context.Do(rect: _rect, param_array: _param_array, use_layer2: _checkBox_layer2.Checked);
             }
             catch (Exception ex) {
                 MessageBox.Show(text: ex.Message, caption: "Error", buttons: MessageBoxButtons.OK, icon: MessageBoxIcon.Stop);
@@ -308,6 +308,7 @@ namespace Texture.Win64 {
             _button_write.Text = Resources._button_write_Text;
             _button_layer1.Text = Resources._button_layer1_Text;
             _button_layer2.Text = Resources._button_layer2_Text;
+            _checkBox_layer2.Text = Resources._checkBox_layer2_Text;
         }
 
         /// <summary>
