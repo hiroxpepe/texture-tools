@@ -97,6 +97,15 @@ namespace Texture.Win64.Properties {
         }
         
         /// <summary>
+        ///   expand mode に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _checkBox_mode_expand_Text {
+            get {
+                return ResourceManager.GetString("_checkBox_mode_expand_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   layer に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string _groupBox_layer_Text {
@@ -160,15 +169,6 @@ namespace Texture.Win64.Properties {
         }
         
         /// <summary>
-        ///   hue range: に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string _label_hue_range_Text {
-            get {
-                return ResourceManager.GetString("_label_hue_range_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   language: に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string _label_language_Text {
@@ -196,11 +196,29 @@ namespace Texture.Win64.Properties {
         }
         
         /// <summary>
+        ///   hue range: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_range_hue_Text {
+            get {
+                return ResourceManager.GetString("_label_range_hue_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   satur. range: に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string _label_saturation_range_Text {
+        internal static string _label_range_saturation_Text {
             get {
-                return ResourceManager.GetString("_label_saturation_range_Text", resourceCulture);
+                return ResourceManager.GetString("_label_range_saturation_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   value range: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_range_value_Text {
+            get {
+                return ResourceManager.GetString("_label_range_value_Text", resourceCulture);
             }
         }
         
@@ -219,15 +237,6 @@ namespace Texture.Win64.Properties {
         internal static string _label_swing_Text {
             get {
                 return ResourceManager.GetString("_label_swing_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   value range: に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string _label_value_range_Text {
-            get {
-                return ResourceManager.GetString("_label_value_range_Text", resourceCulture);
             }
         }
         

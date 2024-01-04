@@ -159,5 +159,8 @@ namespace Texture {
             public static float Saturation{ get; set; } = 0.0f;
             public static float Value { get; set; } = 0.0f;
         }
+        public static class Mode {
+            public static bool Expand { get; set; } = false;
+        }
     }
 }

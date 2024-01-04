@@ -979,167 +979,194 @@
   <data name="&gt;&gt;_comboBox_language.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="_label_value_range.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
+  <data name="_checkBox_mode_expand.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="_label_value_range.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="_checkBox_mode_expand.Location" type="System.Drawing.Point, System.Drawing">
+    <value>282, 31</value>
   </data>
-  <data name="_label_value_range.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 117</value>
+  <data name="_checkBox_mode_expand.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 24</value>
   </data>
-  <data name="_label_value_range.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 20</value>
+  <data name="_checkBox_mode_expand.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
   </data>
-  <data name="_label_value_range.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
+  <data name="_checkBox_mode_expand.Text" xml:space="preserve">
+    <value>expand mode</value>
   </data>
-  <data name="_label_value_range.Text" xml:space="preserve">
-    <value>value range:</value>
+  <data name="&gt;&gt;_checkBox_mode_expand.Name" xml:space="preserve">
+    <value>_checkBox_mode_expand</value>
   </data>
-  <data name="_label_value_range.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopRight</value>
+  <data name="&gt;&gt;_checkBox_mode_expand.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_label_value_range.Name" xml:space="preserve">
-    <value>_label_value_range</value>
-  </data>
-  <data name="&gt;&gt;_label_value_range.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;_label_value_range.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_checkBox_mode_expand.Parent" xml:space="preserve">
     <value>_groupBox_modify</value>
   </data>
-  <data name="&gt;&gt;_label_value_range.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_checkBox_mode_expand.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="_label_saturation_range.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="_label_range_value.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="_label_saturation_range.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="_label_range_value.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="_label_saturation_range.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 75</value>
+  <data name="_label_range_value.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 117</value>
   </data>
-  <data name="_label_saturation_range.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_label_range_value.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 20</value>
   </data>
-  <data name="_label_saturation_range.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
+  <data name="_label_range_value.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
   </data>
-  <data name="_label_saturation_range.Text" xml:space="preserve">
-    <value>satur. range:</value>
+  <data name="_label_range_value.Text" xml:space="preserve">
+    <value>value range:</value>
   </data>
-  <data name="_label_saturation_range.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="_label_range_value.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopRight</value>
   </data>
-  <data name="&gt;&gt;_label_saturation_range.Name" xml:space="preserve">
-    <value>_label_saturation_range</value>
+  <data name="&gt;&gt;_label_range_value.Name" xml:space="preserve">
+    <value>_label_range_value</value>
   </data>
-  <data name="&gt;&gt;_label_saturation_range.Type" xml:space="preserve">
+  <data name="&gt;&gt;_label_range_value.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_label_saturation_range.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_label_range_value.Parent" xml:space="preserve">
     <value>_groupBox_modify</value>
   </data>
-  <data name="&gt;&gt;_label_saturation_range.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_label_range_value.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="_label_hue_range.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="_label_range_saturation.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="_label_hue_range.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="_label_range_saturation.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="_label_hue_range.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 31</value>
+  <data name="_label_range_saturation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 75</value>
   </data>
-  <data name="_label_hue_range.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_label_range_saturation.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 20</value>
   </data>
-  <data name="_label_hue_range.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
+  <data name="_label_range_saturation.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
   </data>
-  <data name="_label_hue_range.Text" xml:space="preserve">
-    <value>hue range:</value>
+  <data name="_label_range_saturation.Text" xml:space="preserve">
+    <value>satur. range:</value>
   </data>
-  <data name="_label_hue_range.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="_label_range_saturation.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>TopRight</value>
   </data>
-  <data name="&gt;&gt;_label_hue_range.Name" xml:space="preserve">
-    <value>_label_hue_range</value>
+  <data name="&gt;&gt;_label_range_saturation.Name" xml:space="preserve">
+    <value>_label_range_saturation</value>
   </data>
-  <data name="&gt;&gt;_label_hue_range.Type" xml:space="preserve">
+  <data name="&gt;&gt;_label_range_saturation.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_label_hue_range.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_label_range_saturation.Parent" xml:space="preserve">
     <value>_groupBox_modify</value>
   </data>
-  <data name="&gt;&gt;_label_hue_range.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_label_range_saturation.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="_numericUpDown_value_range.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 115</value>
+  <data name="_label_range_hue.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
   </data>
-  <data name="_numericUpDown_value_range.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 27</value>
+  <data name="_label_range_hue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="_numericUpDown_value_range.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+  <data name="_label_range_hue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 31</value>
   </data>
-  <data name="&gt;&gt;_numericUpDown_value_range.Name" xml:space="preserve">
-    <value>_numericUpDown_value_range</value>
+  <data name="_label_range_hue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 20</value>
   </data>
-  <data name="&gt;&gt;_numericUpDown_value_range.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="_label_range_hue.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
   </data>
-  <data name="&gt;&gt;_numericUpDown_value_range.Parent" xml:space="preserve">
+  <data name="_label_range_hue.Text" xml:space="preserve">
+    <value>hue range:</value>
+  </data>
+  <data name="_label_range_hue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopRight</value>
+  </data>
+  <data name="&gt;&gt;_label_range_hue.Name" xml:space="preserve">
+    <value>_label_range_hue</value>
+  </data>
+  <data name="&gt;&gt;_label_range_hue.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_label_range_hue.Parent" xml:space="preserve">
     <value>_groupBox_modify</value>
   </data>
-  <data name="&gt;&gt;_numericUpDown_value_range.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_label_range_hue.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="_numericUpDown_hue_range.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 29</value>
+  <data name="_numericUpDown_range_value.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 115</value>
   </data>
-  <data name="_numericUpDown_hue_range.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_numericUpDown_range_value.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 27</value>
   </data>
-  <data name="_numericUpDown_hue_range.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
+  <data name="_numericUpDown_range_value.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
-  <data name="&gt;&gt;_numericUpDown_hue_range.Name" xml:space="preserve">
-    <value>_numericUpDown_hue_range</value>
+  <data name="&gt;&gt;_numericUpDown_range_value.Name" xml:space="preserve">
+    <value>_numericUpDown_range_value</value>
   </data>
-  <data name="&gt;&gt;_numericUpDown_hue_range.Type" xml:space="preserve">
+  <data name="&gt;&gt;_numericUpDown_range_value.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_numericUpDown_hue_range.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_numericUpDown_range_value.Parent" xml:space="preserve">
     <value>_groupBox_modify</value>
   </data>
-  <data name="&gt;&gt;_numericUpDown_hue_range.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_numericUpDown_range_value.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="_numericUpDown_saturation_range.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 73</value>
+  <data name="_numericUpDown_range_hue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 29</value>
   </data>
-  <data name="_numericUpDown_saturation_range.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="_numericUpDown_range_hue.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 27</value>
   </data>
-  <data name="_numericUpDown_saturation_range.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
+  <data name="_numericUpDown_range_hue.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
-  <data name="&gt;&gt;_numericUpDown_saturation_range.Name" xml:space="preserve">
-    <value>_numericUpDown_saturation_range</value>
+  <data name="&gt;&gt;_numericUpDown_range_hue.Name" xml:space="preserve">
+    <value>_numericUpDown_range_hue</value>
   </data>
-  <data name="&gt;&gt;_numericUpDown_saturation_range.Type" xml:space="preserve">
+  <data name="&gt;&gt;_numericUpDown_range_hue.Type" xml:space="preserve">
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;_numericUpDown_saturation_range.Parent" xml:space="preserve">
+  <data name="&gt;&gt;_numericUpDown_range_hue.Parent" xml:space="preserve">
     <value>_groupBox_modify</value>
   </data>
-  <data name="&gt;&gt;_numericUpDown_saturation_range.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;_numericUpDown_range_hue.ZOrder" xml:space="preserve">
     <value>5</value>
+  </data>
+  <data name="_numericUpDown_range_saturation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 73</value>
+  </data>
+  <data name="_numericUpDown_range_saturation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 27</value>
+  </data>
+  <data name="_numericUpDown_range_saturation.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;_numericUpDown_range_saturation.Name" xml:space="preserve">
+    <value>_numericUpDown_range_saturation</value>
+  </data>
+  <data name="&gt;&gt;_numericUpDown_range_saturation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_numericUpDown_range_saturation.Parent" xml:space="preserve">
+    <value>_groupBox_modify</value>
+  </data>
+  <data name="&gt;&gt;_numericUpDown_range_saturation.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="_groupBox_modify.Location" type="System.Drawing.Point, System.Drawing">
     <value>17, 578</value>

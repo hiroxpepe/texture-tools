@@ -288,9 +288,15 @@ namespace Texture.Draw {
         static float random_value(float range) {
             int min_value = 0;
             int max_value = 0;
-            if (range < 0) {
-                min_value = (int) (range * 100);
-                max_value = 0;
+            if (Modify.Mode.Expand) {
+                if (range >= 0) {
+                    min_value = 0;
+                    max_value = (int) (range * 100);
+                }
+                else if (range < 0) {
+                    min_value = (int) (range * 100);
+                    max_value = 0;
+                }
             }
             else {
                 min_value = -(int) (range * 100);

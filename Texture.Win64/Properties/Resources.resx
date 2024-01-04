@@ -132,6 +132,9 @@
   <data name="_checkBox_layer2_Text" xml:space="preserve">
     <value>use</value>
   </data>
+  <data name="_checkBox_mode_expand_Text" xml:space="preserve">
+    <value>expand mode</value>
+  </data>
   <data name="_groupBox_layer_Text" xml:space="preserve">
     <value>layer</value>
   </data>
@@ -153,9 +156,6 @@
   <data name="_label_height_Text" xml:space="preserve">
     <value>height:</value>
   </data>
-  <data name="_label_hue_range_Text" xml:space="preserve">
-    <value>hue range:</value>
-  </data>
   <data name="_label_language_Text" xml:space="preserve">
     <value>language:</value>
   </data>
@@ -165,17 +165,20 @@
   <data name="_label_primary_Text" xml:space="preserve">
     <value>primary:</value>
   </data>
-  <data name="_label_saturation_range_Text" xml:space="preserve">
+  <data name="_label_range_hue_Text" xml:space="preserve">
+    <value>hue range:</value>
+  </data>
+  <data name="_label_range_saturation_Text" xml:space="preserve">
     <value>satur. range:</value>
+  </data>
+  <data name="_label_range_value_Text" xml:space="preserve">
+    <value>value range:</value>
   </data>
   <data name="_label_secondary_Text" xml:space="preserve">
     <value>secondary:</value>
   </data>
   <data name="_label_swing_Text" xml:space="preserve">
     <value>swing:</value>
-  </data>
-  <data name="_label_value_range_Text" xml:space="preserve">
-    <value>value range:</value>
   </data>
   <data name="_label_width_Text" xml:space="preserve">
     <value>width:</value>

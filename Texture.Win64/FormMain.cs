@@ -75,21 +75,47 @@ namespace Texture.Win64 {
         /// event handler _numericUpDown_hue_range are changed.
         /// </summary>
         void _numericUpDown_hue_range_ValueChanged(object sender, EventArgs e) {
-            Modify.Range.Hue = (float) _numericUpDown_hue_range.Value;
+            Modify.Range.Hue = (float) _numericUpDown_range_hue.Value;
         }
 
         /// <summary>
         /// event handler _numericUpDown_saturation_range are changed.
         /// </summary>
         void _numericUpDown_saturation_range_ValueChanged(object sender, EventArgs e) {
-            Modify.Range.Saturation = (float) _numericUpDown_saturation_range.Value;
+            Modify.Range.Saturation = (float) _numericUpDown_range_saturation.Value;
         }
 
         /// <summary>
         /// event handler _numericUpDown_value_range are changed.
         /// </summary>
         void _numericUpDown_value_range_ValueChanged(object sender, EventArgs e) {
-            Modify.Range.Value = (float) _numericUpDown_value_range.Value;
+            Modify.Range.Value = (float) _numericUpDown_range_value.Value;
+        }
+
+        /// <summary>
+        /// event handler _checkBox_expand_mode are changed.
+        /// </summary>
+        void _checkBox_expand_mode_CheckedChanged(object sender, EventArgs e) {
+            Modify.Mode.Expand = _checkBox_mode_expand.Checked;
+            _numericUpDown_range_hue.Value = 0;
+            _numericUpDown_range_saturation.Value = 0;
+            _numericUpDown_range_value.Value = 0;
+            if (Modify.Mode.Expand) {
+                _numericUpDown_range_hue.Maximum = 0.3m;
+                _numericUpDown_range_saturation.Maximum = 0.3m;
+                _numericUpDown_range_value.Maximum = 0.3m;
+                _numericUpDown_range_hue.Minimum = -0.3m;
+                _numericUpDown_range_saturation.Minimum = -0.3m;
+                _numericUpDown_range_value.Minimum = -0.3m;
+            }
+            else {
+                _numericUpDown_range_hue.Maximum = 0.25m;
+                _numericUpDown_range_saturation.Maximum = 0.25m;
+                _numericUpDown_range_value.Maximum = 0.25m;
+                _numericUpDown_range_hue.Minimum = 0m;
+                _numericUpDown_range_saturation.Minimum = 0m;
+                _numericUpDown_range_value.Minimum = 0m;
+            }  
         }
 
         /// <summary>
@@ -326,13 +352,14 @@ namespace Texture.Win64 {
             _label_alpha.Text = Resources._label_alpha_Text;
             _label_swing.Text = Resources._label_swing_Text;
             _label_language.Text = Resources._label_language_Text;
-            _label_hue_range.Text = Resources._label_hue_range_Text;
-            _label_saturation_range.Text = Resources._label_saturation_range_Text;
-            _label_value_range.Text = Resources._label_value_range_Text;
+            _label_range_hue.Text = Resources._label_range_hue_Text;
+            _label_range_saturation.Text = Resources._label_range_saturation_Text;
+            _label_range_value.Text = Resources._label_range_value_Text;
             _button_write.Text = Resources._button_write_Text;
             _button_layer1.Text = Resources._button_layer1_Text;
             _button_layer2.Text = Resources._button_layer2_Text;
             _checkBox_layer2.Text = Resources._checkBox_layer2_Text;
+            _checkBox_mode_expand.Text = Resources._checkBox_mode_expand_Text;
         }
 
         /// <summary>
