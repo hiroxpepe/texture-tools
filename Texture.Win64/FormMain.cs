@@ -97,9 +97,11 @@ namespace Texture.Win64 {
         /// </summary>
         void _checkBox_expand_mode_CheckedChanged(object sender, EventArgs e) {
             Modify.Mode.Expand = _checkBox_mode_expand.Checked;
+            // initialize the value.
             _numericUpDown_range_hue.Value = 0;
             _numericUpDown_range_saturation.Value = 0;
             _numericUpDown_range_value.Value = 0;
+            // reset the maximum and minimum value range.
             if (Modify.Mode.Expand) {
                 _numericUpDown_range_hue.Maximum = 0.3m;
                 _numericUpDown_range_saturation.Maximum = 0.3m;
@@ -115,7 +117,7 @@ namespace Texture.Win64 {
                 _numericUpDown_range_hue.Minimum = 0m;
                 _numericUpDown_range_saturation.Minimum = 0m;
                 _numericUpDown_range_value.Minimum = 0m;
-            }  
+            }
         }
 
         /// <summary>

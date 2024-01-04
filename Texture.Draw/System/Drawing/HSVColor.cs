@@ -134,23 +134,32 @@ namespace System.Drawing {
         /// </summary>
         static Color hsv_to_color(float hue, float saturation, float value) {
             hue = (hue % 1.0f + 1.0f) % 1.0f; // constrain hue to the range 0 to 1.
-            saturation = Max(0.0f, Min(1.0f, saturation)); // constrain saturation to range 0 to 1.
-            value = Max(0.0f, Min(1.0f, value)); // constrain value to the range 0 to 1.
+            saturation = Max(val1: 0.0f, val2: Min(val1: 1.0f, val2: saturation)); // constrain saturation to range 0 to 1.
+            value = Max(val1: 0.0f, val2: Min(val1: 1.0f, val2: value)); // constrain value to the range 0 to 1.
 
-            int hi = (int)(hue * 6) % 6;
+            // divide the hue into 6 equal parts and get the standard value of the corresponding color.
+            int hi = (int) (hue * 6) % 6;
+
+            // dalculate the decimal part.
             float f = hue * 6 - hi;
+            
+            // multiply the brightness by 255 and convert it to an integer.
             value *= 255;
-            int v = (int) Round(value, MidpointRounding.ToEven);
-            int p = (int) Round(value * (1.0f - saturation), MidpointRounding.ToEven);
-            int q = (int) Round(value * (1.0f - f * saturation), MidpointRounding.ToEven);
-            int t = (int) Round(value * (1.0f - (1.0f - f) * saturation), MidpointRounding.ToEven);
+            int v = (int) Round(value: value, mode: MidpointRounding.ToEven);
+            
+            // calculate each ingredient.
+            int p = (int) Round(value: value * (1.0f - saturation), mode: MidpointRounding.ToEven);
+            int q = (int) Round(value: value * (1.0f - f * saturation), mode: MidpointRounding.ToEven);
+            int t = (int) Round(value: value * (1.0f - (1.0f - f) * saturation), mode: MidpointRounding.ToEven);
+            
+            // calculate each RGB component based on hue and returns a color object.
             switch (hi) {
-                case 0: return Color.FromArgb(255, v, t, p);
-                case 1: return Color.FromArgb(255, q, v, p);
-                case 2: return Color.FromArgb(255, p, v, t);
-                case 3: return Color.FromArgb(255, p, q, v);
-                case 4: return Color.FromArgb(255, t, p, v);
-                case 5: return Color.FromArgb(255, v, p, q);
+                case 0: return Color.FromArgb(alpha: 255, red: v, green: t, blue: p);
+                case 1: return Color.FromArgb(alpha: 255, red: q, green: v, blue: p);
+                case 2: return Color.FromArgb(alpha: 255, red: p, green: v, blue: t);
+                case 3: return Color.FromArgb(alpha: 255, red: p, green: q, blue: v);
+                case 4: return Color.FromArgb(alpha: 255, red: t, green: p, blue: v);
+                case 5: return Color.FromArgb(alpha: 255, red: v, green: p, blue: q);
                 default: return Color.Black;
             }
         }

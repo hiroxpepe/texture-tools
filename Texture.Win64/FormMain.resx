@@ -983,7 +983,7 @@
     <value>True</value>
   </data>
   <data name="_checkBox_mode_expand.Location" type="System.Drawing.Point, System.Drawing">
-    <value>282, 31</value>
+    <value>297, 30</value>
   </data>
   <data name="_checkBox_mode_expand.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 24</value>
@@ -1007,7 +1007,7 @@
     <value>0</value>
   </data>
   <data name="_label_range_value.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
+    <value>Left</value>
   </data>
   <data name="_label_range_value.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1040,7 +1040,7 @@
     <value>1</value>
   </data>
   <data name="_label_range_saturation.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
+    <value>Left</value>
   </data>
   <data name="_label_range_saturation.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1073,7 +1073,7 @@
     <value>2</value>
   </data>
   <data name="_label_range_hue.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
+    <value>Left</value>
   </data>
   <data name="_label_range_hue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1172,7 +1172,7 @@
     <value>17, 578</value>
   </data>
   <data name="_groupBox_modify.Size" type="System.Drawing.Size, System.Drawing">
-    <value>589, 161</value>
+    <value>440, 161</value>
   </data>
   <data name="_groupBox_modify.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
