@@ -153,6 +153,9 @@
   <data name="_label_height_Text" xml:space="preserve">
     <value>高さ:</value>
   </data>
+  <data name="_label_hue_range_Text" xml:space="preserve">
+    <value>色相幅:</value>
+  </data>
   <data name="_label_language_Text" xml:space="preserve">
     <value>言語:</value>
   </data>
@@ -162,11 +165,17 @@
   <data name="_label_primary_Text" xml:space="preserve">
     <value>プライマリ色:</value>
   </data>
+  <data name="_label_saturation_range_Text" xml:space="preserve">
+    <value>彩度幅:</value>
+  </data>
   <data name="_label_secondary_Text" xml:space="preserve">
     <value>セカンダリ色:</value>
   </data>
   <data name="_label_swing_Text" xml:space="preserve">
     <value>揺らぎ:</value>
+  </data>
+  <data name="_label_value_range_Text" xml:space="preserve">
+    <value>明度幅:</value>
   </data>
   <data name="_label_width_Text" xml:space="preserve">
     <value>幅:</value>

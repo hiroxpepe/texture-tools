@@ -82,14 +82,14 @@ namespace Texture.Win64 {
         /// event handler _numericUpDown_saturation_range are changed.
         /// </summary>
         void _numericUpDown_saturation_range_ValueChanged(object sender, EventArgs e) {
-            Modify.Range.Hue = (float) _numericUpDown_saturation_range.Value;
+            Modify.Range.Saturation = (float) _numericUpDown_saturation_range.Value;
         }
 
         /// <summary>
         /// event handler _numericUpDown_value_range are changed.
         /// </summary>
         void _numericUpDown_value_range_ValueChanged(object sender, EventArgs e) {
-            Modify.Range.Hue = (float) _numericUpDown_value_range.Value;
+            Modify.Range.Value = (float) _numericUpDown_value_range.Value;
         }
 
         /// <summary>
@@ -326,6 +326,9 @@ namespace Texture.Win64 {
             _label_alpha.Text = Resources._label_alpha_Text;
             _label_swing.Text = Resources._label_swing_Text;
             _label_language.Text = Resources._label_language_Text;
+            _label_hue_range.Text = Resources._label_hue_range_Text;
+            _label_saturation_range.Text = Resources._label_saturation_range_Text;
+            _label_value_range.Text = Resources._label_value_range_Text;
             _button_write.Text = Resources._button_write_Text;
             _button_layer1.Text = Resources._button_layer1_Text;
             _button_layer2.Text = Resources._button_layer2_Text;

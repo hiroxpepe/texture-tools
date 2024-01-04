@@ -7,7 +7,6 @@ using System.Drawing.Imaging;
 using System.Linq;
 using Point = System.Drawing.Point;
 using static System.Environment;
-using static System.Drawing.Brushes;
 using static System.Drawing.Color;
 using static System.Drawing.Graphics;
 using static System.Drawing.Imaging.ImageFormat;
@@ -287,8 +286,16 @@ namespace Texture.Draw {
         /// create random value
         /// </summary>
         static float random_value(float range) {
-            int min_value = -(int) (range * 100);
-            int max_value = (int) (range * 100);
+            int min_value = 0;
+            int max_value = 0;
+            if (range < 0) {
+                min_value = (int) (range * 100);
+                max_value = 0;
+            }
+            else {
+                min_value = -(int) (range * 100);
+                max_value = (int) (range * 100);
+            }
             int random_value = _random.Next(minValue: min_value, maxValue: max_value + 1);
             return random_value / 100.0f;
         }

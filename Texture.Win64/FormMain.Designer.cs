@@ -54,7 +54,7 @@
             this._label_language = new System.Windows.Forms.Label();
             this._button_write = new System.Windows.Forms.Button();
             this._comboBox_language = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this._groupBox_modify = new System.Windows.Forms.GroupBox();
             this._label_value_range = new System.Windows.Forms.Label();
             this._label_saturation_range = new System.Windows.Forms.Label();
             this._label_hue_range = new System.Windows.Forms.Label();
@@ -71,7 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_height)).BeginInit();
             this._groupBox_view.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._pictureBox_view)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this._groupBox_modify.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_value_range)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_hue_range)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_saturation_range)).BeginInit();
@@ -443,18 +443,18 @@
             this._comboBox_language.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this._comboBox_language_DrawItem);
             this._comboBox_language.SelectedIndexChanged += new System.EventHandler(this._comboBox_language_SelectedIndexChanged);
             // 
-            // groupBox1
+            // _groupBox_modify
             // 
-            this.groupBox1.Controls.Add(this._label_value_range);
-            this.groupBox1.Controls.Add(this._label_saturation_range);
-            this.groupBox1.Controls.Add(this._label_hue_range);
-            this.groupBox1.Controls.Add(this._numericUpDown_value_range);
-            this.groupBox1.Controls.Add(this._numericUpDown_hue_range);
-            this.groupBox1.Controls.Add(this._numericUpDown_saturation_range);
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
+            this._groupBox_modify.Controls.Add(this._label_value_range);
+            this._groupBox_modify.Controls.Add(this._label_saturation_range);
+            this._groupBox_modify.Controls.Add(this._label_hue_range);
+            this._groupBox_modify.Controls.Add(this._numericUpDown_value_range);
+            this._groupBox_modify.Controls.Add(this._numericUpDown_hue_range);
+            this._groupBox_modify.Controls.Add(this._numericUpDown_saturation_range);
+            this._groupBox_modify.ForeColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this._groupBox_modify, "_groupBox_modify");
+            this._groupBox_modify.Name = "_groupBox_modify";
+            this._groupBox_modify.TabStop = false;
             // 
             // _label_value_range
             // 
@@ -484,21 +484,16 @@
             131072});
             resources.ApplyResources(this._numericUpDown_value_range, "_numericUpDown_value_range");
             this._numericUpDown_value_range.Maximum = new decimal(new int[] {
-            1,
+            15,
             0,
             0,
-            65536});
+            131072});
             this._numericUpDown_value_range.Minimum = new decimal(new int[] {
-            1,
+            3,
             0,
             0,
             -2147418112});
             this._numericUpDown_value_range.Name = "_numericUpDown_value_range";
-            this._numericUpDown_value_range.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            131072});
             this._numericUpDown_value_range.ValueChanged += new System.EventHandler(this._numericUpDown_value_range_ValueChanged);
             // 
             // _numericUpDown_hue_range
@@ -511,21 +506,16 @@
             131072});
             resources.ApplyResources(this._numericUpDown_hue_range, "_numericUpDown_hue_range");
             this._numericUpDown_hue_range.Maximum = new decimal(new int[] {
-            1,
+            15,
             0,
             0,
-            65536});
+            131072});
             this._numericUpDown_hue_range.Minimum = new decimal(new int[] {
-            1,
+            3,
             0,
             0,
             -2147418112});
             this._numericUpDown_hue_range.Name = "_numericUpDown_hue_range";
-            this._numericUpDown_hue_range.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            131072});
             this._numericUpDown_hue_range.ValueChanged += new System.EventHandler(this._numericUpDown_hue_range_ValueChanged);
             // 
             // _numericUpDown_saturation_range
@@ -538,21 +528,16 @@
             131072});
             resources.ApplyResources(this._numericUpDown_saturation_range, "_numericUpDown_saturation_range");
             this._numericUpDown_saturation_range.Maximum = new decimal(new int[] {
-            1,
+            15,
             0,
             0,
-            65536});
+            131072});
             this._numericUpDown_saturation_range.Minimum = new decimal(new int[] {
-            1,
+            3,
             0,
             0,
             -2147418112});
             this._numericUpDown_saturation_range.Name = "_numericUpDown_saturation_range";
-            this._numericUpDown_saturation_range.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            131072});
             this._numericUpDown_saturation_range.ValueChanged += new System.EventHandler(this._numericUpDown_saturation_range_ValueChanged);
             // 
             // FormMain
@@ -560,7 +545,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this._groupBox_modify);
             this.Controls.Add(this._label_language);
             this.Controls.Add(this._comboBox_language);
             this.Controls.Add(this._groupBox_view);
@@ -583,7 +568,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_height)).EndInit();
             this._groupBox_view.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._pictureBox_view)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this._groupBox_modify.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_value_range)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_hue_range)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_saturation_range)).EndInit();
@@ -596,6 +581,7 @@
         private System.Windows.Forms.GroupBox _groupBox_layer;
         private System.Windows.Forms.GroupBox _groupBox_rect;
         private System.Windows.Forms.GroupBox _groupBox_view;
+        private System.Windows.Forms.GroupBox _groupBox_modify;
         private System.Windows.Forms.Label _label_width;
         private System.Windows.Forms.Label _label_height;
         private System.Windows.Forms.Label _label_piece_count;
@@ -608,6 +594,9 @@
         private System.Windows.Forms.Label _label_layer1;
         private System.Windows.Forms.Label _label_layer2;
         private System.Windows.Forms.Label _label_language;
+        private System.Windows.Forms.Label _label_value_range;
+        private System.Windows.Forms.Label _label_saturation_range;
+        private System.Windows.Forms.Label _label_hue_range;
         private System.Windows.Forms.Button _button_write;
         private System.Windows.Forms.Button _button_layer1;
         private System.Windows.Forms.Button _button_layer2;
@@ -617,19 +606,15 @@
         private System.Windows.Forms.NumericUpDown _numericUpDown_crop;
         private System.Windows.Forms.NumericUpDown _numericUpDown_alpha;
         private System.Windows.Forms.NumericUpDown _numericUpDown_swing;
+        private System.Windows.Forms.NumericUpDown _numericUpDown_value_range;
+        private System.Windows.Forms.NumericUpDown _numericUpDown_saturation_range;
+        private System.Windows.Forms.NumericUpDown _numericUpDown_hue_range;
         private System.Windows.Forms.ComboBox _comboBox_primary;
         private System.Windows.Forms.ComboBox _comboBox_secondary;
         private System.Windows.Forms.ComboBox _comboBox_accent;
         private System.Windows.Forms.ComboBox _comboBox_language;
-        private System.Windows.Forms.PictureBox _pictureBox_view;
         private System.Windows.Forms.CheckBox _checkBox_layer2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown _numericUpDown_value_range;
-        private System.Windows.Forms.NumericUpDown _numericUpDown_saturation_range;
-        private System.Windows.Forms.NumericUpDown _numericUpDown_hue_range;
-        private System.Windows.Forms.Label _label_value_range;
-        private System.Windows.Forms.Label _label_saturation_range;
-        private System.Windows.Forms.Label _label_hue_range;
+        private System.Windows.Forms.PictureBox _pictureBox_view;
     }
 }
 

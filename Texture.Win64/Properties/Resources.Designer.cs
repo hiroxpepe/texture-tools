@@ -160,6 +160,15 @@ namespace Texture.Win64.Properties {
         }
         
         /// <summary>
+        ///   hue range: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_hue_range_Text {
+            get {
+                return ResourceManager.GetString("_label_hue_range_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   language: に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string _label_language_Text {
@@ -187,6 +196,15 @@ namespace Texture.Win64.Properties {
         }
         
         /// <summary>
+        ///   satur. range: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_saturation_range_Text {
+            get {
+                return ResourceManager.GetString("_label_saturation_range_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   secondary: に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string _label_secondary_Text {
@@ -201,6 +219,15 @@ namespace Texture.Win64.Properties {
         internal static string _label_swing_Text {
             get {
                 return ResourceManager.GetString("_label_swing_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   value range: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_value_range_Text {
+            get {
+                return ResourceManager.GetString("_label_value_range_Text", resourceCulture);
             }
         }
         
