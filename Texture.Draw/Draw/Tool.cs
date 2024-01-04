@@ -5,7 +5,6 @@ using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
-using Color = System.Drawing.Color;
 using Point = System.Drawing.Point;
 using static System.Environment;
 using static System.Drawing.Brushes;
@@ -13,7 +12,6 @@ using static System.Drawing.Color;
 using static System.Drawing.Graphics;
 using static System.Drawing.Imaging.ImageFormat;
 
-using TColor = Texture.Color;
 using Texture.Core;
 using TPoint = Texture.Core.Point;
 using static Texture.Utils;
@@ -78,27 +76,27 @@ namespace Texture.Draw {
             throw new NotImplementedException();
         }
 
-        public void Draw(TPoint[] points, TColor color) {
+        public void Draw(TPoint[] points, Color color) {
             throw new NotImplementedException();
         }
 
         public void Fill(TPoint[] points) {
-            fill(points, TColor.Red);
+            fill(points, Color.Red);
         }
 
-        public void Fill(TPoint[] points, TColor color) {
+        public void Fill(TPoint[] points, Color color) {
             fill(points, color);
         }
 
-        public void Fill(TPoint[] points, TColor color, int img_idx = 0) {
+        public void Fill(TPoint[] points, Color color, int img_idx = 0) {
             fill(points, color, img_idx);
         }
 
-        public void Fill(TPoint[] points, TColor color, int img_idx = 0, int cell_idx = 0) {
+        public void Fill(TPoint[] points, Color color, int img_idx = 0, int cell_idx = 0) {
             fill(points, color, img_idx, cell_idx);
         }
 
-        public void Fill(TPoint[] points, TColor color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
+        public void Fill(TPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
             fill(points, color, img_idx, cell_idx, debug);
         }
 
@@ -178,7 +176,7 @@ namespace Texture.Draw {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // private Methods [verb, verb phrases]
 
-        void fill(TPoint[] points, TColor color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
+        void fill(TPoint[] points, Color color, int img_idx = 0, int cell_idx = 0, bool debug = false) {
             // creates the graphics.
             _graphics = FromImage(image: _bitmap_array[img_idx]);
             _graphics?.FillPolygon(brush: create_brush(color), points: MapPoints(points));
@@ -247,39 +245,22 @@ namespace Texture.Draw {
         /// <summary>
         /// creates a System.Drawing.Brush object.
         /// </summary>
-        static Brush create_brush(TColor color) {
-
-            float hue_range = 0.01f; // 0.10f;
-            float saturation_range = 0.03f; // 0.10f;
-            float value_range = 0.05f; // 0.10f;
-
+        static Brush create_brush(Color color) {
             return color switch {
-                // HSV: 355,80,100
-                TColor.Red => brush_from_color(color: FromArgb(255, 51, 68), hue_range, saturation_range, value_range),
-                // HSV: 20,80,100
-                TColor.Orange => brush_from_color(color: FromArgb(255, 119, 51), hue_range, saturation_range, value_range),
-                // HSV: 45,80,100
-                TColor.Amber => brush_from_color(color: FromArgb(255, 204, 51), hue_range, saturation_range, value_range),
-                // HSV: 60,80,100
-                TColor.Yellow => brush_from_color(color: FromArgb(255, 255, 51), hue_range, saturation_range, value_range),
-                // HSV: 80,80,100
-                TColor.Lime => brush_from_color(color: FromArgb(187, 255, 51), hue_range, saturation_range, value_range),
-                // HSV: 135,80,80
-                TColor.Green => brush_from_color(color: FromArgb(40, 204, 81), hue_range, saturation_range, value_range),
-                // HSV: 180,80,70
-                TColor.Turquoise => brush_from_color(color: FromArgb(35, 179, 179), hue_range, saturation_range, value_range),
-                // HSV: 210,80,95
-                TColor.Azure => brush_from_color(color: FromArgb(48, 145, 243), hue_range, saturation_range, value_range),
-                // HSV: 240,80,100
-                TColor.Blue => brush_from_color(color: FromArgb(51, 51, 255), hue_range, saturation_range, value_range),
-                // HSV: 270,80,90
-                TColor.Purple => brush_from_color(color: FromArgb(138, 46, 230), hue_range, saturation_range, value_range),
-                // HSV: 300,80,85
-                TColor.Magenta => brush_from_color(color: FromArgb(217, 43, 217), hue_range, saturation_range, value_range),
-                // HSV: 330,80,95
-                TColor.Rose => brush_from_color(color: FromArgb(243, 48, 145), hue_range, saturation_range, value_range),
-                TColor.Black => Brushes.Black,
-                TColor.White => Brushes.White,
+                Color.Red => brush_from_color(color: FromArgb(255, 51, 68)), // HSV: 355,80,100
+                Color.Orange => brush_from_color(color: FromArgb(255, 119, 51)), // HSV: 20,80,100
+                Color.Amber => brush_from_color(color: FromArgb(255, 204, 51)), // HSV: 45,80,100
+                Color.Yellow => brush_from_color(color: FromArgb(255, 255, 51)), // HSV: 60,80,100
+                Color.Lime => brush_from_color(color: FromArgb(187, 255, 51)), // HSV: 80,80,100
+                Color.Green => brush_from_color(color: FromArgb(40, 204, 81)), // HSV: 135,80,80
+                Color.Turquoise => brush_from_color(color: FromArgb(35, 179, 179)), // HSV: 180,80,70
+                Color.Azure => brush_from_color(color: FromArgb(48, 145, 243)), // HSV: 210,80,95
+                Color.Blue => brush_from_color(color: FromArgb(51, 51, 255)), // HSV: 240,80,100
+                Color.Purple => brush_from_color(color: FromArgb(138, 46, 230)), // HSV: 270,80,90
+                Color.Magenta => brush_from_color(color: FromArgb(217, 43, 217)), // HSV: 300,80,85
+                Color.Rose => brush_from_color(color: FromArgb(243, 48, 145)), // HSV: 330,80,95
+                Color.Black => Brushes.Black,
+                Color.White => Brushes.White,
                 _ => Brushes.Black,
             };
         }
@@ -287,15 +268,18 @@ namespace Texture.Draw {
         /// <summary>
         /// creates a System.Drawing.SolidBrush object.
         /// </summary>
-        static SolidBrush brush_from_color(System.Drawing.Color color, float hue_range = 0f, float saturation_range = 0f, float value_range = 0f) {
-            float hue_changing = random_value(range: hue_range);
-            float saturation_changing = random_value(range: saturation_range);
-            float value_changing = random_value(range: value_range);
+        static SolidBrush brush_from_color(System.Drawing.Color color) {
+            float range_hue = Modify.Range.Hue;// 0.01f; // 0.10f;
+            float range_saturation = Modify.Range.Saturation; // 0.03f; // 0.10f;
+            float range_value = Modify.Range.Value; // 0.05f; // 0.10f;
+            float modifying_hue = random_value(range: range_hue);
+            float modifying_saturation = random_value(range: range_saturation);
+            float modifying_value = random_value(range: range_value);
             return new SolidBrush(HSVColor.ToColor(
                 color: color, 
-                hue_changing: hue_changing,
-                saturation_changing: saturation_changing,
-                value_changing: value_changing
+                modifying_hue: modifying_hue,
+                modifying_saturation: modifying_saturation,
+                modifying_value: modifying_value
             ));
         }
 
@@ -305,7 +289,7 @@ namespace Texture.Draw {
         static float random_value(float range) {
             int min_value = -(int) (range * 100);
             int max_value = (int) (range * 100);
-            int random_value = _random.Next(min_value, max_value + 1);
+            int random_value = _random.Next(minValue: min_value, maxValue: max_value + 1);
             return random_value / 100.0f;
         }
     }

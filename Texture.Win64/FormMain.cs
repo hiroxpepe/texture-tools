@@ -61,14 +61,35 @@ namespace Texture.Win64 {
         /// event handler _numericUpDown_width are changed.
         /// </summary>
         void _numericUpDown_width_ValueChanged(object sender, EventArgs e) {
-            _rect.Width = (int)_numericUpDown_width.Value;
+            _rect.Width = (int) _numericUpDown_width.Value;
         }
 
         /// <summary>
         /// event handler _numericUpDown_height are changed.
         /// </summary>
         void _numericUpDown_height_ValueChanged(object sender, EventArgs e) {
-            _rect.Height = (int)_numericUpDown_height.Value;
+            _rect.Height = (int) _numericUpDown_height.Value;
+        }
+
+        /// <summary>
+        /// event handler _numericUpDown_hue_range are changed.
+        /// </summary>
+        void _numericUpDown_hue_range_ValueChanged(object sender, EventArgs e) {
+            Modify.Range.Hue = (float) _numericUpDown_hue_range.Value;
+        }
+
+        /// <summary>
+        /// event handler _numericUpDown_saturation_range are changed.
+        /// </summary>
+        void _numericUpDown_saturation_range_ValueChanged(object sender, EventArgs e) {
+            Modify.Range.Hue = (float) _numericUpDown_saturation_range.Value;
+        }
+
+        /// <summary>
+        /// event handler _numericUpDown_value_range are changed.
+        /// </summary>
+        void _numericUpDown_value_range_ValueChanged(object sender, EventArgs e) {
+            Modify.Range.Hue = (float) _numericUpDown_value_range.Value;
         }
 
         /// <summary>

@@ -14,12 +14,12 @@ namespace System.Drawing {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // public Methods [verb, verb phrases]
 
-        public static Color ToColor(Color color, float hue_changing = 0f, float saturation_changing = 0f, float value_changing = 0f) {
+        public static Color ToColor(Color color, float modifying_hue = 0f, float modifying_saturation = 0f, float modifying_value = 0f) {
             (float hue, float saturation, float value) = color_to_hsv(color);
             Color modified_color = hsv_to_color(
-                hue += hue_changing, 
-                saturation += saturation_changing, 
-                value += value_changing
+                hue += modifying_hue, 
+                saturation += modifying_saturation, 
+                value += modifying_value
             );
             return modified_color;
         }

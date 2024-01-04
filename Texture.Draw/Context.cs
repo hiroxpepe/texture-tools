@@ -149,4 +149,15 @@ namespace Texture {
             }
         }
     }
+
+    /// <summary>
+    /// modify value object for app.
+    /// </summary>
+    public static class Modify {
+        public static class Range {
+            public static float Hue { get; set; } = 0.0f;
+            public static float Saturation{ get; set; } = 0.0f;
+            public static float Value { get; set; } = 0.0f;
+        }
+    }
 }
