@@ -97,6 +97,9 @@ namespace Texture {
                                     tool.Fill(points: x, color: palette1.Accent, img_idx: img_idx, cell_idx: count);
                                 }
                             }
+                            if (Modify.Mode.Line) {
+                                tool.Draw(points: x);
+                            }
                             count++;
                         });
                     };
@@ -166,6 +169,11 @@ namespace Texture {
         public static class Mode {
             public static bool Expand { get; set; } = false;
             public static bool Rock { get; set; } = false;
+            public static bool Line { get; set; } = false;
+        }
+        public static class Pen {
+            public static float Alpha { get; set; } = 1.0f;
+            public static float Width { get; set; } = 1.0f;
         }
     }
 }

@@ -106,6 +106,15 @@ namespace Texture.Win64.Properties {
         }
         
         /// <summary>
+        ///   use に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _checkBox_mode_line_Text {
+            get {
+                return ResourceManager.GetString("_checkBox_mode_line_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   rock mode に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string _checkBox_mode_rock_Text {
@@ -120,6 +129,24 @@ namespace Texture.Win64.Properties {
         internal static string _groupBox_layer_Text {
             get {
                 return ResourceManager.GetString("_groupBox_layer_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   line に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _groupBox_line_Text {
+            get {
+                return ResourceManager.GetString("_groupBox_line_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   modify に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _groupBox_modify_Text {
+            get {
+                return ResourceManager.GetString("_groupBox_modify_Text", resourceCulture);
             }
         }
         
@@ -201,6 +228,24 @@ namespace Texture.Win64.Properties {
         internal static string _label_language_Text {
             get {
                 return ResourceManager.GetString("_label_language_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   transparency: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_pen_alpha_Text {
+            get {
+                return ResourceManager.GetString("_label_pen_alpha_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   thickness: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_pen_width_Text {
+            get {
+                return ResourceManager.GetString("_label_pen_width_Text", resourceCulture);
             }
         }
         

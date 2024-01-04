@@ -158,6 +158,13 @@ namespace Texture.Win64 {
         }
 
         /// <summary>
+        /// event handler _checkBox_mode_line are changed.
+        /// </summary>
+        void _checkBox_mode_line_CheckedChanged(object sender, EventArgs e) {
+            Modify.Mode.Line = _checkBox_mode_line.Checked;
+        }
+
+        /// <summary>
         /// event handler _button_layer1 are clicked.
         /// </summary>
         void _button_layer1_Click(object sender, EventArgs e) {
@@ -381,6 +388,8 @@ namespace Texture.Win64 {
             _groupBox_layer.Text = Resources._groupBox_layer_Text;
             _groupBox_rect.Text = Resources._groupBox_rect_Text;
             _groupBox_view.Text = Resources._groupBox_view_Text;
+            _groupBox_modify.Text = Resources._groupBox_modify_Text;
+            _groupBox_line.Text = Resources._groupBox_line_Text;
             _label_width.Text = Resources._label_width_Text;
             _label_height.Text = Resources._label_height_Text;
             _label_piece_count.Text = Resources._label_piece_count_Text;
@@ -396,12 +405,15 @@ namespace Texture.Win64 {
             _label_range_value.Text = Resources._label_range_value_Text;
             _label_adjust_saturation.Text = Resources._label_adjust_saturation_Text;
             _label_adjust_value.Text = Resources._label_adjust_value_Text;
+            _label_pen_width.Text = Resources._label_pen_width_Text;
+            _label_pen_alpha.Text = Resources._label_pen_alpha_Text;
             _button_write.Text = Resources._button_write_Text;
             _button_layer1.Text = Resources._button_layer1_Text;
             _button_layer2.Text = Resources._button_layer2_Text;
             _checkBox_layer2.Text = Resources._checkBox_layer2_Text;
             _checkBox_mode_expand.Text = Resources._checkBox_mode_expand_Text;
             _checkBox_mode_rock.Text = Resources._checkBox_mode_rock_Text;
+            _checkBox_mode_line.Text = Resources._checkBox_mode_line_Text;
         }
 
         /// <summary>

@@ -67,6 +67,12 @@
             this._numericUpDown_range_value = new System.Windows.Forms.NumericUpDown();
             this._numericUpDown_range_hue = new System.Windows.Forms.NumericUpDown();
             this._numericUpDown_range_saturation = new System.Windows.Forms.NumericUpDown();
+            this._groupBox_line = new System.Windows.Forms.GroupBox();
+            this._label_pen_width = new System.Windows.Forms.Label();
+            this._numericUpDown_pen_alpha = new System.Windows.Forms.NumericUpDown();
+            this._label_pen_alpha = new System.Windows.Forms.Label();
+            this._numericUpDown_pen_width = new System.Windows.Forms.NumericUpDown();
+            this._checkBox_mode_line = new System.Windows.Forms.CheckBox();
             this._groupBox_layer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_piece_count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_swing)).BeginInit();
@@ -83,6 +89,9 @@
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_range_value)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_range_hue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_range_saturation)).BeginInit();
+            this._groupBox_line.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_pen_alpha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_pen_width)).BeginInit();
             this.SuspendLayout();
             // 
             // _groupBox_layer
@@ -609,11 +618,51 @@
             this._numericUpDown_range_saturation.Name = "_numericUpDown_range_saturation";
             this._numericUpDown_range_saturation.ValueChanged += new System.EventHandler(this._numericUpDown_saturation_range_ValueChanged);
             // 
+            // _groupBox_line
+            // 
+            this._groupBox_line.Controls.Add(this._label_pen_width);
+            this._groupBox_line.Controls.Add(this._numericUpDown_pen_alpha);
+            this._groupBox_line.Controls.Add(this._label_pen_alpha);
+            this._groupBox_line.Controls.Add(this._numericUpDown_pen_width);
+            this._groupBox_line.Controls.Add(this._checkBox_mode_line);
+            this._groupBox_line.ForeColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this._groupBox_line, "_groupBox_line");
+            this._groupBox_line.Name = "_groupBox_line";
+            this._groupBox_line.TabStop = false;
+            // 
+            // _label_pen_width
+            // 
+            resources.ApplyResources(this._label_pen_width, "_label_pen_width");
+            this._label_pen_width.Name = "_label_pen_width";
+            // 
+            // _numericUpDown_pen_alpha
+            // 
+            resources.ApplyResources(this._numericUpDown_pen_alpha, "_numericUpDown_pen_alpha");
+            this._numericUpDown_pen_alpha.Name = "_numericUpDown_pen_alpha";
+            // 
+            // _label_pen_alpha
+            // 
+            resources.ApplyResources(this._label_pen_alpha, "_label_pen_alpha");
+            this._label_pen_alpha.Name = "_label_pen_alpha";
+            // 
+            // _numericUpDown_pen_width
+            // 
+            resources.ApplyResources(this._numericUpDown_pen_width, "_numericUpDown_pen_width");
+            this._numericUpDown_pen_width.Name = "_numericUpDown_pen_width";
+            // 
+            // _checkBox_mode_line
+            // 
+            resources.ApplyResources(this._checkBox_mode_line, "_checkBox_mode_line");
+            this._checkBox_mode_line.Name = "_checkBox_mode_line";
+            this._checkBox_mode_line.UseVisualStyleBackColor = true;
+            this._checkBox_mode_line.CheckedChanged += new System.EventHandler(this._checkBox_mode_line_CheckedChanged);
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.Controls.Add(this._groupBox_line);
             this.Controls.Add(this._groupBox_modify);
             this.Controls.Add(this._label_language);
             this.Controls.Add(this._comboBox_language);
@@ -644,6 +693,10 @@
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_range_value)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_range_hue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_range_saturation)).EndInit();
+            this._groupBox_line.ResumeLayout(false);
+            this._groupBox_line.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_pen_alpha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_pen_width)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -654,6 +707,7 @@
         private System.Windows.Forms.GroupBox _groupBox_rect;
         private System.Windows.Forms.GroupBox _groupBox_view;
         private System.Windows.Forms.GroupBox _groupBox_modify;
+        private System.Windows.Forms.GroupBox _groupBox_line;
         private System.Windows.Forms.Label _label_width;
         private System.Windows.Forms.Label _label_height;
         private System.Windows.Forms.Label _label_piece_count;
@@ -671,6 +725,8 @@
         private System.Windows.Forms.Label _label_range_hue;
         private System.Windows.Forms.Label _label_adjust_value;
         private System.Windows.Forms.Label _label_adjust_saturation;
+        private System.Windows.Forms.Label _label_pen_alpha;
+        private System.Windows.Forms.Label _label_pen_width;
         private System.Windows.Forms.Button _button_write;
         private System.Windows.Forms.Button _button_layer1;
         private System.Windows.Forms.Button _button_layer2;
@@ -685,6 +741,8 @@
         private System.Windows.Forms.NumericUpDown _numericUpDown_range_hue;
         private System.Windows.Forms.NumericUpDown _numericUpDown_adjust_value;
         private System.Windows.Forms.NumericUpDown _numericUpDown_adjust_saturation;
+        private System.Windows.Forms.NumericUpDown _numericUpDown_pen_width;
+        private System.Windows.Forms.NumericUpDown _numericUpDown_pen_alpha;
         private System.Windows.Forms.ComboBox _comboBox_primary;
         private System.Windows.Forms.ComboBox _comboBox_secondary;
         private System.Windows.Forms.ComboBox _comboBox_accent;
@@ -692,6 +750,7 @@
         private System.Windows.Forms.CheckBox _checkBox_layer2;
         private System.Windows.Forms.CheckBox _checkBox_mode_expand;
         private System.Windows.Forms.CheckBox _checkBox_mode_rock;
+        private System.Windows.Forms.CheckBox _checkBox_mode_line;
         private System.Windows.Forms.PictureBox _pictureBox_view;
     }
 }

@@ -72,11 +72,11 @@ namespace Texture.Draw {
         // public Methods [verb, verb phrases]
 
         public void Draw(TPoint[] points) {
-            throw new NotImplementedException();
+            draw(points, Color.Black);
         }
 
         public void Draw(TPoint[] points, Color color) {
-            throw new NotImplementedException();
+            draw(points, color);
         }
 
         public void Fill(TPoint[] points) {
@@ -186,6 +186,14 @@ namespace Texture.Draw {
                     _graphics?.DrawString(cell_idx.ToString(), font, Brushes.Black, MapPoints(points)[0]);
                 }
             }
+            // disposes of the graphics.
+            if (_graphics is not null) { _graphics.Dispose(); _graphics = null; }
+        }
+
+        void draw(TPoint[] points, Color color, int img_idx = 0) {
+            // creates the graphics.
+            _graphics = FromImage(image: _bitmap_array[img_idx]);
+            _graphics?.DrawPolygon(pen: new Pen(color: Black, width: 2), points: MapPoints(points));
             // disposes of the graphics.
             if (_graphics is not null) { _graphics.Dispose(); _graphics = null; }
         }
