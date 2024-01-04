@@ -93,6 +93,20 @@ namespace Texture.Win64 {
         }
 
         /// <summary>
+        /// event handler _numericUpDown_adjust_saturation are changed.
+        /// </summary>
+        void _numericUpDown_adjust_saturation_ValueChanged(object sender, EventArgs e) {
+            Modify.Adjust.Saturation = (float) _numericUpDown_adjust_saturation.Value;
+        }
+
+        /// <summary>
+        /// event handler _numericUpDown_adjust_value are changed.
+        /// </summary>
+        void _numericUpDown_adjust_value_ValueChanged(object sender, EventArgs e) {
+            Modify.Adjust.Value = (float) _numericUpDown_adjust_value.Value;
+        }
+
+        /// <summary>
         /// event handler _checkBox_expand_mode are changed.
         /// </summary>
         void _checkBox_expand_mode_CheckedChanged(object sender, EventArgs e) {
@@ -101,7 +115,7 @@ namespace Texture.Win64 {
             _numericUpDown_range_hue.Value = 0;
             _numericUpDown_range_saturation.Value = 0;
             _numericUpDown_range_value.Value = 0;
-            // reset the maximum and minimum value range.
+            // reset the maximum and minimum range value.
             if (Modify.Mode.Expand) {
                 _numericUpDown_range_hue.Maximum = 0.3m;
                 _numericUpDown_range_saturation.Maximum = 0.3m;
@@ -109,14 +123,37 @@ namespace Texture.Win64 {
                 _numericUpDown_range_hue.Minimum = -0.3m;
                 _numericUpDown_range_saturation.Minimum = -0.3m;
                 _numericUpDown_range_value.Minimum = -0.3m;
-            }
-            else {
+            } else {
                 _numericUpDown_range_hue.Maximum = 0.25m;
                 _numericUpDown_range_saturation.Maximum = 0.25m;
                 _numericUpDown_range_value.Maximum = 0.25m;
                 _numericUpDown_range_hue.Minimum = 0m;
                 _numericUpDown_range_saturation.Minimum = 0m;
                 _numericUpDown_range_value.Minimum = 0m;
+            }
+        }
+
+        /// <summary>
+        /// event handler _checkBox_mode_rock are changed.
+        /// </summary>
+        void _checkBox_mode_rock_CheckedChanged(object sender, EventArgs e) {
+            Modify.Mode.Rock = _checkBox_mode_rock.Checked;
+            // initialize the value.
+            _numericUpDown_adjust_saturation.Value = 0;
+            _numericUpDown_adjust_value.Value = 0;
+            // reset the maximum and minimum adjust value.
+            if (Modify.Mode.Rock) {
+                _numericUpDown_adjust_saturation.Maximum = 0m;
+                _numericUpDown_adjust_value.Maximum = 0m;
+                _numericUpDown_adjust_saturation.Minimum = -0.75m;
+                _numericUpDown_adjust_value.Minimum = -0.75m;
+                _numericUpDown_adjust_saturation.Value = -0.5m;
+                _numericUpDown_adjust_value.Value = -0.5m;
+            } else {
+                _numericUpDown_adjust_saturation.Maximum = 0.25m;
+                _numericUpDown_adjust_value.Maximum = 0.25m;
+                _numericUpDown_adjust_saturation.Minimum = -0.25m;
+                _numericUpDown_adjust_value.Minimum = -0.25m;
             }
         }
 
@@ -357,11 +394,14 @@ namespace Texture.Win64 {
             _label_range_hue.Text = Resources._label_range_hue_Text;
             _label_range_saturation.Text = Resources._label_range_saturation_Text;
             _label_range_value.Text = Resources._label_range_value_Text;
+            _label_adjust_saturation.Text = Resources._label_adjust_saturation_Text;
+            _label_adjust_value.Text = Resources._label_adjust_value_Text;
             _button_write.Text = Resources._button_write_Text;
             _button_layer1.Text = Resources._button_layer1_Text;
             _button_layer2.Text = Resources._button_layer2_Text;
             _checkBox_layer2.Text = Resources._checkBox_layer2_Text;
             _checkBox_mode_expand.Text = Resources._checkBox_mode_expand_Text;
+            _checkBox_mode_rock.Text = Resources._checkBox_mode_rock_Text;
         }
 
         /// <summary>

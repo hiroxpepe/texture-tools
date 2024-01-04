@@ -93,15 +93,12 @@ namespace System.Drawing {
             float r = color.R / 255.0f;
             float g = color.G / 255.0f;
             float b = color.B / 255.0f;
-
             // get the maximum and minimum RGB value.
             float max = Max(val1: r, val2: Max(val1: g, val2: b));
             float min = Min(val1: r, val2: Min(val1: g, val2: b));
-
             // hue calculation.
             float hue = 0; // initialization.
             float delta = max - min; // get the difference used for hue calculation.
-
             // calculate hue if maximum and minimum values are different.
             if (max != min) {
                 // when red is the maximum.
@@ -118,13 +115,10 @@ namespace System.Drawing {
                 }
                 hue /= 6; // normalize hue.
             }
-
             // saturation calculation.
             float saturation = max == 0 ? 0 : delta / max;
-
             // Value calculation.
             float value = max;
-
             // return calculation results.
             return (hue, saturation, value);
         }
@@ -136,22 +130,17 @@ namespace System.Drawing {
             hue = (hue % 1.0f + 1.0f) % 1.0f; // constrain hue to the range 0 to 1.
             saturation = Max(val1: 0.0f, val2: Min(val1: 1.0f, val2: saturation)); // constrain saturation to range 0 to 1.
             value = Max(val1: 0.0f, val2: Min(val1: 1.0f, val2: value)); // constrain value to the range 0 to 1.
-
             // divide the hue into 6 equal parts and get the standard value of the corresponding color.
             int hi = (int) (hue * 6) % 6;
-
-            // dalculate the decimal part.
+            // calculate the decimal part.
             float f = hue * 6 - hi;
-            
             // multiply the brightness by 255 and convert it to an integer.
             value *= 255;
             int v = (int) Round(value: value, mode: MidpointRounding.ToEven);
-            
             // calculate each ingredient.
             int p = (int) Round(value: value * (1.0f - saturation), mode: MidpointRounding.ToEven);
             int q = (int) Round(value: value * (1.0f - f * saturation), mode: MidpointRounding.ToEven);
             int t = (int) Round(value: value * (1.0f - (1.0f - f) * saturation), mode: MidpointRounding.ToEven);
-            
             // calculate each RGB component based on hue and returns a color object.
             switch (hi) {
                 case 0: return Color.FromArgb(alpha: 255, red: v, green: t, blue: p);

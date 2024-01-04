@@ -268,12 +268,14 @@ namespace Texture.Draw {
         /// creates a System.Drawing.SolidBrush object.
         /// </summary>
         static SolidBrush brush_from_color(System.Drawing.Color color) {
-            float range_hue = Modify.Range.Hue;// 0.01f; // 0.10f;
-            float range_saturation = Modify.Range.Saturation; // 0.03f; // 0.10f;
-            float range_value = Modify.Range.Value; // 0.05f; // 0.10f;
-            float modifying_hue = random_value(range: range_hue);
-            float modifying_saturation = random_value(range: range_saturation);
-            float modifying_value = random_value(range: range_value);
+            // get random values to modify hue, saturation, and value.
+            float modifying_hue = random_value(range: Modify.Range.Hue);
+            float modifying_saturation = random_value(range: Modify.Range.Saturation);
+            float modifying_value = random_value(range: Modify.Range.Value);
+            // add correction values to saturation and value.
+            modifying_saturation += Modify.Adjust.Saturation;
+            modifying_value += Modify.Adjust.Value;
+            // generate a new color and create a SolidBrush object from it.
             return new SolidBrush(HSVColor.ToColor(
                 color: color, 
                 modifying_hue: modifying_hue,

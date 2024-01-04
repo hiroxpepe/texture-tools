@@ -106,6 +106,15 @@ namespace Texture.Win64.Properties {
         }
         
         /// <summary>
+        ///   rock mode に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _checkBox_mode_rock_Text {
+            get {
+                return ResourceManager.GetString("_checkBox_mode_rock_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   layer に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string _groupBox_layer_Text {
@@ -138,6 +147,24 @@ namespace Texture.Win64.Properties {
         internal static string _label_accent_Text {
             get {
                 return ResourceManager.GetString("_label_accent_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   satur. adjust: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_adjust_saturation_Text {
+            get {
+                return ResourceManager.GetString("_label_adjust_saturation_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   value adjust: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string _label_adjust_value_Text {
+            get {
+                return ResourceManager.GetString("_label_adjust_value_Text", resourceCulture);
             }
         }
         

@@ -156,11 +156,16 @@ namespace Texture {
     public static class Modify {
         public static class Range {
             public static float Hue { get; set; } = 0.0f;
-            public static float Saturation{ get; set; } = 0.0f;
+            public static float Saturation { get; set; } = 0.0f;
+            public static float Value { get; set; } = 0.0f;
+        }
+        public static class Adjust {
+            public static float Saturation { get; set; } = 0.0f;
             public static float Value { get; set; } = 0.0f;
         }
         public static class Mode {
             public static bool Expand { get; set; } = false;
+            public static bool Rock { get; set; } = false;
         }
     }
 }

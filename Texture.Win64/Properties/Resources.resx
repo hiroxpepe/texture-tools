@@ -135,6 +135,9 @@
   <data name="_checkBox_mode_expand_Text" xml:space="preserve">
     <value>expand mode</value>
   </data>
+  <data name="_checkBox_mode_rock_Text" xml:space="preserve">
+    <value>rock mode</value>
+  </data>
   <data name="_groupBox_layer_Text" xml:space="preserve">
     <value>layer</value>
   </data>
@@ -146,6 +149,12 @@
   </data>
   <data name="_label_accent_Text" xml:space="preserve">
     <value>accent:</value>
+  </data>
+  <data name="_label_adjust_saturation_Text" xml:space="preserve">
+    <value>satur. adjust:</value>
+  </data>
+  <data name="_label_adjust_value_Text" xml:space="preserve">
+    <value>value adjust:</value>
   </data>
   <data name="_label_alpha_Text" xml:space="preserve">
     <value>alpha:</value>

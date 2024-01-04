@@ -55,6 +55,11 @@
             this._button_write = new System.Windows.Forms.Button();
             this._comboBox_language = new System.Windows.Forms.ComboBox();
             this._groupBox_modify = new System.Windows.Forms.GroupBox();
+            this._checkBox_mode_rock = new System.Windows.Forms.CheckBox();
+            this._label_adjust_value = new System.Windows.Forms.Label();
+            this._label_adjust_saturation = new System.Windows.Forms.Label();
+            this._numericUpDown_adjust_value = new System.Windows.Forms.NumericUpDown();
+            this._numericUpDown_adjust_saturation = new System.Windows.Forms.NumericUpDown();
             this._checkBox_mode_expand = new System.Windows.Forms.CheckBox();
             this._label_range_value = new System.Windows.Forms.Label();
             this._label_range_saturation = new System.Windows.Forms.Label();
@@ -73,6 +78,8 @@
             this._groupBox_view.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._pictureBox_view)).BeginInit();
             this._groupBox_modify.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_adjust_value)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_adjust_saturation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_range_value)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_range_hue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_range_saturation)).BeginInit();
@@ -446,6 +453,11 @@
             // 
             // _groupBox_modify
             // 
+            this._groupBox_modify.Controls.Add(this._checkBox_mode_rock);
+            this._groupBox_modify.Controls.Add(this._label_adjust_value);
+            this._groupBox_modify.Controls.Add(this._label_adjust_saturation);
+            this._groupBox_modify.Controls.Add(this._numericUpDown_adjust_value);
+            this._groupBox_modify.Controls.Add(this._numericUpDown_adjust_saturation);
             this._groupBox_modify.Controls.Add(this._checkBox_mode_expand);
             this._groupBox_modify.Controls.Add(this._label_range_value);
             this._groupBox_modify.Controls.Add(this._label_range_saturation);
@@ -457,6 +469,69 @@
             resources.ApplyResources(this._groupBox_modify, "_groupBox_modify");
             this._groupBox_modify.Name = "_groupBox_modify";
             this._groupBox_modify.TabStop = false;
+            // 
+            // _checkBox_mode_rock
+            // 
+            resources.ApplyResources(this._checkBox_mode_rock, "_checkBox_mode_rock");
+            this._checkBox_mode_rock.Name = "_checkBox_mode_rock";
+            this._checkBox_mode_rock.UseVisualStyleBackColor = true;
+            this._checkBox_mode_rock.CheckedChanged += new System.EventHandler(this._checkBox_mode_rock_CheckedChanged);
+            // 
+            // _label_adjust_value
+            // 
+            resources.ApplyResources(this._label_adjust_value, "_label_adjust_value");
+            this._label_adjust_value.ForeColor = System.Drawing.SystemColors.Control;
+            this._label_adjust_value.Name = "_label_adjust_value";
+            // 
+            // _label_adjust_saturation
+            // 
+            resources.ApplyResources(this._label_adjust_saturation, "_label_adjust_saturation");
+            this._label_adjust_saturation.ForeColor = System.Drawing.SystemColors.Control;
+            this._label_adjust_saturation.Name = "_label_adjust_saturation";
+            // 
+            // _numericUpDown_adjust_value
+            // 
+            this._numericUpDown_adjust_value.DecimalPlaces = 2;
+            this._numericUpDown_adjust_value.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            resources.ApplyResources(this._numericUpDown_adjust_value, "_numericUpDown_adjust_value");
+            this._numericUpDown_adjust_value.Maximum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            131072});
+            this._numericUpDown_adjust_value.Minimum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            -2147352576});
+            this._numericUpDown_adjust_value.Name = "_numericUpDown_adjust_value";
+            this._numericUpDown_adjust_value.ValueChanged += new System.EventHandler(this._numericUpDown_adjust_value_ValueChanged);
+            // 
+            // _numericUpDown_adjust_saturation
+            // 
+            this._numericUpDown_adjust_saturation.DecimalPlaces = 2;
+            this._numericUpDown_adjust_saturation.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            resources.ApplyResources(this._numericUpDown_adjust_saturation, "_numericUpDown_adjust_saturation");
+            this._numericUpDown_adjust_saturation.Maximum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            131072});
+            this._numericUpDown_adjust_saturation.Minimum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            -2147352576});
+            this._numericUpDown_adjust_saturation.Name = "_numericUpDown_adjust_saturation";
+            this._numericUpDown_adjust_saturation.ValueChanged += new System.EventHandler(this._numericUpDown_adjust_saturation_ValueChanged);
             // 
             // _checkBox_mode_expand
             // 
@@ -564,6 +639,8 @@
             ((System.ComponentModel.ISupportInitialize)(this._pictureBox_view)).EndInit();
             this._groupBox_modify.ResumeLayout(false);
             this._groupBox_modify.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_adjust_value)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_adjust_saturation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_range_value)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_range_hue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._numericUpDown_range_saturation)).EndInit();
@@ -592,6 +669,8 @@
         private System.Windows.Forms.Label _label_range_value;
         private System.Windows.Forms.Label _label_range_saturation;
         private System.Windows.Forms.Label _label_range_hue;
+        private System.Windows.Forms.Label _label_adjust_value;
+        private System.Windows.Forms.Label _label_adjust_saturation;
         private System.Windows.Forms.Button _button_write;
         private System.Windows.Forms.Button _button_layer1;
         private System.Windows.Forms.Button _button_layer2;
@@ -604,13 +683,15 @@
         private System.Windows.Forms.NumericUpDown _numericUpDown_range_value;
         private System.Windows.Forms.NumericUpDown _numericUpDown_range_saturation;
         private System.Windows.Forms.NumericUpDown _numericUpDown_range_hue;
+        private System.Windows.Forms.NumericUpDown _numericUpDown_adjust_value;
+        private System.Windows.Forms.NumericUpDown _numericUpDown_adjust_saturation;
         private System.Windows.Forms.ComboBox _comboBox_primary;
         private System.Windows.Forms.ComboBox _comboBox_secondary;
         private System.Windows.Forms.ComboBox _comboBox_accent;
         private System.Windows.Forms.ComboBox _comboBox_language;
         private System.Windows.Forms.CheckBox _checkBox_layer2;
-        private System.Windows.Forms.PictureBox _pictureBox_view;
         private System.Windows.Forms.CheckBox _checkBox_mode_expand;
+        private System.Windows.Forms.CheckBox _checkBox_mode_rock;
+        private System.Windows.Forms.PictureBox _pictureBox_view;
     }
 }
-

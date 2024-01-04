@@ -135,6 +135,9 @@
   <data name="_checkBox_mode_expand_Text" xml:space="preserve">
     <value>拡張モード</value>
   </data>
+  <data name="_checkBox_mode_rock_Text" xml:space="preserve">
+    <value>岩石モード</value>
+  </data>
   <data name="_groupBox_layer_Text" xml:space="preserve">
     <value>レイヤー</value>
   </data>
@@ -146,6 +149,12 @@
   </data>
   <data name="_label_accent_Text" xml:space="preserve">
     <value>アクセント色:</value>
+  </data>
+  <data name="_label_adjust_saturation_Text" xml:space="preserve">
+    <value>彩度量:</value>
+  </data>
+  <data name="_label_adjust_value_Text" xml:space="preserve">
+    <value>明度量:</value>
   </data>
   <data name="_label_alpha_Text" xml:space="preserve">
     <value>透明度:</value>
