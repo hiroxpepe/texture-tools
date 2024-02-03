@@ -1,6 +1,6 @@
 # Texture Tools
 ## Generator of a grid pattern PNG image file.
-![app image](https://i.imgur.com/CX4wCz2.png)
+![app image](https://i.imgur.com/DsJxSME.png)
 
 ## What's this?
 + It's an application that uses a GUI by set parameters and generates texture images for use in 3D games, etc.
