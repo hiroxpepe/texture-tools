@@ -65,9 +65,9 @@ namespace Texture {
                 );
                 Swing swing2 = NewSwing(value: param_array[LAYER_2].Swing);
                 // creates tool
-                string flie_path;
+                string file_path;
                 using (Tool tool = NewTool(rect: rect, face_array: new Face[] { face1, face2 })) {
-                    flie_path = tool.FilePath;
+                    file_path = tool.FilePath;
                     // callback for layer 1.
                     int count = 0; int img_idx = 0;
                     face1.OnReady += () => {
@@ -144,7 +144,7 @@ namespace Texture {
                     }
                 }
                 // calls event.
-                OnDo?.Invoke(sender: flie_path, e: new EvtArgs(name: "file_path"));
+                OnDo?.Invoke(sender: file_path, e: new EvtArgs(name: "file_path"));
                 return true;
             }
             catch (Exception ex) {
