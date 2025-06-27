@@ -3,7 +3,7 @@
 
 namespace Texture.Core {
     /// <summary>
-    /// swing class
+    /// Represents the swing class.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>

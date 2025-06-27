@@ -3,7 +3,7 @@
 
 namespace Texture.Core {
     /// <summary>
-    /// cell class
+    /// Represents the cell class.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>

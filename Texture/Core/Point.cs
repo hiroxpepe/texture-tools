@@ -5,7 +5,7 @@ using System;
 
 namespace Texture.Core {
     /// <summary>
-    /// point class
+    /// Represents the point class.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>

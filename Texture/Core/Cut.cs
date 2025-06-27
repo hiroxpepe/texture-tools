@@ -3,7 +3,7 @@
 
 namespace Texture.Core {
     /// <summary>
-    /// cut class
+    /// Represents the cut class.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>
@@ -38,7 +38,7 @@ namespace Texture.Core {
         }
 
         public static Cut NewCutDefault() {
-            return new(x: 2, y: 2); // 3 pieces * 3 pieces
+            return new(x: 2, y: 2); // Represents 3 pieces * 3 pieces.
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////

@@ -3,7 +3,7 @@
 
 namespace Texture.Core {
     /// <summary>
-    /// tool interface
+    /// Represents the tool interface.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>

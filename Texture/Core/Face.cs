@@ -11,7 +11,7 @@ using static Texture.Core.Width;
 
 namespace Texture.Core {
     /// <summary>
-    /// face class
+    /// Represents the face class.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>
@@ -34,13 +34,13 @@ namespace Texture.Core {
         // Constructor
 
         Face(int width, int height, Cut cut, double crop = 1d) {
-            // crop parameter must be between 0 and 1 inclusive.
+            // Validates crop parameter.
             if (crop < 0d || crop > 1d) {
                 throw new ArgumentOutOfRangeException(
-                    message:"crop parameter must be between 0 and 1 inclusive.", paramName: nameof(crop)
+                    message:"Crop parameter must be between 0 and 1 inclusive.", paramName: nameof(crop)
                 );
             }
-            // scales along the value of the crop param.
+            // Scales along the value of the crop parameter.
             if (crop is not 1d) {
                 double multiplier = 1 / crop;
                 width = (int) (width * multiplier);
@@ -121,7 +121,7 @@ namespace Texture.Core {
                     _cell_list.Add(item: cell);
                 }
             }
-            // finds and sets remaining points.
+            // Finds and sets remaining points.
             const int TO_NEXT = 1;
             float x_value_prev, y_value_prev, x_value, y_value; x_value_prev = y_value_prev = x_value = y_value = 0;
             int cell_idx = 0;
@@ -171,7 +171,7 @@ namespace Texture.Core {
         }
 
         /// <note>
-        /// for UnitTest
+        /// Provides functionality for UnitTest.
         /// </note>
         List<Point> _extend_and_get_list() {
             extend();

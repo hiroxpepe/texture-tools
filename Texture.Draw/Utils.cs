@@ -8,7 +8,7 @@ using TexPoint = Texture.Core.Point;
 
 namespace Texture {
     /// <summary>
-    /// utils class
+    /// Represents the utils class.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>

@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace Texture.Draw {
     /// <summary>
-    /// cropping class
+    /// Represents the cropping class.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>
@@ -32,14 +32,14 @@ namespace Texture.Draw {
         // public Methods [verb, verb phrases]
 
         public Rectangle Do() {
-            // checks the point is zero.
+            // Checks the point is zero.
             Point zero_point = new(x: 0, y: 0);
             if (_src.Location != zero_point && _dest.Location != zero_point) {
-                throw new ArgumentException(message: "point must be zero.", paramName: nameof(Do));
+                throw new ArgumentException(message: "Point must be zero.", paramName: nameof(Do));
             }
-            // checks dest is bigger than src.
+            // Checks dest is bigger than src.
             if (_dest.Width < _src.Width || _dest.Height < _src.Height) {
-                throw new ArgumentException(message: "dest must be bigger than src.", paramName: nameof(Do));
+                throw new ArgumentException(message: "Dest must be bigger than src.", paramName: nameof(Do));
             }
             return cropping();
         }
@@ -54,10 +54,10 @@ namespace Texture.Draw {
             // calculates cropped dimensions.
             int cropped_width = _dest.Width - _src.Width;
             int cropped_height = _dest.Height - _src.Height;
-            // calculates cropped position.
+            // Calculates cropped position.
             int cropped_x = cropped_width / 2;
             int cropped_y = cropped_height / 2;
-            // returns the cropped rectangle.
+            // Returns the cropped rectangle.
             return new Rectangle(
                 location: new Point(x: cropped_x, y: cropped_y), 
                 size: new Size(width: _src.Width, height: _src.Height)

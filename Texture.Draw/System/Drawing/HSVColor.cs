@@ -5,7 +5,7 @@ using static System.Math;
 
 namespace System.Drawing {
     /// <summary>
-    /// HSVColor class
+    /// Represents the HSVColor class.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>
@@ -25,58 +25,58 @@ namespace System.Drawing {
         }
 
         /// <summary>
-        /// convert to range 0 to 360.
+        /// Converts to range 0 to 360.
         /// </summary>
         public static int ToDegree(float float_value) {
             if (float_value < 0.0f || float_value > 1.0f) {
-                throw new ArgumentException("the argument must be in the range 0 to 1.0f.");
+                throw new ArgumentException("The argument must be in the range 0 to 1.0f.");
             }
             int degree = (int) Round(float_value * 360.0f);
             return degree;
         }
 
         /// <summary>
-        /// convert to range 0 to 100.
+        /// Converts to range 0 to 100.
         /// </summary>
         public static int ToPercentage(float float_value) {
             if (float_value < 0.0f || float_value > 1.0f) {
-                throw new ArgumentException("the argument must be in the range 0 to 1.0f.");
+                throw new ArgumentException("The argument must be in the range 0 to 1.0f.");
             }
             int percentage = (int) (float_value * 100.0f);
             return percentage;
         }
 
         /// <summary>
-        /// convert from range 0 to 360 to a float value.
+        /// Converts from range 0 to 360 to a float value.
         /// </summary>
         public static float FromDegree(int degree) {
             if (degree < 0 || degree > 360) {
-                throw new ArgumentException("the argument must be in the range 0 to 360.");
+                throw new ArgumentException("The argument must be in the range 0 to 360.");
             }
             float float_value = degree / 360.0f;
             return float_value;
         }
 
         /// <summary>
-        /// convert from range 0 to 100 to a float value.
+        /// Converts from range 0 to 100 to a float value.
         /// </summary>
         public static float FromPercentage(int percentage) {
             if (percentage < 0 || percentage > 100) {
-                throw new ArgumentException("the argument must be in the range 0 to 100.");
+                throw new ArgumentException("The argument must be in the range 0 to 100.");
             }
             float float_value = percentage / 100.0f;
             return float_value;
         }
 
         /// <summary>
-        /// for test.
+        /// Provides functionality for test.
         /// </summary>
         public static (float hue, float saturation, float value) _public_color_to_hsv(Color color) {
             return color_to_hsv(color: color);
         }
 
         /// <summary>
-        /// for test.
+        /// Provides functionality for test.
         /// </summary>
         public static Color _public_hsv_to_color(float hue, float saturation, float value) {
             return hsv_to_color(hue: hue, saturation: saturation, value: value);
@@ -86,62 +86,62 @@ namespace System.Drawing {
         // private Methods [verb, verb phrases]
 
         /// <summary>
-        /// convert Color to HSV
+        /// Converts Color to HSV.
         /// </summary>
         static (float hue, float saturation, float value) color_to_hsv(Color color) {
-            // convert RGB values to range 0 to 1.
+            // Converts RGB values to range 0 to 1.
             float r = color.R / 255.0f;
             float g = color.G / 255.0f;
             float b = color.B / 255.0f;
-            // get the maximum and minimum RGB value.
+            // Gets the maximum and minimum RGB value.
             float max = Max(val1: r, val2: Max(val1: g, val2: b));
             float min = Min(val1: r, val2: Min(val1: g, val2: b));
-            // hue calculation.
-            float hue = 0; // initialization.
-            float delta = max - min; // get the difference used for hue calculation.
-            // calculate hue if maximum and minimum values are different.
+            // Hue calculation.
+            float hue = 0; // Initialization.
+            float delta = max - min; // Gets the difference used for hue calculation.
+            // Calculates hue if maximum and minimum values are different.
             if (max != min) {
-                // when red is the maximum.
+                // When red is the maximum.
                 if (max == r) {
-                    hue = (g - b) / delta + (g < b ? 6 : 0); // calculate the hue of red
+                    hue = (g - b) / delta + (g < b ? 6 : 0); // Calculates the hue of red.
                 }
-                // when green is the maximum
+                // When green is the maximum.
                 else if (max == g) {
-                    hue = (b - r) / delta + 2; // calculate the hue of green.
+                    hue = (b - r) / delta + 2; // Calculates the hue of green.
                 }
-                // when blue is the maximum.
+                // When blue is the maximum.
                 else {
-                    hue = (r - g) / delta + 4; // calculate the hue of blue.
+                    hue = (r - g) / delta + 4; // Calculates the hue of blue.
                 }
-                hue /= 6; // normalize hue.
+                hue /= 6; // Normalizes hue.
             }
-            // saturation calculation.
+            // Saturation calculation.
             float saturation = max == 0 ? 0 : delta / max;
             // Value calculation.
             float value = max;
-            // return calculation results.
+            // Returns calculation results.
             return (hue, saturation, value);
         }
 
         /// <summary>
-        /// convert HSV to Color
+        /// Converts HSV to Color.
         /// </summary>
         static Color hsv_to_color(float hue, float saturation, float value) {
-            hue = (hue % 1.0f + 1.0f) % 1.0f; // constrain hue to the range 0 to 1.
-            saturation = Max(val1: 0.0f, val2: Min(val1: 1.0f, val2: saturation)); // constrain saturation to range 0 to 1.
-            value = Max(val1: 0.0f, val2: Min(val1: 1.0f, val2: value)); // constrain value to the range 0 to 1.
-            // divide the hue into 6 equal parts and get the standard value of the corresponding color.
+            hue = (hue % 1.0f + 1.0f) % 1.0f; // Constrains hue to the range 0 to 1.
+            saturation = Max(val1: 0.0f, val2: Min(val1: 1.0f, val2: saturation)); // Constrains saturation to range 0 to 1.
+            value = Max(val1: 0.0f, val2: Min(val1: 1.0f, val2: value)); // Constrains value to the range 0 to 1.
+            // Divides the hue into 6 equal parts and gets the standard value of the corresponding color.
             int hi = (int) (hue * 6) % 6;
-            // calculate the decimal part.
+            // Calculates the decimal part.
             float f = hue * 6 - hi;
-            // multiply the brightness by 255 and convert it to an integer.
+            // Multiplies the brightness by 255 and converts it to an integer.
             value *= 255;
             int v = (int) Round(value: value, mode: MidpointRounding.ToEven);
-            // calculate each ingredient.
+            // Calculates each ingredient.
             int p = (int) Round(value: value * (1.0f - saturation), mode: MidpointRounding.ToEven);
             int q = (int) Round(value: value * (1.0f - f * saturation), mode: MidpointRounding.ToEven);
             int t = (int) Round(value: value * (1.0f - (1.0f - f) * saturation), mode: MidpointRounding.ToEven);
-            // calculate each RGB component based on hue and returns a color object.
+            // Calculates each RGB component based on hue and returns a color object.
             switch (hi) {
                 case 0: return Color.FromArgb(alpha: 255, red: v, green: t, blue: p);
                 case 1: return Color.FromArgb(alpha: 255, red: q, green: v, blue: p);
