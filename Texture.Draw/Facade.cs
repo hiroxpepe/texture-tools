@@ -17,7 +17,7 @@ using static Texture.Draw.Tool;
 
 namespace Texture {
     /// <summary>
-    /// facade class
+    /// Provides a facade class for the application.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>
@@ -31,10 +31,14 @@ namespace Texture {
         ///////////////////////////////////////////////////////////////////////////////////////////////
         // public Methods [verb, verb phrases]
 
+        /// <summary>
+        /// Executes the facade operation.
+        /// </summary>
         public static void Execute() {
-            // output size.
+            // Defines the output size.
             Rectangle rect = new(x: 0, y: 0, width: 256, height: 256);
-            // for layer 1.
+
+            // Initializes layer 1.
             Cut cut1 = NewCutByPiece(piece_count: 7);
             Face face1 = NewFace(rect: rect, cut: cut1, crop: 0.9d);
             Palette palette1 = NewPalette(
@@ -44,7 +48,8 @@ namespace Texture {
                 alpha: 1.0f
             );
             Swing swing1 = NewSwing(value: 2);
-            // for layer 2.
+
+            // Initializes layer 2.
             Cut cut2 = NewCutByPiece(piece_count: 6);
             Face face2 = NewFace(rect: rect, cut: cut2, crop: 0.9d);
             Palette palette2 = NewPalette(
@@ -53,13 +58,14 @@ namespace Texture {
                 alpha: 0.5f
             );
             Swing swing2 = NewSwing(value: 3);
-            // creates tool
+
+            // Creates the tool.
             using Tool tool = NewTool(rect: rect, face_array: new Face[] { face1, face2 });
 
-            // callback for layer 1.
+            // Sets up callbacks for layer 1.
             int count = 0; int img_idx = 0;
             face1.OnReady += () => {
-                // randomize
+                // Randomizes points.
                 face1.AllPoint.ForEach(action: x => {
                     x.Where(predicate: x => !x.FixedX).ToList().ForEach(action: x => {
                         if (!x.MovedX) { 
@@ -74,7 +80,8 @@ namespace Texture {
                         }
                     });
                 });
-                // fills by color.
+
+                // Fills points with color.
                 InitIndex(count_x: face1.CountX, count_y: face1.CountY);
                 face1.AllPoint.ForEach(action: x => {
                     Color color = NextIndex() % 2 == 0 ? palette1.Primary : palette1.Secondary;
@@ -89,13 +96,14 @@ namespace Texture {
             face1.OnWrite += () => {
                 tool.Write(img_idx, alpha: palette1.Alpha, angle: 0);
             };
-            // execute layer 1.
+
+            // Executes layer 1.
             face1.Make();
 
-            // callback for layer 2.
+            // Sets up callbacks for layer 2.
             count = 0; img_idx++;
             face2.OnReady += () => {
-                // randomize
+                // Randomizes points.
                 face2.AllPoint.ForEach(action: x => {
                     x.Where(predicate: x => !x.FixedX).ToList().ForEach(action: x => {
                         if (!x.MovedX) {
@@ -110,7 +118,8 @@ namespace Texture {
                         }
                     });
                 });
-                // fills by color.
+
+                // Fills points with color.
                 InitIndex(count_x: face2.CountX, count_y: face2.CountY);
                 face2.AllPoint.ForEach(action: x => {
                     Color color = NextIndex() % 2 == 0 ? palette2.Primary : palette2.Secondary;
@@ -121,7 +130,8 @@ namespace Texture {
             face2.OnWrite += () => {
                 tool.Write(img_idx, alpha: palette2.Alpha, angle: 0);
             };
-            // execute layer 2.
+
+            // Executes layer 2.
             face2.Make();
         }
     }

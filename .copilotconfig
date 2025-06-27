@@ -5,18 +5,14 @@
 # 2. Only modify comments when requested.
 # 3. Avoid touching specific files unless explicitly instructed.
 # 4. Follow user-defined coding conventions strictly.
+# 5. Do not modify any comments immediately following "///////////////////////////////////////////////////////////////////////////////////////////////". This is the most critical rule.
 
 # Example of user-defined conventions:
 # - Comments must start with capitalized verbs in third-person singular.
 # - Do not refactor code unless explicitly requested.
-# - Preserve comments like "/////////////////////////////////////////////////////////////////////////////////////////////// // Properties [noun, adjectives]" without modification.
-# - Do not modify comments with the format "/////////////////////////////////////////////////////////////////////////////////////////////// // [Category] [Description]".
-# - Absolutely do not modify comments like "/////////////////////////////////////////////////////////////////////////////////////////////// // Fields [nouns, noun phrases]". This is a critical rule.
-# - Do not modify any comments immediately following "///////////////////////////////////////////////////////////////////////////////////////////////".
 
 # File-specific rules
 # - Do not modify Texture.Draw\System\Drawing\HSVColor.cs unless explicitly instructed.
-# - Preserve the original structure of Texture.Draw\Draw\Cropped.cs.
 
 # Coding Conventions
 # |No|Target|Notation|Remarks|
