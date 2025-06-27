@@ -3,7 +3,7 @@
 
 namespace Texture {
     /// <summary>
-    /// common enums
+    /// Represents common enums.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>
@@ -12,14 +12,14 @@ namespace Texture {
     // public Enums [noun]
 
     /// <summary>
-    /// color type
+    /// Represents color types.
     /// </summary>
     public enum Color {
         Red, Orange, Amber, Yellow, Lime, Green, Turquoise, Azure, Blue, Purple, Magenta, Rose, Black, White, none
     }
 
     /// <summary>
-    /// coordinate type
+    /// Represents coordinate types.
     /// </summary>
     public enum Coordinate {
         X, Y, Z

@@ -6,25 +6,25 @@ using System.Collections.Generic;
 
 namespace Texture {
     /// <summary>
-    /// common classes
+    /// Represents common classes.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>
 
     /// <summary>
-    /// name of Dictionary is too long, it be named Map.
+    /// Shortens the name of Dictionary to Map.
     /// </summary>
     /// <note>
-    /// + used in the Checkered namespace. <br/>
+    /// + Used in the Checkered namespace. <br/>
     /// </note>
     public class Map<K, V> : Dictionary<K, V> {
     }
 
     /// <summary>
-    /// changed event args.
+    /// Represents changed event arguments.
     /// </summary>
     /// <note>
-    /// + used in the Checkered namespace. <br/>
+    /// + Used in the Checkered namespace. <br/>
     /// </note>
     public class EvtArgs : EventArgs {
         public EvtArgs(string name) {
@@ -34,10 +34,10 @@ namespace Texture {
     }
 
     /// <summary>
-    /// changed event handler.
+    /// Represents a changed event handler.
     /// </summary>
     /// <note>
-    /// + used in the Checkered namespace. <br/>
+    /// + Used in the Checkered namespace. <br/>
     /// </note>
     public delegate void Changed(object sender, EvtArgs e);
 }

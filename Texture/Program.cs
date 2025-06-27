@@ -5,7 +5,7 @@ using static System.Console;
 
 namespace Texture {
     /// <summary>
-    /// main class
+    /// Represents the main class.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>

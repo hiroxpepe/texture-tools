@@ -5,7 +5,7 @@ using System;
 
 namespace Texture {
     /// <summary>
-    /// envelope class
+    /// Represents the envelope class.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>

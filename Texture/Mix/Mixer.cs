@@ -5,6 +5,11 @@ using Texture.Core;
 
 namespace Texture.Mix {
 
+    /// <summary>
+    /// Represents the mixer class.
+    /// </summary>
+    /// <company>STUDIO MeowToon</company>
+    /// <author>Hiroyuki Adachi</author>
     public class Mixer {
 
         ///////////////////////////////////////////////////////////////////////////////////////////////

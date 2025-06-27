@@ -3,7 +3,7 @@
 
 namespace Texture.Draw {
     /// <summary>
-    /// switch class
+    /// Represents the switch class.
     /// </summary>
     /// <company>STUDIO MeowToon</company>
     /// <author>Hiroyuki Adachi</author>
@@ -20,7 +20,7 @@ namespace Texture.Draw {
         // public Methods [verb, verb phrases]
 
         /// <summary>
-        /// initializes the index.
+        /// Initializes the index.
         /// </summary>
         public static void InitIndex(int count_x, int count_y) {
             _count_x = count_x; _count_y = count_y;
@@ -28,7 +28,7 @@ namespace Texture.Draw {
         }
 
         /// <summary>
-        /// provides the next index.
+        /// Provides the next index.
         /// </summary>
         public static int NextIndex() {
             if (_count_x % 2 == 0 && _position_x == _count_x) {
