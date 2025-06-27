@@ -91,7 +91,6 @@ namespace System.Drawing {
             AreEqual(80, ToPercentage(float_value: saturation));
             AreEqual(95, ToPercentage(float_value: value));
         }
-
         [TestMethod("Red RGB: 255, 51, 68")]
         public void hsv_to_color_test1() {
             Color color = _public_hsv_to_color(

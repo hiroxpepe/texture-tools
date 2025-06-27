@@ -3,7 +3,7 @@
 namespace Texture {
     [TestClass()]
     public class FacadeTests {
-        [TestMethod()]
+        [TestMethod("Executes facade operation")]
         public void ExecuteTest() {
             Facade.Execute();
         }

@@ -7,7 +7,7 @@ using static Texture.Draw.Cropped;
 namespace Texture.Draw {
     [TestClass()]
     public class CroppedTests {
-        [TestMethod("same rectangle")]
+        [TestMethod("Handles same rectangle")]
         public void sliceTest1() {
             Rectangle src = new(x: 0, y: 0, width: 256, height: 256);
             Rectangle dest = new(x: 0, y: 0, width: 256, height: 256);
@@ -16,7 +16,8 @@ namespace Texture.Draw {
             Rectangle expected = new(x: 0, y: 0, width: 256, height: 256);
             AreEqual(expected, result);
         }
-        [TestMethod("cropping dest by src")]
+
+        [TestMethod("Crops destination by source")]
         public void sliceTest2() {
             Rectangle src = new(x: 0, y: 0, width: 256, height: 256);
             Rectangle dest = new(x: 0, y: 0, width: 384, height: 384);

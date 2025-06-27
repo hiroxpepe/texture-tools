@@ -1,6 +1,8 @@
 ﻿// Copyright (c) STUDIO MeowToon. All rights reserved.
 // Licensed under the GPL v2.0 license. See LICENSE text in the project root for license information.
 
+using System;
+
 namespace Texture {
     /// <summary>
     /// parameter object for app.
@@ -33,9 +35,21 @@ namespace Texture {
         /// creates as a "note" notated parameter.
         /// </summary>
         public Param(int piece_count, double crop, string primary, string secondary, string accent, float alpha, int swing) {
-            _piece_count = piece_count; _crop = crop;
-            _primary = primary; _secondary = secondary; _accent = accent;
-            _alpha = alpha; _swing = swing;
+            if (piece_count < 0) throw new ArgumentException("Piece count must be non-negative.");
+            if (crop < 0 || crop > 1) throw new ArgumentException("Crop must be between 0 and 1.");
+            if (string.IsNullOrWhiteSpace(primary)) throw new ArgumentException("Primary color must not be null or empty.");
+            if (string.IsNullOrWhiteSpace(secondary)) throw new ArgumentException("Secondary color must not be null or empty.");
+            if (string.IsNullOrWhiteSpace(accent)) throw new ArgumentException("Accent color must not be null or empty.");
+            if (alpha < 0 || alpha > 1) throw new ArgumentException("Alpha must be between 0 and 1.");
+            if (swing < 0) throw new ArgumentException("Swing must be non-negative.");
+
+            _piece_count = piece_count;
+            _crop = crop;
+            _primary = primary;
+            _secondary = secondary;
+            _accent = accent;
+            _alpha = alpha;
+            _swing = swing;
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
